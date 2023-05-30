@@ -1,51 +1,58 @@
 export default function creature(props) {
+    let hiddenStyle = {
+        display : "none"
+    }
     return (
         <div className="monster">
-            <div className="bio">
-                {/* <image src={props.img}></image> */}
-                <span className="level">{props.level} </span>
-                <span className="name">{props.name} </span>
-                <span className="initiative">Initiative </span>
-                <span className="eliteToggle">Elite </span>
-                <span className="weakToggle">Weak </span>
-            </div>
-            <div className="tags">
-                <span className="strengthMod">{props.abilityMods[0]} </span>
-                <span className="dexterityMod">{props.abilityMods[1]} </span>
-                <span className="constitutionMod">{props.abilityMods[2]} </span>
-                <span className="intelligenceMod">{props.abilityMods[3]} </span>
-                <span className="wisdomMod">{props.abilityMods[4]} </span>
-                <span className="charismaMod">{props.abilityMods[5]} </span>
-                <span>{props.tags}</span>
+            <div className="column1">
+                <div className="bio">
+                    {/* <image src={props.img}></image> */}
+                    <span className="level">{props.level} </span>
+                    <span className="name">{props.name} </span>
+                    <span className="initiative">Initiative </span>
+                    <span className="eliteToggle">Elite </span>
+                    <span className="weakToggle">Weak </span>
+                </div>
+                <div className="abilityMods">
+                    <span className="strengthMod">STR: {props.abilityMods[0]} </span>
+                    <span className="dexterityMod">DEX: {props.abilityMods[1]} </span>
+                    <span className="constitutionMod">CON: {props.abilityMods[2]} </span>
+                    <span className="intelligenceMod">INT: {props.abilityMods[3]} </span>
+                    <span className="wisdomMod">WIS: {props.abilityMods[4]} </span>
+                    <span className="charismaMod">CHA: {props.abilityMods[5]} </span>
+                </div>
+                <div className="tags">
+                    <span>{props.tags}</span>
+                </div>
             </div>
             <div className="defenses">
-                <span className="armorClass">AC: {props.defenses[0]} </span>
-                <span className="saveFortitude">FORT: +{props.defenses[1]} </span>
-                <span className="saveReflex">RFLX: +{props.defenses[2]} </span>
-                <span className="saveWill">WILL: +{props.defenses[3]} </span>
+                <div className="armorClass">AC: {props.defenses[0]} </div>
+                <div className="saveFortitude">FORT: +{props.defenses[1]} </div>
+                <div className="saveReflex">RFLX: +{props.defenses[2]} </div>
+                <div className="saveWill">WILL: +{props.defenses[3]} </div>
             </div>
             <div className="skills">
-                <span className="checkPerception">Perception: +{props.perception[0]} </span>
+                <div className="checkPerception">Perception: +{props.perception[0]} </div>
 
-                <span className="checkAcrobatics">Acrobatics: +{props.skills[0]} </span>
-                <span className="checkArcana">Arcana: +{props.skills[1]} </span>
-                <span className="checkAthletics">Athletics: +{props.skills[2]} </span>
-                <span className="checkCrafting">Crafting: +{props.skills[3]} </span>
+                <div className="checkAcrobatics" style={props.skills[0] === 0 ? hiddenStyle:null}>Acrobatics: +{props.skills[0]} </div>
+                <div className="checkArcana" style={props.skills[1] === 0 ? hiddenStyle:null}>Arcana: +{props.skills[1]} </div>
+                <div className="checkAthletics" style={props.skills[2] === 0 ? hiddenStyle:null}>Athletics: +{props.skills[2]} </div>
+                <div className="checkCrafting" style={props.skills[3] === 0 ? hiddenStyle:null}>Crafting: +{props.skills[3]} </div>
 
-                <span className="checkDeception">Deception: +{props.skills[4]} </span>
-                <span className="checkDiplomacy">Diplomacy: +{props.skills[5]} </span>
-                <span className="checkIntimidation">Intimidation: +{props.skills[6]} </span>
-                <span className="checkMedicine">Medicine: +{props.skills[7]} </span>
+                <div className="checkDeception" style={props.skills[4] === 0 ? hiddenStyle:null}>Deception: +{props.skills[4]} </div>
+                <div className="checkDiplomacy" style={props.skills[5] === 0 ? hiddenStyle:null}>Diplomacy: +{props.skills[5]} </div>
+                <div className="checkIntimidation" style={props.skills[6] === 0 ? hiddenStyle:null}>Intimidation: +{props.skills[6]} </div>
+                <div className="checkMedicine" style={props.skills[7] === 0 ? hiddenStyle:null}>Medicine: +{props.skills[7]} </div>
 
-                <span className="checkNature">Nature: +{props.skills[8]} </span>
-                <span className="checkOccultism">Occultism: +{props.skills[9]} </span>
-                <span className="checkPerformance">Performance: +{props.skills[10]} </span>
-                <span className="checkReligion">Religion: +{props.skills[11]} </span>
+                <div className="checkNature" style={props.skills[8] === 0 ? hiddenStyle:null}>Nature: +{props.skills[8]} </div>
+                <div className="checkOccultism" style={props.skills[9] === 0 ? hiddenStyle:null}>Occultism: +{props.skills[9]} </div>
+                <div className="checkPerformance" style={props.skills[10] === 0 ? hiddenStyle:null}>Performance: +{props.skills[10]} </div>
+                <div className="checkReligion" style={props.skills[11] === 0 ? hiddenStyle:null}>Religion: +{props.skills[11]} </div>
 
-                <span className="checkSociety">Society: +{props.skills[12]} </span>
-                <span className="checkStealth">Stealth: +{props.skills[13]} </span>
-                <span className="checkSurvival">Survival: +{props.skills[14]} </span>
-                <span className="checkThievery">Thievery: +{props.skills[15]} </span>
+                <div className="checkSociety" style={props.skills[12] === 0 ? hiddenStyle:null}>Society: +{props.skills[12]} </div>
+                <div className="checkStealth" style={props.skills[13] === 0 ? hiddenStyle:null}>Stealth: +{props.skills[13]} </div>
+                <div className="checkSurvival" style={props.skills[14] === 0 ? hiddenStyle:null}>Survival: +{props.skills[14]} </div>
+                <div className="checkThievery" style={props.skills[15] === 0 ? hiddenStyle:null}>Thievery: +{props.skills[15]} </div>
             </div>
         </div>
         

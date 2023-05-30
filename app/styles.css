@@ -1,3 +1,33 @@
 .bio, .tags, .savingThrows, .monster{
     padding-bottom: 1%;
 }
+
+.monster {
+    height: 25%;
+    width: 100%;
+}
+
+
+.monster > div {
+    display: inline-block;
+}
+
+.bio {
+    background-color: aqua;
+}
+.abilityMods {
+    background-color: cadetblue;
+}
+.tags {
+    background-color: aquamarine;
+}
+.defenses {
+    background-color: azure;
+}
+.skills {
+    background-color: bisque;
+}
+
+.defenses > div {
+    line-height: 200%;
+}
