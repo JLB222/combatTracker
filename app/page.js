@@ -7,7 +7,7 @@ function createEntry(entry) {
     <Creature
       name = {entry[0]}
       level = {entry[1]}
-      abilityMods = {entry[6].join("")}
+      abilityMods = {...entry[6]}
       tags = {entry[2].join(", ")}
       perception = {entry[3]}
       defenses = {entry[7]}
@@ -19,7 +19,7 @@ function createEntry(entry) {
 
 let test = createEntry(bestiary[0])
 let test1 = createEntry(bestiary[1])
-let chosenMonsterArray = [bestiary[0], bestiary[1]]
+let chosenMonsterArray = [bestiary[0], bestiary[1], bestiary[2]]
 let chosenMonsterList = chosenMonsterArray.map(createEntry)
 //let allMonsterTest = bestiary.map(createEntry)
 

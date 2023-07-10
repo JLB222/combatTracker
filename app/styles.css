@@ -5,13 +5,14 @@
 .monster {
     height: 25%;
     width: 100%;
+    border: 1px solid black;
+    display: flex;
+    font-size: 1em;
 }
 
-
-.monster > div {
-    display: inline-block;
+.column1 {
+    width: 20%;
 }
-
 .bio {
     background-color: aqua;
 }
@@ -21,8 +22,18 @@
 .tags {
     background-color: aquamarine;
 }
+
+
+.column2 {
+    width: 14%;
+}
 .defenses {
     background-color: azure;
+}
+
+
+.column3 {
+    width: 16%;
 }
 .skills {
     background-color: bisque;
