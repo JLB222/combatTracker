@@ -6,7 +6,7 @@ export default function creature(props) {
     const [elite, setElite] = useState(false)
     const [weak, setWeak] = useState(false)
 
-    const [fortSave, setFortSave] = useState(props.defenses[1] + (elite? 2:0) + (weak? -2:0))
+    const [fortSave, setFortSave] = useState(props.defenses[1])
     const [rflxSave, setRflxSave] = useState(props.defenses[2])
     const [willSave, setWillSave] = useState(props.defenses[3])
     const [checkPerception, setCheckPerception] = useState(props.perception[0])
@@ -37,37 +37,37 @@ export default function creature(props) {
     }
     function handleSaveFort(num) {
         let roll = d20()
-        setFortSave(`${roll} + ${num} = ${roll + num}`)
+        setFortSave(`${num} + ${roll} = ${roll + num}`)
     }
     function handleSaveRflx(num) {
         let roll = d20()
-        setRflxSave(`${roll} + ${num} = ${roll + num}`)
+        setRflxSave(`${num} + ${roll} = ${roll + num}`)
     }
     function handleSaveWill(num) {
         let roll = d20()
-        setWillSave(`${roll} + ${num} = ${roll + num}`)
+        setWillSave(`${num} + ${roll} = ${roll + num}`)
     }
-    function handleCheckPerception(num) { let roll = d20(); setCheckPerception(`${roll} + ${num} = ${roll + num}`);}
+    function handleCheckPerception(num) { let roll = d20(); setCheckPerception(`${num} + ${roll} = ${roll + num}`);}
 
-    function handleCheckAcrobatics(num) { let roll = d20(); setCheckAcrobatics(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckArcana(num) { let roll = d20(); setCheckArcana(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckAthletics(num) { let roll = d20(); setCheckAthletics(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckCrafting(num) { let roll = d20(); setCheckCrafting(`${roll} + ${num} = ${roll + num}`);}
+    function handleCheckAcrobatics(num) { let roll = d20(); setCheckAcrobatics(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckArcana(num) { let roll = d20(); setCheckArcana(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckAthletics(num) { let roll = d20(); setCheckAthletics(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckCrafting(num) { let roll = d20(); setCheckCrafting(`${num} + ${roll} = ${roll + num}`);}
     
-    function handleCheckDeception(num) { let roll = d20(); setCheckDeception(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckDiplomacy(num) { let roll = d20(); setCheckDiplomacy(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckIntimidation(num) { let roll = d20(); setCheckIntimidation(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckMedicine(num) { let roll = d20(); setCheckMedicine(`${roll} + ${num} = ${roll + num}`);}
+    function handleCheckDeception(num) { let roll = d20(); setCheckDeception(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckDiplomacy(num) { let roll = d20(); setCheckDiplomacy(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckIntimidation(num) { let roll = d20(); setCheckIntimidation(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckMedicine(num) { let roll = d20(); setCheckMedicine(`${num} + ${roll} = ${roll + num}`);}
 
-    function handleCheckNature(num) { let roll = d20(); setCheckNature(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckOccultism(num) { let roll = d20(); setCheckOccultism(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckPerformance(num) { let roll = d20(); setCheckPerformance(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckReligion(num) { let roll = d20(); setCheckReligion(`${roll} + ${num} = ${roll + num}`);}
+    function handleCheckNature(num) { let roll = d20(); setCheckNature(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckOccultism(num) { let roll = d20(); setCheckOccultism(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckPerformance(num) { let roll = d20(); setCheckPerformance(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckReligion(num) { let roll = d20(); setCheckReligion(`${num} + ${roll} = ${roll + num}`);}
 
-    function handleCheckSociety(num) { let roll = d20(); setCheckSociety(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckStealth(num) { let roll = d20(); setCheckStealth(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckSurvival(num) { let roll = d20(); setCheckSurvival(`${roll} + ${num} = ${roll + num}`);}
-    function handleCheckThievery(num) { let roll = d20(); setCheckThievery(`${roll} + ${num} = ${roll + num}`);}
+    function handleCheckSociety(num) { let roll = d20(); setCheckSociety(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckStealth(num) { let roll = d20(); setCheckStealth(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckSurvival(num) { let roll = d20(); setCheckSurvival(`${num} + ${roll} = ${roll + num}`);}
+    function handleCheckThievery(num) { let roll = d20(); setCheckThievery(`${num} + ${roll} = ${roll + num}`);}
 
     function handleEliteToggle() {
         if (weak) {
@@ -85,6 +85,10 @@ export default function creature(props) {
     let hiddenStyle = {
         display : "none"
     }
+    let selectedStyle = {
+        fontWeight: "bold"
+    }
+
     let templateModifier = (elite? 2:0) + (weak? -2:0)
     return (
         <div className="monster">
@@ -94,8 +98,9 @@ export default function creature(props) {
                     <span className="level">{props.level} </span>
                     <span className="name">{props.name} </span>
                     <span className="initiative">Initiative </span>
-                    <span className="eliteToggle" onClick={() => handleEliteToggle()}>Elite </span>
-                    <span className="weakToggle" onClick={() => handleWeakToggle()}>Weak </span>
+                    <span contentEditable="true">0</span>
+                    <span className="eliteToggle" style={elite?selectedStyle:null} onClick={() => handleEliteToggle()}> Elite </span>
+                    <span className="weakToggle" style={weak?selectedStyle:null}onClick={() => handleWeakToggle()}> Weak </span>
                 </div>
                 <div className="abilityMods">
                     <span className="strengthMod">STR: {props.abilityMods[0]} </span>
@@ -120,7 +125,7 @@ export default function creature(props) {
             </div>
             <div className="column3">
                 <div className="skills">
-                    <div className="checkPerception" onClick= {() => handleCheckPerception(props.perception[0] + templateModifier)}>Perception: +{props.perception[0] + templateModifier} ({checkPerception}) </div>
+                    <div className="checkPerception" onClick= {() => handleCheckPerception(+props.perception[0] + templateModifier)}>Perception: {+props.perception[0] + templateModifier} ({checkPerception}) </div>
 
                     <div className="checkAcrobatics" onClick= {() => handleCheckAcrobatics(props.skills[0] + templateModifier)} style={props.skills[0] === 0 ? hiddenStyle:null}>Acrobatics: +{props.skills[0] + templateModifier} ({checkAcrobatics})</div>
                     <div className="checkArcana" onClick= {() => handleCheckArcana(props.skills[1] + templateModifier)} style={props.skills[1] === 0 ? hiddenStyle:null}>Arcana: +{props.skills[1] + templateModifier} ({checkArcana})</div>
