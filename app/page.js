@@ -30,7 +30,7 @@ export default function App() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
         {allMonsterTest}
         <ul>TO-DO:
-          <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li>
+          {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
           <li>figure out how to deal with Initiative.  Just make it editable by user?  click perception and it automatically fills in?  what if the enemy rolls stealth for initiative?  What about the app auto-sorting the monsters based on initiative?</li>
           <li>add the ability for user to add monsters to the list</li>
           <li>add ability to remove monsters from list</li>
@@ -41,7 +41,9 @@ export default function App() {
           <li>add healing and damage functionality to HP</li>
           <li>add resistances and weaknesses to creature.jsx; ideally next to the Defenses column for easy consultation</li>
           <li>update bestiary to include DC to recall knowledge on the target</li>
-          <li>add function to AC span; when clicked AC goes up by two to represent shield raising?</li>
+          {/* <li>add function to AC span; when clicked AC goes up by two to represent shield raising?</li> */}
+          <li>add an item array in the bestiary for creatures that have equipment</li>
+          <li>have the shield raise option only for creatures that have a shield in their item array</li>
           <li>add a section for condition tracking?</li>
         </ul>
     </main>
