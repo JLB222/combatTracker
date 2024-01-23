@@ -46,3 +46,12 @@
 .defenses > div {
     line-height: 200%;
 }
+
+/* span {
+    display: inline-block;
+    width: 5%;
+} */
+
+input {
+    width: 20%;
+}

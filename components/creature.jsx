@@ -7,6 +7,8 @@ export default function creature(props) {
     const [weak, setWeak] = useState(false)
     const [shieldUp, setShieldUp] = useState(false)
 
+    const [health, setHealth] = useState(props.defenses[4])
+
     const [fortSave, setFortSave] = useState(props.defenses[1])
     const [rflxSave, setRflxSave] = useState(props.defenses[2])
     const [willSave, setWillSave] = useState(props.defenses[3])
@@ -36,17 +38,11 @@ export default function creature(props) {
         let result = Math.floor((Math.random() * 20) + 1)
         return result
     }
-    function handleSaveFort(num) {
-        let roll = d20()
-        setFortSave(`${num} + ${roll} = ${roll + num}`)
-    }
-    function handleSaveRflx(num) {
-        let roll = d20()
-        setRflxSave(`${num} + ${roll} = ${roll + num}`)
-    }
-    function handleSaveWill(num) {
-        let roll = d20()
-        setWillSave(`${num} + ${roll} = ${roll + num}`)
+
+    function handleHealth(num) {setHealth(health - num)}
+    function handleSaveFort(num) { let roll = d20(); setFortSave(`+ ${roll} = ${roll + num}`)}
+    function handleSaveRflx(num) { let roll = d20(); setRflxSave(`+ ${roll} = ${roll + num}`)}
+    function handleSaveWill(num) { let roll = d20(); setWillSave(`+ ${roll} = ${roll + num}`)
     }
     function handleCheckPerception(num) { let roll = d20(); setCheckPerception(`+ ${roll} = ${roll + num}`);}
 
@@ -123,8 +119,8 @@ export default function creature(props) {
             </div>
             <div className="column2">
                 <div className="defenses">
-                    <div className="hitPoints" >HP: {props.defenses[4]}/{props.defenses[4]}</div>
-                    <div className="armorClass" onClick={() => handleShieldRaise()}>AC: {props.defenses[0] + templateModifier + shieldModifier} {shieldUp?"Shield Raised":"Raise Shield"}</div>
+                    <div className="hitPoints">HP: {health}/{props.defenses[4]} <span><input class="healthChange"/><button onClick={() => handleHealth(+(document.querySelector(".healthChange").value))}>Change</button></span></div>
+                    <div className="armorClass" onClick={() => handleShieldRaise()}>AC: {props.defenses[0] + templateModifier + shieldModifier} {shieldUp ? "Shield Raised" : "Raise Shield"}</div>
                     <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenses[1] + templateModifier)}>FORT: {props.defenses[1] + templateModifier} ({fortSave}) </div>
                     <div className="saveReflex" onClick= {() => handleSaveRflx(props.defenses[2] + templateModifier)}>RFLX: {props.defenses[2] + templateModifier} ({rflxSave}) </div>
                     <div className="saveWill" onClick= {() => handleSaveWill(props.defenses[3] + templateModifier)}>WILL: {props.defenses[3] + templateModifier} ({willSave}) </div>
