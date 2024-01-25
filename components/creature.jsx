@@ -1,5 +1,6 @@
 "use client"
-import {useState} from 'react';
+import {useState, useRef} from 'react';
+import {v4 as uuidv4} from 'uuid'
 
 export default function creature(props) {
     // const [savingThrows, setSavingThrows] = useState([props.defenses[1], props.defenses[2], props.defenses[3]])
@@ -8,6 +9,14 @@ export default function creature(props) {
     const [shieldUp, setShieldUp] = useState(false)
 
     const [health, setHealth] = useState(props.defenses[4])
+    const damageInputRef = useRef(null); // Create a ref for the input element
+    const [uniqueId] = useState(uuidv4()); // Generate a unique ID for each instance of creature
+    function handleHealth() {
+        const inputValue = damageInputRef.current.value;
+        if (inputValue) {
+            setHealth(health - parseInt(inputValue, 10));
+        }
+    }
 
     const [fortSave, setFortSave] = useState(props.defenses[1])
     const [rflxSave, setRflxSave] = useState(props.defenses[2])
@@ -39,7 +48,6 @@ export default function creature(props) {
         return result
     }
 
-    function handleHealth(num) {setHealth(health - num)}
     function handleSaveFort(num) { let roll = d20(); setFortSave(`+ ${roll} = ${roll + num}`)}
     function handleSaveRflx(num) { let roll = d20(); setRflxSave(`+ ${roll} = ${roll + num}`)}
     function handleSaveWill(num) { let roll = d20(); setWillSave(`+ ${roll} = ${roll + num}`)
@@ -94,7 +102,7 @@ export default function creature(props) {
     let templateModifier = (elite? 2:0) + (weak? -2:0)
     let shieldModifier = shieldUp? 2:0
     return (
-        <div className="monster">
+        <div className="monster" id={uniqueId}>
             <div className="column1">
                 <div className="bio">
                     {/* <image src={props.img}></image> */}
@@ -119,7 +127,7 @@ export default function creature(props) {
             </div>
             <div className="column2">
                 <div className="defenses">
-                    <div className="hitPoints">HP: {health}/{props.defenses[4]} <span><input class="healthChange"/><button onClick={() => handleHealth(+(document.querySelector(".healthChange").value))}>Change</button></span></div>
+                    <div className="hitPoints">HP: {health}/{props.defenses[4]} <span><input ref={damageInputRef}/><button onClick={handleHealth}>Change</button></span></div>
                     <div className="armorClass" onClick={() => handleShieldRaise()}>AC: {props.defenses[0] + templateModifier + shieldModifier} {shieldUp ? "Shield Raised" : "Raise Shield"}</div>
                     <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenses[1] + templateModifier)}>FORT: {props.defenses[1] + templateModifier} ({fortSave}) </div>
                     <div className="saveReflex" onClick= {() => handleSaveRflx(props.defenses[2] + templateModifier)}>RFLX: {props.defenses[2] + templateModifier} ({rflxSave}) </div>
@@ -149,6 +157,15 @@ export default function creature(props) {
                     <div className="checkStealth" onClick= {() => handleCheckStealth(props.skills[13] + templateModifier)} style={props.skills[13] === 0 ? hiddenStyle:null}>Stealth: {props.skills[13] + templateModifier}  ({checkStealth})</div>
                     <div className="checkSurvival" onClick= {() => handleCheckSurvival(props.skills[14] + templateModifier)} style={props.skills[14] === 0 ? hiddenStyle:null}>Survival: {props.skills[14] + templateModifier}  ({checkSurvival})</div>
                     <div className="checkThievery" onClick= {() => handleCheckThievery(props.skills[15] + templateModifier)} style={props.skills[15] === 0 ? hiddenStyle:null}>Thievery: {props.skills[15] + templateModifier}  ({checkThievery})</div>
+                </div>
+            </div>
+            <div className="column4">
+                <div className="Strikes">
+                    {/* How to get a variable number of strike types?  Jaws, claws, etc */}
+                    <div className="strike">{props.strikes[0][1]}: [+{props.strikes[0][2]}/+{props.strikes[0][3]}/+{props.strikes[0][4]}]</div>
+                    {/* How to get a variable number of attack tags? */}
+                    <div className="strikeTags">{props.strikes[0][6]}, {props.strikes[0][7]}, {props.strikes[0][8]}, {props.strikes[0][9]}</div>
+                    <div className="strikeDamage">{props.strikes[0][5]}</div>
                 </div>
             </div>
 
