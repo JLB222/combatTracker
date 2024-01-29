@@ -9,12 +9,12 @@ export default function creature(props) {
     const [shieldUp, setShieldUp] = useState(false)
 
     const [health, setHealth] = useState(props.defenses[4])
-    const damageInputRef = useRef(null); // Create a ref for the input element
+    const damageInputRef = useRef(null); // Create a ref for the input element that will change HP
     const [uniqueId] = useState(uuidv4()); // Generate a unique ID for each instance of creature
     function handleHealth() {
         const inputValue = damageInputRef.current.value;
         if (inputValue) {
-            setHealth(health - parseInt(inputValue, 10));
+            setHealth(health - parseInt(inputValue, 10));  
         }
     }
 
@@ -42,6 +42,8 @@ export default function creature(props) {
     const [checkStealth, setCheckStealth] = useState(props.skills[13])
     const [checkSurvival, setCheckSurvival] = useState(props.skills[14])
     const [checkThievery, setCheckThievery] = useState(props.skills[15])
+
+    const [checkAttack, setCheckAttack] = useState("")
 
     function d20() {
         let result = Math.floor((Math.random() * 20) + 1)
@@ -74,6 +76,8 @@ export default function creature(props) {
     function handleCheckSurvival(num) { let roll = d20(); setCheckSurvival(`+ ${roll} = ${roll + num}`);}
     function handleCheckThievery(num) { let roll = d20(); setCheckThievery(`+ ${roll} = ${roll + num}`);}
 
+    function handleCheckAttack(num) { let roll = d20(); setCheckAttack(`+ ${roll} = ${roll + num}`);}
+
     function handleEliteToggle() {
         if (weak) {
             setWeak(false)
@@ -89,7 +93,7 @@ export default function creature(props) {
     function handleShieldRaise() {
         setShieldUp(!shieldUp)
     }
-    
+
     let hiddenStyle = {
         display : "none"
     }
@@ -109,7 +113,7 @@ export default function creature(props) {
                     <span className="level">{props.level} </span>
                     <span className="name">{props.name} </span>
                     <span className="initiative">Initiative </span>
-                    <span contentEditable="true">0</span>
+                    <span >Initiative #</span>
                     <span className="eliteToggle" style={elite?selectedStyle:null} onClick={() => handleEliteToggle()}> Elite </span>
                     <span className="weakToggle" style={weak?selectedStyle:null}onClick={() => handleWeakToggle()}> Weak </span>
                 </div>
@@ -162,7 +166,7 @@ export default function creature(props) {
             <div className="column4">
                 <div className="Strikes">
                     {/* How to get a variable number of strike types?  Jaws, claws, etc */}
-                    <div className="strike">{props.strikes[0][1]}: [+{props.strikes[0][2]}/+{props.strikes[0][3]}/+{props.strikes[0][4]}]</div>
+                    <div className="strike" onClick={() => handleCheckAttack(props.strikes[0][2])}>{props.strikes[0][1]}: [+{props.strikes[0][2]}/+{props.strikes[0][3]}/+{props.strikes[0][4]}] {checkAttack}</div>
                     {/* How to get a variable number of attack tags? */}
                     <div className="strikeTags">{props.strikes[0][6]}, {props.strikes[0][7]}, {props.strikes[0][8]}, {props.strikes[0][9]}</div>
                     <div className="strikeDamage">{props.strikes[0][5]}</div>
