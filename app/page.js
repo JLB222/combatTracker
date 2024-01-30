@@ -32,12 +32,15 @@ export default function App() {
         {allMonsterTest}
         <ul>TO-DO:
           {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
+          <li>Elite & Weak tags need to change HP & Damage of strikes</li>
           <li>figure out how to deal with Initiative.  Just make it editable by user?  click perception and it automatically fills in?  what if the enemy rolls stealth for initiative?  What about the app auto-sorting the monsters based on initiative?</li>
           <li>add the ability for user to add monsters to the list</li>
           <li>add ability to remove monsters from list</li>
           <li>update bestiary with combat stats: speed,attacks,spells</li>
           <li>add creature's attacks and abilities to the creature.jsx;  </li>
-          <li>attack update: attack is now a button, but only works for the first strike, Multi-Attack Penalty is not yet implemented.  Will probably need 3 buttons per attack.</li>
+          {/* <li>attack update: attack is now a button, but only works for the first strike, Multi-Attack Penalty is not yet implemented.  Will probably need 3 buttons per attack.</li> */}
+          <li>Stylize the attack bonus after clicking it so the user can tell which one is being applied more easily</li>
+          <li>add a damage roller to creature's Damage entry</li>
           <li>re-format creature's attacks so there's a separate entry for things that will be there for every creature and things that won't be</li>
           <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
           <li>make a separate page(form) for easily adding new monsters to the bestiary array?</li>

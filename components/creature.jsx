@@ -166,7 +166,13 @@ export default function creature(props) {
             <div className="column4">
                 <div className="Strikes">
                     {/* How to get a variable number of strike types?  Jaws, claws, etc */}
-                    <div className="strike" onClick={() => handleCheckAttack(props.strikes[0][2])}>{props.strikes[0][1]}: [+{props.strikes[0][2]}/+{props.strikes[0][3]}/+{props.strikes[0][4]}] {checkAttack}</div>
+                    <div className="strike">
+                        <span class="strikeWeapon">{props.strikes[0][1]}: </span>
+                        <span class="firstStrike" onClick={() => handleCheckAttack(props.strikes[0][2])}>[+{props.strikes[0][2]}/</span>
+                        <span class="secondStrike" onClick={() => handleCheckAttack(props.strikes[0][3])}>+{props.strikes[0][3]}/</span>
+                        <span class="thirdStrike" onClick={() => handleCheckAttack(props.strikes[0][4])}>+{props.strikes[0][4]}]</span>
+                        <span class="strikeResult">{checkAttack}</span>
+                    </div>
                     {/* How to get a variable number of attack tags? */}
                     <div className="strikeTags">{props.strikes[0][6]}, {props.strikes[0][7]}, {props.strikes[0][8]}, {props.strikes[0][9]}</div>
                     <div className="strikeDamage">{props.strikes[0][5]}</div>
