@@ -39,7 +39,7 @@ export default function App() {
           <li>update bestiary with combat stats: speed,attacks,spells</li>
           <li>add creature's attacks and abilities to the creature.jsx;  </li>
           {/* <li>attack update: attack is now a button, but only works for the first strike, Multi-Attack Penalty is not yet implemented.  Will probably need 3 buttons per attack.</li> */}
-          <li>Stylize the attack bonus after clicking it so the user can tell which one is being applied more easily</li>
+          {/* <li>Stylize the attack bonus after clicking it so the user can tell which one is being applied more easily</li> */}
           <li>add a damage roller to creature's Damage entry</li>
           <li>re-format creature's attacks so there's a separate entry for things that will be there for every creature and things that won't be</li>
           <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
