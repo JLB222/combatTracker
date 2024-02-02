@@ -176,26 +176,26 @@ export default function creature(props) {
                         <span class="firstStrike" 
                                 style={MAP === 1 ? selectedStyle : null}
                                 onClick={() => {
-                                    handleCheckAttack(props.strikes[0][2]);
+                                    handleCheckAttack(props.strikes[0][2] + templateModifier);
                                     setMAP(1);
                                 }}
-                        >+{props.strikes[0][2]}</span><span>/</span>
+                        >+{props.strikes[0][2] + templateModifier}</span><span>/</span>
 
                         <span class="secondStrike" 
                                 style={MAP === 2 ? selectedStyle : null}
                                 onClick={() => {
-                                    handleCheckAttack(props.strikes[0][3]);
+                                    handleCheckAttack(props.strikes[0][3] + templateModifier);
                                     setMAP(2);
                                 }}
-                        >+{props.strikes[0][3]}</span><span>/</span>
+                        >+{props.strikes[0][3] + templateModifier}</span><span>/</span>
 
                         <span class="thirdStrike" 
                                 style={MAP === 3 ? selectedStyle : null}
                                 onClick={() => {
-                                    handleCheckAttack(props.strikes[0][4]);
+                                    handleCheckAttack(props.strikes[0][4] + templateModifier);
                                     setMAP(3);
                                 }}
-                        >+{props.strikes[0][4]}</span><span>]</span>
+                        >+{props.strikes[0][4] + templateModifier}</span><span>]</span>
                         
                         <span class="strikeResult">{checkAttack}</span>
                     </div>
