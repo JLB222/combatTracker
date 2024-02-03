@@ -15,6 +15,7 @@ export default function creature(props) {
         if (inputValue) {
             setHealth(health - parseInt(inputValue, 10));  
         }
+        damageInputRef.current.value = ""  //resets the input after the user clicks
     }
 
     const [fortSave, setFortSave] = useState(props.defenses[1])
@@ -108,8 +109,17 @@ export default function creature(props) {
         color: "white"
     }
 
-    let templateModifier = (elite? 2:0) + (weak? -2:0)
-    let shieldModifier = shieldUp? 2:0
+    const eliteWeakModifier = (elite ? 2:0) + (weak ? -2:0)
+    const eliteHPModifier = (level) => {
+        switch(true) {
+            case (level <= 1): return (elite ? 10:0) + (weak ? -10:0)
+            case (level >=2 && level <= 4): return (elite ? 15:0) + (weak ? -15:0)
+            case (level >=5 && level <= 19): return (elite ? 20:0) + (weak ? -20:0)
+            case (level >= 20): return (elite ? 30:0) + (weak ? -30:0)
+            default: 'Error.  What level did you enter?'
+        }
+    }
+    const shieldModifier = shieldUp ? 2:0
     return (
         <div className="monster" id={uniqueId}>
             <div className="column1">
@@ -136,36 +146,36 @@ export default function creature(props) {
             </div>
             <div className="column2">
                 <div className="defenses">
-                    <div className="hitPoints">HP: {health}/{props.defenses[4]} <span><input ref={damageInputRef}/><button onClick={handleHealth}>Change</button></span></div>
-                    <div className="armorClass" onClick={() => handleShieldRaise()}>AC: {props.defenses[0] + templateModifier + shieldModifier} {shieldUp ? "Shield Raised" : "Raise Shield"}</div>
-                    <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenses[1] + templateModifier)}>FORT: {props.defenses[1] + templateModifier} ({fortSave}) </div>
-                    <div className="saveReflex" onClick= {() => handleSaveRflx(props.defenses[2] + templateModifier)}>RFLX: {props.defenses[2] + templateModifier} ({rflxSave}) </div>
-                    <div className="saveWill" onClick= {() => handleSaveWill(props.defenses[3] + templateModifier)}>WILL: {props.defenses[3] + templateModifier} ({willSave}) </div>
+                    <div className="hitPoints">HP: {health + eliteHPModifier(props.level)}/{props.defenses[4] + eliteHPModifier(props.level)} <span><input ref={damageInputRef}/><button onClick={handleHealth}>Change</button></span></div>
+                    <div className="armorClass" onClick={() => handleShieldRaise()}>AC: {props.defenses[0] + eliteWeakModifier + shieldModifier} {shieldUp ? "Shield Raised" : "Raise Shield"}</div>
+                    <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenses[1] + eliteWeakModifier)}>FORT: {props.defenses[1] + eliteWeakModifier} ({fortSave}) </div>
+                    <div className="saveReflex" onClick= {() => handleSaveRflx(props.defenses[2] + eliteWeakModifier)}>RFLX: {props.defenses[2] + eliteWeakModifier} ({rflxSave}) </div>
+                    <div className="saveWill" onClick= {() => handleSaveWill(props.defenses[3] + eliteWeakModifier)}>WILL: {props.defenses[3] + eliteWeakModifier} ({willSave}) </div>
                 </div>
             </div>
             <div className="column3">
                 <div className="skills">
-                    <div className="checkPerception" onClick= {() => handleCheckPerception(+props.perception[0] + templateModifier)}>Perception: {+props.perception[0] + templateModifier} ({checkPerception}) </div>
+                    <div className="checkPerception" onClick= {() => handleCheckPerception(+props.perception[0] + eliteWeakModifier)}>Perception: {+props.perception[0] + eliteWeakModifier} ({checkPerception}) </div>
 
-                    <div className="checkAcrobatics" onClick= {() => handleCheckAcrobatics(props.skills[0] + templateModifier)} style={props.skills[0] === 0 ? hiddenStyle:null}>Acrobatics: {props.skills[0] + templateModifier} ({checkAcrobatics})</div>
-                    <div className="checkArcana" onClick= {() => handleCheckArcana(props.skills[1] + templateModifier)} style={props.skills[1] === 0 ? hiddenStyle:null}>Arcana: {props.skills[1] + templateModifier} ({checkArcana})</div>
-                    <div className="checkAthletics" onClick= {() => handleCheckAthletics(props.skills[2] + templateModifier)} style={props.skills[2] === 0 ? hiddenStyle:null}>Athletics: {props.skills[2] + templateModifier} ({checkAthletics})</div>
-                    <div className="checkCrafting" onClick= {() => handleCheckCrafting(props.skills[3] + templateModifier)} style={props.skills[3] === 0 ? hiddenStyle:null}>Crafting: {props.skills[3] + templateModifier} ({checkCrafting})</div>
+                    <div className="checkAcrobatics" onClick= {() => handleCheckAcrobatics(props.skills[0] + eliteWeakModifier)} style={props.skills[0] === 0 ? hiddenStyle:null}>Acrobatics: {props.skills[0] + eliteWeakModifier} ({checkAcrobatics})</div>
+                    <div className="checkArcana" onClick= {() => handleCheckArcana(props.skills[1] + eliteWeakModifier)} style={props.skills[1] === 0 ? hiddenStyle:null}>Arcana: {props.skills[1] + eliteWeakModifier} ({checkArcana})</div>
+                    <div className="checkAthletics" onClick= {() => handleCheckAthletics(props.skills[2] + eliteWeakModifier)} style={props.skills[2] === 0 ? hiddenStyle:null}>Athletics: {props.skills[2] + eliteWeakModifier} ({checkAthletics})</div>
+                    <div className="checkCrafting" onClick= {() => handleCheckCrafting(props.skills[3] + eliteWeakModifier)} style={props.skills[3] === 0 ? hiddenStyle:null}>Crafting: {props.skills[3] + eliteWeakModifier} ({checkCrafting})</div>
 
-                    <div className="checkDeception" onClick= {() => handleCheckDeception(props.skills[4] + templateModifier)} style={props.skills[4] === 0 ? hiddenStyle:null}>Deception: {props.skills[4] + templateModifier}  ({checkDeception})</div>
-                    <div className="checkDiplomacy" onClick= {() => handleCheckDiplomacy(props.skills[5] + templateModifier)} style={props.skills[5] === 0 ? hiddenStyle:null}>Diplomacy: {props.skills[5] + templateModifier}  ({checkDiplomacy})</div>
-                    <div className="checkIntimidation" onClick= {() => handleCheckIntimidation(props.skills[6] + templateModifier)} style={props.skills[6] === 0 ? hiddenStyle:null}>Intimidation: {props.skills[6] + templateModifier}  ({checkIntimidation})</div>
-                    <div className="checkMedicine" onClick= {() => handleCheckMedicine(props.skills[7] + templateModifier)} style={props.skills[7] === 0 ? hiddenStyle:null}>Medicine: {props.skills[7] + templateModifier}  ({checkMedicine})</div>
+                    <div className="checkDeception" onClick= {() => handleCheckDeception(props.skills[4] + eliteWeakModifier)} style={props.skills[4] === 0 ? hiddenStyle:null}>Deception: {props.skills[4] + eliteWeakModifier}  ({checkDeception})</div>
+                    <div className="checkDiplomacy" onClick= {() => handleCheckDiplomacy(props.skills[5] + eliteWeakModifier)} style={props.skills[5] === 0 ? hiddenStyle:null}>Diplomacy: {props.skills[5] + eliteWeakModifier}  ({checkDiplomacy})</div>
+                    <div className="checkIntimidation" onClick= {() => handleCheckIntimidation(props.skills[6] + eliteWeakModifier)} style={props.skills[6] === 0 ? hiddenStyle:null}>Intimidation: {props.skills[6] + eliteWeakModifier}  ({checkIntimidation})</div>
+                    <div className="checkMedicine" onClick= {() => handleCheckMedicine(props.skills[7] + eliteWeakModifier)} style={props.skills[7] === 0 ? hiddenStyle:null}>Medicine: {props.skills[7] + eliteWeakModifier}  ({checkMedicine})</div>
 
-                    <div className="checkNature" onClick= {() => handleCheckNature(props.skills[8] + templateModifier)} style={props.skills[8] === 0 ? hiddenStyle:null}>Nature: {props.skills[8] + templateModifier}  ({checkNature})</div>
-                    <div className="checkOccultism" onClick= {() => handleCheckOccultism(props.skills[9] + templateModifier)} style={props.skills[9] === 0 ? hiddenStyle:null}>Occultism: {props.skills[9] + templateModifier}  ({checkOccultism})</div>
-                    <div className="checkPerformance" onClick= {() => handleCheckPerformance(props.skills[10] + templateModifier)} style={props.skills[10] === 0 ? hiddenStyle:null}>Performance: {props.skills[10] + templateModifier}  ({checkPerformance})</div>
-                    <div className="checkReligion" onClick= {() => handleCheckReligion(props.skills[11] + templateModifier)} style={props.skills[11] === 0 ? hiddenStyle:null}>Religion: {props.skills[11] + templateModifier}  ({checkReligion})</div>
+                    <div className="checkNature" onClick= {() => handleCheckNature(props.skills[8] + eliteWeakModifier)} style={props.skills[8] === 0 ? hiddenStyle:null}>Nature: {props.skills[8] + eliteWeakModifier}  ({checkNature})</div>
+                    <div className="checkOccultism" onClick= {() => handleCheckOccultism(props.skills[9] + eliteWeakModifier)} style={props.skills[9] === 0 ? hiddenStyle:null}>Occultism: {props.skills[9] + eliteWeakModifier}  ({checkOccultism})</div>
+                    <div className="checkPerformance" onClick= {() => handleCheckPerformance(props.skills[10] + eliteWeakModifier)} style={props.skills[10] === 0 ? hiddenStyle:null}>Performance: {props.skills[10] + eliteWeakModifier}  ({checkPerformance})</div>
+                    <div className="checkReligion" onClick= {() => handleCheckReligion(props.skills[11] + eliteWeakModifier)} style={props.skills[11] === 0 ? hiddenStyle:null}>Religion: {props.skills[11] + eliteWeakModifier}  ({checkReligion})</div>
 
-                    <div className="checkSociety" onClick= {() => handleCheckSociety(props.skills[12] + templateModifier)} style={props.skills[12] === 0 ? hiddenStyle:null}>Society: {props.skills[12] + templateModifier}  ({checkSociety})</div>
-                    <div className="checkStealth" onClick= {() => handleCheckStealth(props.skills[13] + templateModifier)} style={props.skills[13] === 0 ? hiddenStyle:null}>Stealth: {props.skills[13] + templateModifier}  ({checkStealth})</div>
-                    <div className="checkSurvival" onClick= {() => handleCheckSurvival(props.skills[14] + templateModifier)} style={props.skills[14] === 0 ? hiddenStyle:null}>Survival: {props.skills[14] + templateModifier}  ({checkSurvival})</div>
-                    <div className="checkThievery" onClick= {() => handleCheckThievery(props.skills[15] + templateModifier)} style={props.skills[15] === 0 ? hiddenStyle:null}>Thievery: {props.skills[15] + templateModifier}  ({checkThievery})</div>
+                    <div className="checkSociety" onClick= {() => handleCheckSociety(props.skills[12] + eliteWeakModifier)} style={props.skills[12] === 0 ? hiddenStyle:null}>Society: {props.skills[12] + eliteWeakModifier}  ({checkSociety})</div>
+                    <div className="checkStealth" onClick= {() => handleCheckStealth(props.skills[13] + eliteWeakModifier)} style={props.skills[13] === 0 ? hiddenStyle:null}>Stealth: {props.skills[13] + eliteWeakModifier}  ({checkStealth})</div>
+                    <div className="checkSurvival" onClick= {() => handleCheckSurvival(props.skills[14] + eliteWeakModifier)} style={props.skills[14] === 0 ? hiddenStyle:null}>Survival: {props.skills[14] + eliteWeakModifier}  ({checkSurvival})</div>
+                    <div className="checkThievery" onClick= {() => handleCheckThievery(props.skills[15] + eliteWeakModifier)} style={props.skills[15] === 0 ? hiddenStyle:null}>Thievery: {props.skills[15] + eliteWeakModifier}  ({checkThievery})</div>
                 </div>
             </div>
             <div className="column4">
@@ -176,26 +186,26 @@ export default function creature(props) {
                         <span class="firstStrike" 
                                 style={MAP === 1 ? selectedStyle : null}
                                 onClick={() => {
-                                    handleCheckAttack(props.strikes[0][2] + templateModifier);
+                                    handleCheckAttack(props.strikes[0][2] + eliteWeakModifier);
                                     setMAP(1);
                                 }}
-                        >+{props.strikes[0][2] + templateModifier}</span><span>/</span>
+                        >+{props.strikes[0][2] + eliteWeakModifier}</span><span>/</span>
 
                         <span class="secondStrike" 
                                 style={MAP === 2 ? selectedStyle : null}
                                 onClick={() => {
-                                    handleCheckAttack(props.strikes[0][3] + templateModifier);
+                                    handleCheckAttack(props.strikes[0][3] + eliteWeakModifier);
                                     setMAP(2);
                                 }}
-                        >+{props.strikes[0][3] + templateModifier}</span><span>/</span>
+                        >+{props.strikes[0][3] + eliteWeakModifier}</span><span>/</span>
 
                         <span class="thirdStrike" 
                                 style={MAP === 3 ? selectedStyle : null}
                                 onClick={() => {
-                                    handleCheckAttack(props.strikes[0][4] + templateModifier);
+                                    handleCheckAttack(props.strikes[0][4] + eliteWeakModifier);
                                     setMAP(3);
                                 }}
-                        >+{props.strikes[0][4] + templateModifier}</span><span>]</span>
+                        >+{props.strikes[0][4] + eliteWeakModifier}</span><span>]</span>
                         
                         <span class="strikeResult">{checkAttack}</span>
                     </div>

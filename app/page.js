@@ -33,7 +33,7 @@ export default function App() {
         <ul>TO-DO:
           {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
           {/* <li>Elite & Weak tags need to change damage of strikes</li> */}
-          <li>Elite & weak Modifier need to change Monster HP</li>
+          {/* <li>Elite & weak Modifier need to change Monster HP</li> */}
           <li>Elite & weak Modifier need to change damage of monster's non-strike abilities.  Limited Use +4 dmg, & nonlimited +2</li>
           <li>figure out how to deal with Initiative.  Just make it editable by user?  click perception and it automatically fills in?  what if the enemy rolls stealth for initiative?  What about the app auto-sorting the monsters based on initiative?</li>
           <li>add the ability for user to add monsters to the list</li>
