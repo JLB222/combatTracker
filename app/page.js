@@ -29,7 +29,9 @@ let allMonsterTest = bestiary.map(createEntry)
 export default function App() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        {allMonsterTest}
+        {/* {allMonsterTest} */}
+        {test}
+        {test1}
         <ul>TO-DO:
           {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
           {/* <li>Elite & Weak tags need to change damage of strikes</li> */}
@@ -55,6 +57,13 @@ export default function App() {
           <li>have the shield raise option only for creatures that have a shield in their item array</li>
           <li>add a section for condition tracking?</li>
           <li>add a general dice roller? for single or batch rolls</li>
+          <li>make each column it's own JSX.  There's no need to overcomplicate creature.jsx</li>
+          <li>make a column for profile</li>
+          <li>make a column for defenses</li>
+          <li>make a column for skills</li>
+          {/* <li>make a column for strikes</li> */}
+          <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li>
+          <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li>
         </ul>
     </main>
   )

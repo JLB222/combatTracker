@@ -1,6 +1,7 @@
 "use client"
 import {useState, useRef} from 'react';
 import {v4 as uuidv4} from 'uuid'
+import Strike from './strike.jsx'
 
 export default function creature(props) {
     const [elite, setElite] = useState(false)
@@ -43,7 +44,7 @@ export default function creature(props) {
     const [checkSurvival, setCheckSurvival] = useState(props.skills[14])
     const [checkThievery, setCheckThievery] = useState(props.skills[15])
 
-    const [checkAttack, setCheckAttack] = useState("")
+    // const [checkAttack, setCheckAttack] = useState("")
 
     function d20() {
         let result = Math.floor((Math.random() * 20) + 1)
@@ -76,13 +77,13 @@ export default function creature(props) {
     function handleCheckSurvival(num) { let roll = d20(); setCheckSurvival(`+ ${roll} = ${roll + num}`);}
     function handleCheckThievery(num) { let roll = d20(); setCheckThievery(`+ ${roll} = ${roll + num}`);}
 
-    function handleCheckAttack(num) { 
-        let roll = d20(); 
-        setCheckAttack(`+ ${roll} = ${roll + num}`);
-    }
+    // function handleCheckAttack(num) { 
+    //     let roll = d20(); 
+    //     setCheckAttack(`+ ${roll} = ${roll + num}`);
+    // }
 
-    //Dealing with Multi-Attack Penalty (MAP)
-    const [MAP, setMAP] = useState(0)
+    // //Dealing with Multi-Attack Penalty (MAP)
+    // const [MAP, setMAP] = useState(0)
 
     function handleEliteToggle() {
         if (weak) {
@@ -180,38 +181,15 @@ export default function creature(props) {
             </div>
             <div className="column4">
                 <div className="Strikes">
-                    {/* How to get a variable number of strike types?  Jaws, claws, etc.  Also, the extra spans are for html formatting */}
-                    <div className="strike">
-                        <span class="strikeWeapon">{props.strikes[0][1]}: [</span>
-                        <span class="firstStrike" 
-                                style={MAP === 1 ? selectedStyle : null}
-                                onClick={() => {
-                                    handleCheckAttack(props.strikes[0][2] + eliteWeakModifier);
-                                    setMAP(1);
-                                }}
-                        >+{props.strikes[0][2] + eliteWeakModifier}</span><span>/</span>
-
-                        <span class="secondStrike" 
-                                style={MAP === 2 ? selectedStyle : null}
-                                onClick={() => {
-                                    handleCheckAttack(props.strikes[0][3] + eliteWeakModifier);
-                                    setMAP(2);
-                                }}
-                        >+{props.strikes[0][3] + eliteWeakModifier}</span><span>/</span>
-
-                        <span class="thirdStrike" 
-                                style={MAP === 3 ? selectedStyle : null}
-                                onClick={() => {
-                                    handleCheckAttack(props.strikes[0][4] + eliteWeakModifier);
-                                    setMAP(3);
-                                }}
-                        >+{props.strikes[0][4] + eliteWeakModifier}</span><span>]</span>
-                        
-                        <span class="strikeResult">{checkAttack}</span>
-                    </div>
-                    {/* How to get a variable number of attack tags? */}
-                    <div className="strikeTags">{props.strikes[0][6]}, {props.strikes[0][7]}, {props.strikes[0][8]}, {props.strikes[0][9]}</div>
-                    <div className="strikeDamage">{props.strikes[0][5]}</div>
+                    {props.strikes.map((element, index) => (
+                        <Strike 
+                            key={index} 
+                            data={element}
+                            eliteWeakModifier = {eliteWeakModifier}
+                            selectedStyle = {selectedStyle}
+                            d20={d20}
+                        />
+                    ))}
                 </div>
             </div>
 
