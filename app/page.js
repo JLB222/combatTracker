@@ -17,13 +17,12 @@ function createEntry(entry) {
   )
 }
 
-
 let test = createEntry(bestiary[0])
 let test1 = createEntry(bestiary[1])
+let test2 = createEntry(bestiary[2])
 //let chosenMonsterArray = [bestiary[0], bestiary[1], bestiary[2],bestiary[3]]
 //let chosenMonsterList = chosenMonsterArray.map(createEntry)
 let allMonsterTest = bestiary.map(createEntry)
-
 
 
 export default function App() {
@@ -32,6 +31,7 @@ export default function App() {
         {/* {allMonsterTest} */}
         {test}
         {test1}
+        {test2}
         <ul>TO-DO:
           {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
           {/* <li>Elite & Weak tags need to change damage of strikes</li> */}
@@ -46,23 +46,27 @@ export default function App() {
           {/* <li>Stylize the attack bonus after clicking it so the user can tell which one is being applied more easily</li> */}
           <li>add a damage roller to creature's Damage entry</li>
           <li>re-format creature's attacks so there's a separate entry for things that will be there for every creature and things that won't be</li>
-          <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
           <li>make a separate page(form) for easily adding new monsters to the bestiary array?</li>
           {/* <li>add healing and damage functionality to HP</li> */}
           {/* <li>Healing Update: Damage/Healing is currently applied through it's own DIV at the top of the page, but I'd rather have it so that each monster has an input by their HP.  The hurdle is identifying each monster's unique Input in the code. Line 122 in creature.jsx, I currently use querySelector.value and target the class, but that always finds the FIRST element with that class, so a 'master' input box at the top is my current workaround.</li> */}
           <li>add resistances and weaknesses to creature.jsx; ideally next to the Defenses column for easy consultation</li>
           <li>update bestiary to include DC to recall knowledge on the target</li>
           {/* <li>add function to AC span; when clicked AC goes up by two to represent shield raising?</li> */}
-          <li>add an item array in the bestiary for creatures that have equipment</li>
-          <li>have the shield raise option only for creatures that have a shield in their item array</li>
           <li>add a section for condition tracking?</li>
           <li>add a general dice roller? for single or batch rolls</li>
           <li>make each column it's own JSX.  There's no need to overcomplicate creature.jsx</li>
-          <li>make a column for profile</li>
-          <li>make a column for defenses</li>
-          <li>make a column for skills</li>
-          {/* <li>make a column for strikes</li> */}
+            {/* <li>make a column for strikes</li> */}
+            <li>make a jsx for profile column</li>
+            <li>make a jsx for defenses column</li>
+            <li>make a jsx for skills column</li>
+            <li>make a jsx for new special attacks column</li>
+            <li>make a jsx for new spells column?  or perhaps spells are part of the special column?</li>
+            <li>make a jsx for items & equipment column</li>
+              <li>add an item array in the bestiary for creatures that have equipment</li>
+              <li>have the shield raise option only for creatures that have a shield in their item array</li>
+            <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
           <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li>
+          <li>add to the weapon array whether each weapon is Melee or Ranged</li>
           <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li>
         </ul>
     </main>

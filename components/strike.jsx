@@ -9,39 +9,42 @@ function Strike(props) {
         let roll = props.d20(); 
         setCheckAttack(` + ${roll} = ${roll + num}`);
     }
-
     return (
     <div className="strike">
-        <span class="strikeWeapon">{props.data[0][1]}: [</span>
+        <span class="strikeType">({props.data[0][0]}) </span>
+        <span class="strikeWeapon">{props.data[0][2]}: [</span>
 
         <span class="firstStrike" 
                     style={MAP === 1 ? props.selectedStyle : null}
                     onClick={() => {
-                        handleCheckAttack(props.data[0][2] +props.eliteWeakModifier);
+                        handleCheckAttack(props.data[0][3] +props.eliteWeakModifier);
                         setMAP(1);
                     }}
-        >+{props.data[0][2] + props.eliteWeakModifier}</span><span>/</span>
+        >+{props.data[0][3] + props.eliteWeakModifier}</span><span>/</span>
         
         <span class="secondStrike" 
                     style={MAP === 2 ? props.selectedStyle : null}
                     onClick={() => {
-                        handleCheckAttack(props.data[0][3] + props.eliteWeakModifier);
+                        handleCheckAttack(props.data[0][4] + props.eliteWeakModifier);
                         setMAP(2);
                     }}
-        >+{props.data[0][3] + props.eliteWeakModifier}</span><span>/</span>
+        >+{props.data[0][4] + props.eliteWeakModifier}</span><span>/</span>
 
         <span class="thirdStrike" 
                     style={MAP === 3 ? props.selectedStyle : null}
                     onClick={() => {
-                        handleCheckAttack(props.data[0][4] + props.eliteWeakModifier);
+                        handleCheckAttack(props.data[0][5] + props.eliteWeakModifier);
                         setMAP(3);
                     }}
-        >+{props.data[0][4] + props.eliteWeakModifier}</span><span>]</span>
+        >+{props.data[0][5] + props.eliteWeakModifier}</span><span>]</span>
 
         <span class="strikeResult">{checkAttack}</span>
 
         <div className="strikeTags">[{props.data[1].join(", ")}]</div>
-        <div className="strikeDamage">{props.data[5]}</div>
+        <div className="strikeDamage">
+            {props.data[2][0]}d{props.data[2][1]}+{props.data[2][2] +props.eliteWeakModifier} {props.data[2][3]} 
+            {/* & {props.data[3][0]}d{props.data[3][1]}+{props.data[3][2]} {props.data[3][3]} */}
+        </div>
     </div>
     )
 }
