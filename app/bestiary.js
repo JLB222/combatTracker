@@ -94,7 +94,38 @@ let bestiary = [
          ],
          ["+2 Status bonus to all saves VS Magic", "Regeneration 50", "Carapace", "Frightful Presence: 300ft, DC 39", "Inexorable", "Reactive: 3", "Attack of Opportunity", "Reflect"]
     ],
-    ["Aapoph Serpentfolk",3,["Chaotic Evil","Medium","Uncommon","Humanoid","Mutant","Serpentfolk"],["8","Darkvision","Scent, Imprecise 30ft."],["Aklo","Undercommon","Telepathy: 100ft."],[7,0,11,0,0,0,6,0,0,0,0,0,0,0,0,0],[4,2,3,-3,1,-1],[18,10,7,6,60],["Poison: 5"],["None"],["+2 Status VS Mental"]],
+    [
+        "Aapoph Serpentfolk",
+        3,
+        ["Chaotic Evil","Medium","Uncommon","Humanoid","Mutant","Serpentfolk"],
+        ["8","Darkvision","Scent, Imprecise 30ft."],["Aklo","Undercommon","Telepathy: 100ft."],
+        [7,0,11,0,0,0,6,0,0,0,0,0,0,0,0,0],
+        [4,2,3,-3,1,-1],
+        [18,10,7,6,60],
+        ["Poison: 5"],
+        ["No Weaknesses"],
+        [
+            [
+                ["Melee", 1, "Scimitar", 11, 6, 1],
+                ["Forceful", "Sweep"],
+                [1,6,6,"Slashing"],
+                [""]
+            ],
+            [
+                ["Melee", 1, "Fangs", 11, 6, 1],
+                [""],
+                [1,8,5, "Piercing"],
+                ["Serpentfolk Venom"]
+            ],
+            [
+                ["Melee", 1, "Tail", 11,7,3],
+                ["Agile"],
+                [1,6,6, "Bludgeoning"],
+                ["Knockdown"]
+            ]
+        ],
+        ["+2 Status VS Mental"]
+    ],
     ["Aasimar Redeemer",5,["Neutral Good","Medium","Aasimar","Human","Humanoid"],["11","Darkvision"],["Celestial","Common"],[0,0,11,0,0,12,0,9,0,0,0,11,7,0,0,0],[4,1,3,0,2,3],[23,12,8,11,73],["None"],["None"],["None"]],
     
     // succubus: {

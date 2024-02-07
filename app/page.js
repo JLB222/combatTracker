@@ -20,6 +20,7 @@ function createEntry(entry) {
 let test = createEntry(bestiary[0])
 let test1 = createEntry(bestiary[1])
 let test2 = createEntry(bestiary[2])
+let test3 = createEntry(bestiary[3])
 //let chosenMonsterArray = [bestiary[0], bestiary[1], bestiary[2],bestiary[3]]
 //let chosenMonsterList = chosenMonsterArray.map(createEntry)
 let allMonsterTest = bestiary.map(createEntry)
@@ -32,6 +33,7 @@ export default function App() {
         {test}
         {test1}
         {test2}
+        {test3}
         <ul>TO-DO:
           {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
           {/* <li>Elite & Weak tags need to change damage of strikes</li> */}
@@ -55,6 +57,7 @@ export default function App() {
           <li>add a section for condition tracking?</li>
           <li>add a general dice roller? for single or batch rolls</li>
           <li>make each column it's own JSX.  There's no need to overcomplicate creature.jsx</li>
+          <li>Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li>
             {/* <li>make a column for strikes</li> */}
             <li>make a jsx for profile column</li>
             <li>make a jsx for defenses column</li>

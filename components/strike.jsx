@@ -40,7 +40,7 @@ function Strike(props) {
 
         <span class="strikeResult">{checkAttack}</span>
 
-        <div className="strikeTags">[{props.data[1].join(", ")}]</div>
+        <div className="strikeTags">[{props.data[1].join(", ") || "No weapon traits"}]</div>
         <div className="strikeDamage">
             {props.data[2][0]}d{props.data[2][1]}+{props.data[2][2] +props.eliteWeakModifier} {props.data[2][3]} 
             {/* & {props.data[3][0]}d{props.data[3][1]}+{props.data[3][2]} {props.data[3][3]} */}

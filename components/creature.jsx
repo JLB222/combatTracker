@@ -44,8 +44,6 @@ export default function creature(props) {
     const [checkSurvival, setCheckSurvival] = useState(props.skills[14])
     const [checkThievery, setCheckThievery] = useState(props.skills[15])
 
-    // const [checkAttack, setCheckAttack] = useState("")
-
     function d20() {
         let result = Math.floor((Math.random() * 20) + 1)
         return result
@@ -76,14 +74,6 @@ export default function creature(props) {
     function handleCheckStealth(num) { let roll = d20(); setCheckStealth(`+ ${roll} = ${roll + num}`);}
     function handleCheckSurvival(num) { let roll = d20(); setCheckSurvival(`+ ${roll} = ${roll + num}`);}
     function handleCheckThievery(num) { let roll = d20(); setCheckThievery(`+ ${roll} = ${roll + num}`);}
-
-    // function handleCheckAttack(num) { 
-    //     let roll = d20(); 
-    //     setCheckAttack(`+ ${roll} = ${roll + num}`);
-    // }
-
-    // //Dealing with Multi-Attack Penalty (MAP)
-    // const [MAP, setMAP] = useState(0)
 
     function handleEliteToggle() {
         if (weak) {
