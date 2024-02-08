@@ -35,6 +35,9 @@ export default function App() {
         {test2}
         {test3}
         <ul>TO-DO:
+          <li>Add an onClick for damage rolls on the new strike.jsx</li>
+          <li>OR: make it so that clicking the attack auto-rolls appropriate damage roll</li>
+          <li>What if the creature has Fortune? Misfortune?  There'd be two attack rolls but you wouldn't want two damage rolls.</li>
           {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
           {/* <li>Elite & Weak tags need to change damage of strikes</li> */}
           {/* <li>Elite & weak Modifier need to change Monster HP</li> */}
@@ -57,7 +60,8 @@ export default function App() {
           <li>add a section for condition tracking?</li>
           <li>add a general dice roller? for single or batch rolls</li>
           <li>make each column it's own JSX.  There's no need to overcomplicate creature.jsx</li>
-          <li>Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li>
+          <li>Solved? Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li>
+          {/* <li>for now, it is assumed that all creatures have a max of 1 rider, either damage or an effect.  Will update if/when this changes.</li> */}
             {/* <li>make a column for strikes</li> */}
             <li>make a jsx for profile column</li>
             <li>make a jsx for defenses column</li>

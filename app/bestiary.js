@@ -15,7 +15,7 @@ let bestiary = [
                 ["Melee", 1, "Holy Warhammer", 30, 25, 20], // [actionCost, NameOfWeapon, atkBonus, multiAttackPenalty1, multiAttackPenalty2]
                 ["Good", "Magical", "Shove"], //weapon traits
                 [2,8,22,"Bludgeoning"], // damage details: [#ofDice, sizeOfDice, flatBonus, dmgType]
-                [1,6,0,"Good"]  // rider damage details: [#ofDice, sizeOfDice, flatBonus, dmgType]
+                [1,6,0,"Good"]  // rider details: [#ofDice, sizeOfDice, flatBonus, dmgType]
             ]
         ], 
         ["+1 status to all saves vs. magic", "Traveler's Aura", "Messenger's Amnesty"] //misc details; to be expanded later
@@ -71,25 +71,25 @@ let bestiary = [
                 ["Melee", 1, "Claw", 45, 41, 37],
                 ["Agile", "Chaotic", "Evil", "Magical", "Reach: 15ft"],
                 [5, 10, 20, "Slashing"],
-                [""]
+                []
             ],
             [
                 ["Melee", 1, "Tail", 45, 40, 35],
                 ["Chaotic", "Evil", "Magical", "Reach: 30ft"],
                 [4, 12, 20, "Bludgeoning"],
-                [""]
+                []
             ],
             [
                 ["Melee", 1, "Horn", 45, 40, 35],
                 ["Chaotic", "Evil", "Magical", "Reach: 15ft"],
                 [4, 10, 20, "Piercing"],
-                [""]
+                []
             ],
             [
                 ["Ranged", 1, "Spine", 45, 40, 35],
                 ["Brutal", "Chaotic", "Evil", "Magical", "Range Increment: 120ft"],
                 [3, 10, 20, "Piercing"],
-                [""]
+                []
             ]
          ],
          ["+2 Status bonus to all saves VS Magic", "Regeneration 50", "Carapace", "Frightful Presence: 300ft, DC 39", "Inexorable", "Reactive: 3", "Attack of Opportunity", "Reflect"]
@@ -109,7 +109,7 @@ let bestiary = [
                 ["Melee", 1, "Scimitar", 11, 6, 1],
                 ["Forceful", "Sweep"],
                 [1,6,6,"Slashing"],
-                [""]
+                []
             ],
             [
                 ["Melee", 1, "Fangs", 11, 6, 1],
