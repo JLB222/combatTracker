@@ -48,6 +48,14 @@ export default function creature(props) {
         let result = Math.floor((Math.random() * 20) + 1)
         return result
     }
+    function damageRoll(arr) {  //format for array is: [numberOfDamageDice, sizeOfDamageDice, flatDamageBonus, damageType]
+        let result = []
+        for (let i = 0; i < arr[0]; i++) {
+          result.push(Math.floor((Math.random() * arr[1]) + 1))
+        }
+        console.log(`${arr[0]}d${arr[1]}+${arr[2]}:`, result)  //print the results in console to confirm the rolls are legit if necessary
+        return result.reduce((a,b) => a+b, arr[2])
+    }
 
     function handleSaveFort(num) { let roll = d20(); setFortSave(`+ ${roll} = ${roll + num}`)}
     function handleSaveRflx(num) { let roll = d20(); setRflxSave(`+ ${roll} = ${roll + num}`)}
@@ -178,6 +186,7 @@ export default function creature(props) {
                             eliteWeakModifier = {eliteWeakModifier}
                             selectedStyle = {selectedStyle}
                             d20={d20}
+                            damageRoll={damageRoll}
                         />
                     ))}
                 </div>
