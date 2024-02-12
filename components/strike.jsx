@@ -5,6 +5,7 @@ function Strike(props) {
     //Dealing with Multi-Attack Penalty (MAP)
     const [MAP, setMAP] = useState(0)
     const [damage, setDamage] = useState("")
+    const [riderDamage, setRiderDamage] = useState("")
 
     function handleCheckAttack(num) { 
         let roll = props.d20(); 
@@ -14,6 +15,11 @@ function Strike(props) {
         let roll = props.damageRoll(arr)
         setDamage(` = ${roll}`)
     }
+    function handleRiderDamage(arr) {
+        let roll = props.damageRoll(arr)
+        setRiderDamage(` = ${roll}`)
+    }
+    
     return (
     <div className="strike">
         <span class="strikeType">({props.data[0][0]}) </span>
@@ -55,8 +61,8 @@ function Strike(props) {
                 <div>
                     {/* propsData3 is currently the location of rider damage or rider effect.  Damage should have a length of 4, hence 'length > 1'
                     the purpose of the propsData32 ternary is to conditionally render the '+ X' damage or nothing if the value is 0 (so that it doesn't display '1d6+0 evil' on the succubus for example) */}
-                    <span class="riderDamage"> & {props.data[3][0]}d{props.data[3][1]}{props.data[3][2] ? <span>+ {props.data[3][2] +props.eliteWeakModifier}</span> : <span></span>}</span>
-                    <span>{props.data[3][3]}</span>
+                    <span class="riderDamage" onClick={() => handleRiderDamage(props.data[3])}> & {props.data[3][0]}d{props.data[3][1]}{props.data[3][2] ? <span>+ {props.data[3][2]}</span> : <span></span>} {riderDamage}</span>
+                    <span> {props.data[3][3]}</span>
                 </div>
             :props.data[3].length === 1 ? 
                 <div class="riderEffect"> & {props.data[3][0]}</div>

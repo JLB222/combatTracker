@@ -36,7 +36,8 @@ export default function App() {
         {test3}
         <ul>TO-DO:
           {/* <li>Add an onClick for damage rolls on the new strike.jsx</li> */}
-          <li>As implemented, I'd need a different state for every different attack a creature has.  Can we simplify all that into one state?</li>
+          {/* <li>add damage roller for rider damage</li> */}
+          <li>As implemented, I'd need a different state for every different special attack a creature has.  Can we simplify all that into one state?</li>
           <li>OR: make it so that clicking the attack auto-rolls appropriate damage roll</li>
           <li>What if the creature has Fortune? Misfortune?  There'd be two attack rolls but you wouldn't want two damage rolls.</li>
           {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
@@ -66,7 +67,7 @@ export default function App() {
             {/* <li>make a column for strikes</li> */}
             <li>make a jsx for profile column</li>
             <li>make a jsx for defenses column</li>
-            <li>make a jsx for skills column</li>
+            {/* <li>make a jsx for skills column</li> */}
             <li>make a jsx for new special attacks column</li>
             <li>make a jsx for new spells column?  or perhaps spells are part of the special column?</li>
             <li>make a jsx for items & equipment column</li>

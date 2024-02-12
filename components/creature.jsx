@@ -2,6 +2,7 @@
 import {useState, useRef} from 'react';
 import {v4 as uuidv4} from 'uuid'
 import Strike from './strike.jsx'
+import Skills from './skills.jsx'
 
 export default function creature(props) {
     const [elite, setElite] = useState(false)
@@ -22,28 +23,9 @@ export default function creature(props) {
     const [fortSave, setFortSave] = useState(props.defenses[1])
     const [rflxSave, setRflxSave] = useState(props.defenses[2])
     const [willSave, setWillSave] = useState(props.defenses[3])
+    
     const [checkPerception, setCheckPerception] = useState(props.perception[0])
-
-    const [checkAcrobatics, setCheckAcrobatics] = useState(props.skills[0])
-    const [checkArcana, setCheckArcana] = useState(props.skills[1])
-    const [checkAthletics, setCheckAthletics] = useState(props.skills[2])
-    const [checkCrafting, setCheckCrafting] = useState(props.skills[3])
-
-    const [checkDeception, setCheckDeception] = useState(props.skills[4])
-    const [checkDiplomacy, setCheckDiplomacy] = useState(props.skills[5])
-    const [checkIntimidation, setCheckIntimidation] = useState(props.skills[6])
-    const [checkMedicine, setCheckMedicine] = useState(props.skills[7])
-
-    const [checkNature, setCheckNature] = useState(props.skills[8])
-    const [checkOccultism, setCheckOccultism] = useState(props.skills[9])
-    const [checkPerformance, setCheckPerformance] = useState(props.skills[10])
-    const [checkReligion, setCheckReligion] = useState(props.skills[11])
-
-    const [checkSociety, setCheckSociety] = useState(props.skills[12])
-    const [checkStealth, setCheckStealth] = useState(props.skills[13])
-    const [checkSurvival, setCheckSurvival] = useState(props.skills[14])
-    const [checkThievery, setCheckThievery] = useState(props.skills[15])
-
+    
     function d20() {
         let result = Math.floor((Math.random() * 20) + 1)
         return result
@@ -62,26 +44,6 @@ export default function creature(props) {
     function handleSaveWill(num) { let roll = d20(); setWillSave(`+ ${roll} = ${roll + num}`)
     }
     function handleCheckPerception(num) { let roll = d20(); setCheckPerception(`+ ${roll} = ${roll + num}`);}
-
-    function handleCheckAcrobatics(num) { let roll = d20(); setCheckAcrobatics(`+ ${roll} = ${roll + num}`);}
-    function handleCheckArcana(num) { let roll = d20(); setCheckArcana(`+ ${roll} = ${roll + num}`);}
-    function handleCheckAthletics(num) { let roll = d20(); setCheckAthletics(`+ ${roll} = ${roll + num}`);}
-    function handleCheckCrafting(num) { let roll = d20(); setCheckCrafting(`+ ${roll} = ${roll + num}`);}
-    
-    function handleCheckDeception(num) { let roll = d20(); setCheckDeception(`+ ${roll} = ${roll + num}`);}
-    function handleCheckDiplomacy(num) { let roll = d20(); setCheckDiplomacy(`+ ${roll} = ${roll + num}`);}
-    function handleCheckIntimidation(num) { let roll = d20(); setCheckIntimidation(`+ ${roll} = ${roll + num}`);}
-    function handleCheckMedicine(num) { let roll = d20(); setCheckMedicine(`+ ${roll} = ${roll + num}`);}
-
-    function handleCheckNature(num) { let roll = d20(); setCheckNature(`+ ${roll} = ${roll + num}`);}
-    function handleCheckOccultism(num) { let roll = d20(); setCheckOccultism(`+ ${roll} = ${roll + num}`);}
-    function handleCheckPerformance(num) { let roll = d20(); setCheckPerformance(`+ ${roll} = ${roll + num}`);}
-    function handleCheckReligion(num) { let roll = d20(); setCheckReligion(`+ ${roll} = ${roll + num}`);}
-
-    function handleCheckSociety(num) { let roll = d20(); setCheckSociety(`+ ${roll} = ${roll + num}`);}
-    function handleCheckStealth(num) { let roll = d20(); setCheckStealth(`+ ${roll} = ${roll + num}`);}
-    function handleCheckSurvival(num) { let roll = d20(); setCheckSurvival(`+ ${roll} = ${roll + num}`);}
-    function handleCheckThievery(num) { let roll = d20(); setCheckThievery(`+ ${roll} = ${roll + num}`);}
 
     function handleEliteToggle() {
         if (weak) {
@@ -155,26 +117,12 @@ export default function creature(props) {
             <div className="column3">
                 <div className="skills">
                     <div className="checkPerception" onClick= {() => handleCheckPerception(+props.perception[0] + eliteWeakModifier)}>Perception: {+props.perception[0] + eliteWeakModifier} ({checkPerception}) </div>
-
-                    <div className="checkAcrobatics" onClick= {() => handleCheckAcrobatics(props.skills[0] + eliteWeakModifier)} style={props.skills[0] === 0 ? hiddenStyle:null}>Acrobatics: {props.skills[0] + eliteWeakModifier} ({checkAcrobatics})</div>
-                    <div className="checkArcana" onClick= {() => handleCheckArcana(props.skills[1] + eliteWeakModifier)} style={props.skills[1] === 0 ? hiddenStyle:null}>Arcana: {props.skills[1] + eliteWeakModifier} ({checkArcana})</div>
-                    <div className="checkAthletics" onClick= {() => handleCheckAthletics(props.skills[2] + eliteWeakModifier)} style={props.skills[2] === 0 ? hiddenStyle:null}>Athletics: {props.skills[2] + eliteWeakModifier} ({checkAthletics})</div>
-                    <div className="checkCrafting" onClick= {() => handleCheckCrafting(props.skills[3] + eliteWeakModifier)} style={props.skills[3] === 0 ? hiddenStyle:null}>Crafting: {props.skills[3] + eliteWeakModifier} ({checkCrafting})</div>
-
-                    <div className="checkDeception" onClick= {() => handleCheckDeception(props.skills[4] + eliteWeakModifier)} style={props.skills[4] === 0 ? hiddenStyle:null}>Deception: {props.skills[4] + eliteWeakModifier}  ({checkDeception})</div>
-                    <div className="checkDiplomacy" onClick= {() => handleCheckDiplomacy(props.skills[5] + eliteWeakModifier)} style={props.skills[5] === 0 ? hiddenStyle:null}>Diplomacy: {props.skills[5] + eliteWeakModifier}  ({checkDiplomacy})</div>
-                    <div className="checkIntimidation" onClick= {() => handleCheckIntimidation(props.skills[6] + eliteWeakModifier)} style={props.skills[6] === 0 ? hiddenStyle:null}>Intimidation: {props.skills[6] + eliteWeakModifier}  ({checkIntimidation})</div>
-                    <div className="checkMedicine" onClick= {() => handleCheckMedicine(props.skills[7] + eliteWeakModifier)} style={props.skills[7] === 0 ? hiddenStyle:null}>Medicine: {props.skills[7] + eliteWeakModifier}  ({checkMedicine})</div>
-
-                    <div className="checkNature" onClick= {() => handleCheckNature(props.skills[8] + eliteWeakModifier)} style={props.skills[8] === 0 ? hiddenStyle:null}>Nature: {props.skills[8] + eliteWeakModifier}  ({checkNature})</div>
-                    <div className="checkOccultism" onClick= {() => handleCheckOccultism(props.skills[9] + eliteWeakModifier)} style={props.skills[9] === 0 ? hiddenStyle:null}>Occultism: {props.skills[9] + eliteWeakModifier}  ({checkOccultism})</div>
-                    <div className="checkPerformance" onClick= {() => handleCheckPerformance(props.skills[10] + eliteWeakModifier)} style={props.skills[10] === 0 ? hiddenStyle:null}>Performance: {props.skills[10] + eliteWeakModifier}  ({checkPerformance})</div>
-                    <div className="checkReligion" onClick= {() => handleCheckReligion(props.skills[11] + eliteWeakModifier)} style={props.skills[11] === 0 ? hiddenStyle:null}>Religion: {props.skills[11] + eliteWeakModifier}  ({checkReligion})</div>
-
-                    <div className="checkSociety" onClick= {() => handleCheckSociety(props.skills[12] + eliteWeakModifier)} style={props.skills[12] === 0 ? hiddenStyle:null}>Society: {props.skills[12] + eliteWeakModifier}  ({checkSociety})</div>
-                    <div className="checkStealth" onClick= {() => handleCheckStealth(props.skills[13] + eliteWeakModifier)} style={props.skills[13] === 0 ? hiddenStyle:null}>Stealth: {props.skills[13] + eliteWeakModifier}  ({checkStealth})</div>
-                    <div className="checkSurvival" onClick= {() => handleCheckSurvival(props.skills[14] + eliteWeakModifier)} style={props.skills[14] === 0 ? hiddenStyle:null}>Survival: {props.skills[14] + eliteWeakModifier}  ({checkSurvival})</div>
-                    <div className="checkThievery" onClick= {() => handleCheckThievery(props.skills[15] + eliteWeakModifier)} style={props.skills[15] === 0 ? hiddenStyle:null}>Thievery: {props.skills[15] + eliteWeakModifier}  ({checkThievery})</div>
+                    <Skills
+                        data = {props.skills}
+                        eliteWeakModifier = {eliteWeakModifier}
+                        hiddenStyle = {hiddenStyle}
+                        d20={d20}
+                    />         
                 </div>
             </div>
             <div className="column4">
