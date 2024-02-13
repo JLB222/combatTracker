@@ -13,11 +13,11 @@ function Strike(props) {
     }
     function handleDamage(arr) {
         let roll = props.damageRoll(arr)
-        setDamage(` = ${roll}`)
+        setDamage(`--> (${roll[1]} + ${arr[2]}) = ${roll[0]}`)
     }
     function handleRiderDamage(arr) {
         let roll = props.damageRoll(arr)
-        setRiderDamage(` = ${roll}`)
+        setRiderDamage(` = ${roll[0]}`)
     }
     
     return (

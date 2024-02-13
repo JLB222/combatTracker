@@ -38,15 +38,14 @@ export default function App() {
           {/* <li>Add an onClick for damage rolls on the new strike.jsx</li> */}
           {/* <li>add damage roller for rider damage</li> */}
           <li>As implemented, I'd need a different state for every different special attack a creature has.  Can we simplify all that into one state?</li>
-          <li>OR: make it so that clicking the attack auto-rolls appropriate damage roll</li>
-          <li>What if the creature has Fortune? Misfortune?  There'd be two attack rolls but you wouldn't want two damage rolls.</li>
-          {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
+          <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li>
           {/* <li>Elite & Weak tags need to change damage of strikes</li> */}
           {/* <li>Elite & weak Modifier need to change Monster HP</li> */}
           <li>Elite & weak Modifier need to change damage of monster's non-strike abilities.  Limited Use +4 dmg, & nonlimited +2</li>
           <li>figure out how to deal with Initiative.  Just make it editable by user?  click perception and it automatically fills in?  what if the enemy rolls stealth for initiative?  What about the app auto-sorting the monsters based on initiative?</li>
           <li>add the ability for user to add monsters to the list</li>
           <li>add ability to remove monsters from list</li>
+          <li>add ability to re-organize entries by clicking & dragging the portrait of the creature</li>
           <li>update bestiary with combat stats: speed,attacks,spells</li>
           <li>add creature's attacks and abilities to the creature.jsx;  </li>
           {/* <li>attack update: attack is now a button, but only works for the first strike, Multi-Attack Penalty is not yet implemented.  Will probably need 3 buttons per attack.</li> */}
@@ -77,6 +76,9 @@ export default function App() {
           <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li>
           <li>add to the weapon array whether each weapon is Melee or Ranged</li>
           <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li>
+          <li>add the ability to add a Player Character Placeholder, to help the GM remember when it's the player's turn instead of the next monster's.  No stats, necessarily, because player stats are player's responsiblity. </li>
+          <li>perhaps give the PC Placeholder some basic stats like Saving Throws and Skill Checks, so that the GM can, if they want, do secret checks quickly and easily.  This would involve the GM entering custom info and thus the need for the app to save that info in memory.</li>
+          <li>for the phone version of the app, have the functionality to import images so you can, for example, take a picture of someone's Mini and use that as their Placeholder photo in the initiative order</li>
         </ul>
     </main>
   )

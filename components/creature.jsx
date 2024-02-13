@@ -36,7 +36,7 @@ export default function creature(props) {
           result.push(Math.floor((Math.random() * arr[1]) + 1))
         }
         console.log(`${arr[0]}d${arr[1]}+${arr[2]}:`, result)  //print the results in console to confirm the rolls are legit if necessary
-        return result.reduce((a,b) => a+b, arr[2])
+        return [result.reduce((a,b) => a+b, arr[2]), result]
     }
 
     function handleSaveFort(num) { let roll = d20(); setFortSave(`+ ${roll} = ${roll + num}`)}
