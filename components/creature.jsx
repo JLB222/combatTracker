@@ -35,7 +35,7 @@ export default function creature(props) {
         for (let i = 0; i < arr[0]; i++) {
           result.push(Math.floor((Math.random() * arr[1]) + 1))
         }
-        console.log(`${arr[0]}d${arr[1]}+${arr[2]}:`, result)  //print the results in console to confirm the rolls are legit if necessary
+        //console.log(`${arr[0]}d${arr[1]}+${arr[2]}:`, result)  //print the results in console to confirm the rolls are legit if necessary
         return [result.reduce((a,b) => a+b, arr[2]), result]
     }
 
@@ -89,7 +89,6 @@ export default function creature(props) {
                     <span className="level">{props.level} </span>
                     <span className="name">{props.name} </span>
                     <span className="initiative">Initiative </span>
-                    <span >Initiative #</span>
                     <span className="eliteToggle" style={elite?selectedStyle:null} onClick={() => handleEliteToggle()}> Elite </span>
                     <span className="weakToggle" style={weak?selectedStyle:null}onClick={() => handleWeakToggle()}> Weak </span>
                 </div>
@@ -107,20 +106,47 @@ export default function creature(props) {
             </div>
             <div className="column2">
                 <div className="defenses">
-                    <div className="hitPoints">HP: {health + eliteHPModifier(props.level)}/{props.defenses[4] + eliteHPModifier(props.level)} <span><input ref={damageInputRef}/><button onClick={handleHealth}>Change</button></span></div>
-                    <div className="armorClass" onClick={() => handleShieldRaise()}>AC: {props.defenses[0] + eliteWeakModifier + shieldModifier} {shieldUp ? "Shield Raised" : "Raise Shield"}</div>
-                    <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenses[1] + eliteWeakModifier)}>FORT: {props.defenses[1] + eliteWeakModifier} ({fortSave}) </div>
-                    <div className="saveReflex" onClick= {() => handleSaveRflx(props.defenses[2] + eliteWeakModifier)}>RFLX: {props.defenses[2] + eliteWeakModifier} ({rflxSave}) </div>
-                    <div className="saveWill" onClick= {() => handleSaveWill(props.defenses[3] + eliteWeakModifier)}>WILL: {props.defenses[3] + eliteWeakModifier} ({willSave}) </div>
+                    <div className="hitPoints">HP: 
+                    <span>{health + eliteHPModifier(props.level)}</span>/
+                    <span style={eliteWeakModifier?selectedStyle:null}>{props.defenses[4] + eliteHPModifier(props.level)}</span>
+                    <span><input ref={damageInputRef}/><button onClick={handleHealth}>Change</button></span>
+                </div>
+                    <div className="armorClass" onClick={() => handleShieldRaise()}>
+                    <span>AC: </span>
+                    <span style={eliteWeakModifier?selectedStyle:null}>{props.defenses[0] + eliteWeakModifier + shieldModifier}</span>
+                    <span> {shieldUp ? "Shield Raised" : "Raise Shield"}</span>
+                </div>
+                    <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenses[1] + eliteWeakModifier)}>
+                    <span>FORT: </span>
+                    <span style={eliteWeakModifier?selectedStyle:null}> {props.defenses[1] + eliteWeakModifier}</span>
+                    <span> ({fortSave})</span>
+                </div>
+                    <div className="saveReflex" onClick= {() => handleSaveRflx(props.defenses[2] + eliteWeakModifier)}>
+                    <span>RFLX: </span>
+                    <span style={eliteWeakModifier?selectedStyle:null}> {props.defenses[2] + eliteWeakModifier}</span>
+                    <span> ({rflxSave})</span>
+                </div>
+                    <div className="saveWill" onClick= {() => handleSaveWill(props.defenses[3] + eliteWeakModifier)}>
+                    <span>WILL: </span>
+                    <span style={eliteWeakModifier?selectedStyle:null}> {props.defenses[3] + eliteWeakModifier}</span>
+                    <span> ({willSave})</span>
+                </div>
                 </div>
             </div>
             <div className="column3">
                 <div className="skills">
-                    <div className="checkPerception" onClick= {() => handleCheckPerception(+props.perception[0] + eliteWeakModifier)}>Perception: {+props.perception[0] + eliteWeakModifier} ({checkPerception}) </div>
+                    <div className="checkPerception" 
+                        onClick= {() => handleCheckPerception(+props.perception[0] + eliteWeakModifier)}>
+                        <span>Perception: </span>
+                        <span style={eliteWeakModifier?selectedStyle:null}>{props.perception[0] + eliteWeakModifier}</span> 
+                        <span> ({checkPerception})</span>
+                        
+                    </div>
                     <Skills
                         data = {props.skills}
                         eliteWeakModifier = {eliteWeakModifier}
                         hiddenStyle = {hiddenStyle}
+                        selectedStyle = {selectedStyle}
                         d20={d20}
                     />         
                 </div>
