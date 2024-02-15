@@ -13,7 +13,7 @@ function Strike(props) {
     }
     function handleDamage(arr) {
         let roll = props.damageRoll(arr)
-        setDamage(`--> ([${roll[1]}] + ${arr[2] + props.eliteWeakModifier}) = ${roll[0] + props.eliteWeakModifier}`)
+        setDamage(`--> [${roll[1]}] + ${arr[2] + props.eliteWeakModifier} = ${roll[0] + props.eliteWeakModifier}`)
     }
     function handleRiderDamage(arr) {
         let roll = props.damageRoll(arr)
