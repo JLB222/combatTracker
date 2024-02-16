@@ -129,26 +129,6 @@ let bestiary = [
     ],
     ["Aasimar Redeemer",5,["Neutral Good","Medium","Aasimar","Human","Humanoid"],["11","Darkvision"],["Celestial","Common"],[0,0,11,0,0,12,0,9,0,0,0,11,7,0,0,0],[4,1,3,0,2,3],[23,12,8,11,73],["None"],["None"],["None"]],
     
-    // succubus: {
-    //     name: "Succubus",
-    //     level: 7,
-    //     tags: ["Chaotic Evil", "Medium", "Fiend", "Demon"], 
-    //     perception: [15, "Darkvision"],
-    //     languages: ["Abyssal", "Celestial", "Common", "Draconic", "", "", "", "Telepathy: 100 ft", "Tongues"],
-    //     skillBonuses: [14,0,0,0,18,20,16,0,0,0,0,13,15,14,0,0],
-    //     abilityMods: [2,3,4,4,2,7], 
-    //     defenses: [100, 23, 15, 14, 17], 
-    //     resistances: []
-    //     weaknesses: ["Cold Iron: 5", "Good: 5"], 
-    //     strikes: [
-            // [
-            //     [1, "Claw", 16, 12, 8],                      // unique attack of monster [#ofActions, Name, MAP0, MAP1, MAP2]
-            //     [[2,8,8,'Slashing'], [1,6,0,'Evil']],        // above attack's damage instances [#ofDice,sizeOfDice,flatBonus,dmgType]
-            //     ["Agile", "Evil", "Finesse", "Magical"]      // attack's weapon tags [tag,tag,tag,etc]
-            // ]
-            // ]
-    //     passives: ["+1 status to all saves vs. magic", "Rejection Vulnerability", "Seductive Presence"]
-    // }
 ]
 
 export default bestiary

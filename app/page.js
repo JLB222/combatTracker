@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Creature from 'components/creature.jsx'
 import bestiary from 'app/bestiary.js'
 
+
 function createEntry(entry) {
   return (
     <Creature
@@ -15,7 +16,7 @@ function createEntry(entry) {
       strikes = {entry[10]}
     />
   )
-}
+};
 
 let test = createEntry(bestiary[0])
 let test1 = createEntry(bestiary[1])
@@ -26,6 +27,29 @@ let test3 = createEntry(bestiary[3])
 let allMonsterTest = bestiary.map(createEntry)
 
 
+// import bestiaryTest from 'app/bestiaryTest.js'
+// import CreatureTest from 'components/creatureTest.jsx'
+
+// function createCreature(data) {
+//   return (
+//     <CreatureTest
+//       level = {data.level}
+//       name = {data.name}
+//       abilityModStrength = {data.abilityModStrength}
+//       abilityModConstitution = {data.abilityModConstitution}
+//       abilityModDexterity = {data.abilityModDexterity}
+//       abilityModIntelligence = {data.abilityModIntelligence}
+//       abilityModWisdom = {data.abilityModWisdom}
+//       abilityModCharisma = {data.abilityModCharisma}
+//       tags = {data.tags.join(", ")}
+//     />
+//   )
+// };
+// let objectTest = createCreature(bestiaryTest[0])
+
+
+
+
 export default function App() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -34,7 +58,9 @@ export default function App() {
         {test1}
         {test2}
         {test3}
+        {/* {objectTest} */}
         <ul>TO-DO:
+          <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li>
           <li>Maybe:  adjust the d20 roll function to do something special to detect Nat 1s and Nat 20s.  Could just let the GM watch for that, but they might appreciate a visual indicator when these are rolled.</li>
           {/* <li>Add an onClick for damage rolls on the new strike.jsx</li> */}
           {/* <li>add damage roller for rider damage</li> */}
@@ -80,7 +106,6 @@ export default function App() {
             <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
           {/* <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li> */}
           {/* <li>add to the weapon array whether each weapon is Melee or Ranged</li> */}
-          <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li>
           <li>add the ability to add a Player Character Placeholder, to help the GM remember when it's the player's turn instead of the next monster's.  No stats, necessarily, because player stats are player's responsiblity. </li>
           <li>perhaps give the PC Placeholder some basic stats like Saving Throws and Skill Checks, so that the GM can, if they want, do secret checks quickly and easily.  This would involve the GM entering custom info and thus the need for the app to save that info in memory.</li>
           <li>for the phone version of the app, have the functionality to import images so you can, for example, take a picture of someone's Mini and use that as their Placeholder photo in the initiative order</li>
