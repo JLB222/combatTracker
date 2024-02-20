@@ -55,7 +55,7 @@ const bestiaryTest = [
                         riderDamageType: "Evil"
                     }
                 }
-            ],
+        ],
         specialAbilities: [
             {
                 name: "Magic Resilience",

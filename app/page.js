@@ -18,34 +18,40 @@ function createEntry(entry) {
   )
 };
 
-let test = createEntry(bestiary[0])
-let test1 = createEntry(bestiary[1])
-let test2 = createEntry(bestiary[2])
-let test3 = createEntry(bestiary[3])
+// let test = createEntry(bestiary[0])
+// let test1 = createEntry(bestiary[1])
+// let test2 = createEntry(bestiary[2])
+// let test3 = createEntry(bestiary[3])
 //let chosenMonsterArray = [bestiary[0], bestiary[1], bestiary[2],bestiary[3]]
 //let chosenMonsterList = chosenMonsterArray.map(createEntry)
 let allMonsterTest = bestiary.map(createEntry)
 
 
-// import bestiaryTest from 'app/bestiaryTest.js'
-// import CreatureTest from 'components/creatureTest.jsx'
+import bestiaryTest from 'app/bestiaryTest.js'
+import CreatureTest from 'components/creatureTest.jsx'
 
-// function createCreature(data) {
-//   return (
-//     <CreatureTest
-//       level = {data.level}
-//       name = {data.name}
-//       abilityModStrength = {data.abilityModStrength}
-//       abilityModConstitution = {data.abilityModConstitution}
-//       abilityModDexterity = {data.abilityModDexterity}
-//       abilityModIntelligence = {data.abilityModIntelligence}
-//       abilityModWisdom = {data.abilityModWisdom}
-//       abilityModCharisma = {data.abilityModCharisma}
-//       tags = {data.tags.join(", ")}
-//     />
-//   )
-// };
-// let objectTest = createCreature(bestiaryTest[0])
+function createCreature(data) {
+  return (
+    <CreatureTest
+      level = {data.level}
+      name = {data.name}
+      abilityModStrength = {data.abilityModStrength}
+      abilityModConstitution = {data.abilityModConstitution}
+      abilityModDexterity = {data.abilityModDexterity}
+      abilityModIntelligence = {data.abilityModIntelligence}
+      abilityModWisdom = {data.abilityModWisdom}
+      abilityModCharisma = {data.abilityModCharisma}
+      tags = {data.tags.join(", ")}
+      defenseHP = {data.defenseHP}
+      defenseAC = {data.defenseAC}
+      defenseFortSave = {data.defenseFortSave}
+      defenseRflxSave = {data.defenseRflxSave}
+      defenseWillSave = {data.defenseWillSave}
+      perception = {data.perception}
+    />
+  )
+};
+let objectTest = createCreature(bestiaryTest[0])
 
 
 
@@ -54,11 +60,11 @@ export default function App() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
         {/* {allMonsterTest} */}
-        {test}
+        {/* {test}
         {test1}
         {test2}
-        {test3}
-        {/* {objectTest} */}
+        {test3} */}
+        {objectTest}
         <ul>TO-DO:
           <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li>
           <li>Maybe:  adjust the d20 roll function to do something special to detect Nat 1s and Nat 20s.  Could just let the GM watch for that, but they might appreciate a visual indicator when these are rolled.</li>
