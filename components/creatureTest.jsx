@@ -2,7 +2,9 @@
 import {useState, useRef} from 'react';
 import {v4 as uuidv4} from 'uuid'
 import Strike from './strike.jsx'
-import Skills from './skills.jsx'
+import Skills from './skillsTest.jsx'
+
+
 
 export default function creature(props) {
 
@@ -137,19 +139,38 @@ export default function creature(props) {
             <div className="column3">
                 <div className="skills">
                     <div className="checkPerception" 
-                        onClick= {() => handleCheckPerception(+props.perception + eliteWeakModifier)}>
+                        onClick= {() => handleCheckPerception(props.perception + eliteWeakModifier)}>
                         <span>Perception: </span>
                         <span style={eliteWeakModifier?selectedStyle:null}>{props.perception + eliteWeakModifier}</span> 
                         <span> ({checkPerception})</span>
                         
                     </div>
-                    {/* <Skills
-                        data = {props.skills}
+                    <Skills
+                        skillBonusAcrobatics = {props.skills[0]}
+                        skillBonusArcana = {props.skills[1]}
+                        skillBonusAthletics = {props.skills[2]}
+                        skillBonusCrafting = {props.skills[3]}
+
+                        skillBonusDeception = {props.skills[4]}
+                        skillBonusDiplomacy = {props.skills[5]}
+                        skillBonusIntimidation = {props.skills[6]}
+                        skillBonusMedicine = {props.skills[7]}
+
+                        skillBonusNature = {props.skills[8]}
+                        skillBonusOccultism = {props.skills[9]}
+                        skillBonusPerformance = {props.skills[10]}
+                        skillBonusReligion = {props.skills[11]}
+                        
+                        skillBonusSociety = {props.skills[12]}
+                        skillBonusStealth = {props.skills[13]}
+                        skillBonusSurvival = {props.skills[14]}
+                        skillBonusThievery = {props.skills[15]}
+
                         eliteWeakModifier = {eliteWeakModifier}
                         hiddenStyle = {hiddenStyle}
                         selectedStyle = {selectedStyle}
                         d20={d20}
-                    />          */}
+                    />         
                 </div>
             </div>
             {/* <div className="column4">

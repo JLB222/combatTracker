@@ -48,6 +48,7 @@ function createCreature(data) {
       defenseRflxSave = {data.defenseRflxSave}
       defenseWillSave = {data.defenseWillSave}
       perception = {data.perception}
+      skills = {[data.skillBonusAcrobatics, data.skillBonusArcana, data.skillBonusAthletics, data.skillBonusCrafting, data.skillBonusDeception, data.skillBonusDiplomacy, data.skillBonusIntimidation, data.skillBonusMedicine, data.skillBonusNature, data.skillBonusOccultism, data.skillBonusPerformance, data.skillBonusReligion, data.skillBonusSociety, data.skillBonusStealth, data.skillBonusSurvival, data.skillBonusThievery]}
     />
   )
 };
