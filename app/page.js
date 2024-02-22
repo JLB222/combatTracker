@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Creature from 'components/creature.jsx'
-import bestiary from 'app/bestiary.js'
+// import Creature from 'components/creature.jsx'
+// import bestiary from 'app/bestiary.js'
 
 
 function createEntry(entry) {
@@ -24,15 +24,15 @@ function createEntry(entry) {
 // let test3 = createEntry(bestiary[3])
 //let chosenMonsterArray = [bestiary[0], bestiary[1], bestiary[2],bestiary[3]]
 //let chosenMonsterList = chosenMonsterArray.map(createEntry)
-let allMonsterTest = bestiary.map(createEntry)
+// let allMonsterTest = bestiary.map(createEntry)
 
 
 import bestiaryTest from 'app/bestiaryTest.js'
-import CreatureTest from 'components/creatureTest.jsx'
+import Creature from 'components/creatureTest.jsx'
 
 function createCreature(data) {
   return (
-    <CreatureTest
+    <Creature
       level = {data.level}
       name = {data.name}
       abilityModStrength = {data.abilityModStrength}
@@ -49,6 +49,7 @@ function createCreature(data) {
       defenseWillSave = {data.defenseWillSave}
       perception = {data.perception}
       skills = {[data.skillBonusAcrobatics, data.skillBonusArcana, data.skillBonusAthletics, data.skillBonusCrafting, data.skillBonusDeception, data.skillBonusDiplomacy, data.skillBonusIntimidation, data.skillBonusMedicine, data.skillBonusNature, data.skillBonusOccultism, data.skillBonusPerformance, data.skillBonusReligion, data.skillBonusSociety, data.skillBonusStealth, data.skillBonusSurvival, data.skillBonusThievery]}
+      strikes = {data.strikes}
     />
   )
 };

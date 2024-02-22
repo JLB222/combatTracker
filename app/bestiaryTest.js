@@ -39,7 +39,8 @@ const bestiaryTest = [
         defenseWeaknesses: ["Cold Iron: 5", "Good: 5"], 
         strikes: [
                 {
-                    type: "Claw",
+                    type: "Melee",
+                    weapon: "Claw",
                     weaponTraits: ["Agile", "Evil", "Finesse", "Magical"],
                     numberOfActions: 1,
                     multiAttackPenalty: [16,12,8],

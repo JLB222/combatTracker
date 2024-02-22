@@ -1,7 +1,7 @@
 "use client"
 import {useState, useRef} from 'react';
 import {v4 as uuidv4} from 'uuid'
-import Strike from './strike.jsx'
+import Strike from './strikeTest.jsx'
 import Skills from './skillsTest.jsx'
 
 
@@ -173,7 +173,7 @@ export default function creature(props) {
                     />         
                 </div>
             </div>
-            {/* <div className="column4">
+            <div className="column4">
                 <div className="Strikes">
                     {props.strikes.map((element, index) => (
                         <Strike 
@@ -186,7 +186,7 @@ export default function creature(props) {
                         />
                     ))}
                 </div>
-            </div> */}
+            </div>
 
         </div>
         
