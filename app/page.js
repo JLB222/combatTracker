@@ -3,20 +3,20 @@ import Image from 'next/image'
 // import bestiary from 'app/bestiary.js'
 
 
-function createEntry(entry) {
-  return (
-    <Creature
-      name = {entry[0]}
-      level = {entry[1]}
-      abilityMods = {...entry[6]}
-      tags = {entry[2].join(", ")}
-      perception = {entry[3]}
-      defenses = {entry[7]}
-      skills = {entry[5]}
-      strikes = {entry[10]}
-    />
-  )
-};
+// function createEntry(entry) {
+//   return (
+//     <Creature
+//       name = {entry[0]}
+//       level = {entry[1]}
+//       abilityMods = {...entry[6]}
+//       tags = {entry[2].join(", ")}
+//       perception = {entry[3]}
+//       defenses = {entry[7]}
+//       skills = {entry[5]}
+//       strikes = {entry[10]}
+//     />
+//   )
+// };
 
 // let test = createEntry(bestiary[0])
 // let test1 = createEntry(bestiary[1])
@@ -54,6 +54,7 @@ function createCreature(data) {
   )
 };
 let objectTest = createCreature(bestiaryTest[0])
+let showFullBestiary = bestiaryTest.map(createCreature)
 
 
 
@@ -61,18 +62,14 @@ let objectTest = createCreature(bestiaryTest[0])
 export default function App() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        {/* {allMonsterTest} */}
-        {/* {test}
-        {test1}
-        {test2}
-        {test3} */}
-        {objectTest}
+        {showFullBestiary}
         <ul>TO-DO:
-          <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li>
+          {/* <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li> */}
           <li>Maybe:  adjust the d20 roll function to do something special to detect Nat 1s and Nat 20s.  Could just let the GM watch for that, but they might appreciate a visual indicator when these are rolled.</li>
           {/* <li>Add an onClick for damage rolls on the new strike.jsx</li> */}
           {/* <li>add damage roller for rider damage</li> */}
           <li>As implemented, I'd need a different state for every different special attack a creature has.  Can we simplify all that into one state?</li>
+          <li>Furthermore, every unique rider effect needs its own state, further complicating the rendering of damage.  Solution needed.</li>
           <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li>
             <li>DONE: HP, AC, saving throws</li>
             <li>DONE: skill checks</li>
@@ -86,7 +83,7 @@ export default function App() {
           <li>add the ability for user to add monsters to the list</li>
           <li>add ability to remove monsters from list</li>
           <li>add ability to re-organize entries by clicking & dragging the portrait of the creature</li>
-          <li>update bestiary with combat stats: speed,attacks,spells</li>
+          <li>update bestiary with combat stats: speed,attacks,spells, specialAbilities </li>
           {/* <li>attack update: attack is now a button, but only works for the first strike, Multi-Attack Penalty is not yet implemented.  Will probably need 3 buttons per attack.</li> */}
           {/* <li>Stylize the attack bonus after clicking it so the user can tell which one is being applied more easily</li> */}
           <li>add a damage roller to creature's Damage entry</li>

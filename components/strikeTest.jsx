@@ -28,10 +28,10 @@ function Strike(props) {
     
     return (
     <div className="strike">
-        <span class="strikeType">({props.data.type}) </span>
-        <span class="strikeWeapon">{props.data.weapon}: [</span>
+        <span className="strikeType">({props.data.type}) </span>
+        <span className="strikeWeapon">{props.data.weapon}: [</span>
 
-        <span class="firstStrike" 
+        <span className="firstStrike" 
                     style={
                         (MAP === 1 && props.eliteWeakModifier) ? { ...props.selectedStyle, ...mapStyle } 
                         : MAP === 1 ? mapStyle 
@@ -44,7 +44,7 @@ function Strike(props) {
                     }}
         >+{props.data.multiAttackPenalty[0] + props.eliteWeakModifier}</span><span>/</span>
         
-        <span class="secondStrike" 
+        <span className="secondStrike" 
                     style={
                         (MAP === 2 && props.eliteWeakModifier) ? { ...props.selectedStyle, ...mapStyle } 
                         : MAP === 2 ? mapStyle 
@@ -57,7 +57,7 @@ function Strike(props) {
                     }}
         >+{props.data.multiAttackPenalty[1] + props.eliteWeakModifier}</span><span>/</span>
 
-        <span class="thirdStrike" 
+        <span className="thirdStrike" 
                     style={
                         (MAP === 3 && props.eliteWeakModifier) ? { ...props.selectedStyle, ...mapStyle } 
                         : MAP === 3 ? mapStyle 
@@ -70,29 +70,29 @@ function Strike(props) {
                     }}
         >+{props.data.multiAttackPenalty[2] + props.eliteWeakModifier}</span><span>]</span>
 
-        <span class="strikeResult">{checkAttack}</span>
+        <span className="strikeResult">{checkAttack}</span>
 
         <div className="strikeTags">[{props.data.weaponTraits.join(", ") || "No weapon traits"}]</div>
         <div className="strikeDamage">
             {/* Basic strike that all creatures should have. */}
-            <span class="damageNumber" 
+            <span className="damageNumber" 
                 onClick={() => handleDamage([props.data.diceNumber, props.data.diceSize, props.data.damageBonus, props.data.damageType])}>
-                    <span class="dieNumber">{props.data.diceNumber}</span>
-                    <span class="dieSize">d{props.data.diceSize}+</span>
-                    <span class="damageBonus" style={props.eliteWeakModifier ? props.selectedStyle : null}>{props.data.damageBonus +props.eliteWeakModifier}</span>
-                    <span class="damageResult"> {damage}</span>
+                    <span className="dieNumber">{props.data.diceNumber}</span>
+                    <span className="dieSize">d{props.data.diceSize}+</span>
+                    <span className="damageBonus" style={props.eliteWeakModifier ? props.selectedStyle : null}>{props.data.damageBonus +props.eliteWeakModifier}</span>
+                    <span className="damageResult"> {damage}</span>
             </span>
-            <span class="damageType"> {props.data.damageType} </span>
+            <span className="damageType"> {props.data.damageType} </span>
             {/* Conditional render of any rider effects, including but not limited to extra damage */}
-            {props.data.rider.type === "extraDamage" ? 
-                <div>
+            {props.data.rider.map((el,index) => el.type  === "extraDamage" ? 
+                <div key={index}>
                     {/* the purpose of the ternary is to conditionally render the '+ X' damage or nothing if the value is 0 (so that it doesn't display '1d6+0 evil' on the succubus, for example) */}
-                    <span class="riderDamage" onClick={() => handleRiderDamage([props.data.rider.riderDiceNumber, props.data.rider.riderDiceSize, props.data.rider.riderDamageBonus, props.data.rider.riderDamageType])}> & {props.data.rider.riderDiceNumber}d{props.data.rider.riderDiceSize}{props.data.rider.riderDamageBonus ? <span>+ {props.data.rider.riderDamageBonus}</span> : <span></span>} {riderDamage}</span>
-                    <span> {props.data.rider.riderDamageType}</span>
+                    <span className="riderDamage" onClick={() => handleRiderDamage([el.riderDiceNumber, el.riderDiceSize, el.riderDamageBonus, el.riderDamageType])}> & {el.riderDiceNumber}d{el.riderDiceSize}{el.riderDamageBonus ? <span>+ {el.riderDamageBonus}</span> : <span></span>} {riderDamage}</span>
+                    <span> {el.riderDamageType}</span>
                 </div>
-            : props.data.rider ? 
-                <div class="riderEffect"> & {props.data.rider.type}</div>
-            : null}
+            : el.type === "effect" ? 
+                <div key={index} className="riderEffect"> & {el.riderName}</div>
+            : console.log(el))}
         </div>
     </div>
     )
