@@ -1,8 +1,10 @@
 const bestiaryTest = [ 
     {   
         name: "Succubus",
+        source: "Bestiary pg.77",
         level: 7,
         tags: ["Chaotic Evil", "Medium", "Fiend", "Demon"], 
+        recallKnowledge: {type: "Religion", value: 23, UnspecificLore: 21, SpecificLore: 18},
         perception: 15,
         visionLowLight: false,
         visionDark: true,
@@ -39,6 +41,7 @@ const bestiaryTest = [
         defenseImmunities: ["No Immunities"],
         defenseResistances: ["No Resistances"],
         defenseWeaknesses: ["Cold Iron: 5", "Good: 5"], 
+        speeds: {stride: 25, climb: 0, swim: 0, fly: 35, burrow: 0},
         canReactiveStrike: false,
         strikes: [
                 {
@@ -148,8 +151,10 @@ const bestiaryTest = [
     }, 
     {   
         name: "Gelugon",
+        source: "Bestiary pg.91",
         level: 13,
         tags: ["Lawful Evil", "Large", "Fiend", "Devil"], 
+        recallKnowledge: {type: "Religion", value: 31, UnspecificLore: 29, SpecificLore: 26},
         perception: 26,
         visionLowLight: false,
         visionDark: false,
@@ -191,6 +196,7 @@ const bestiaryTest = [
         defenseImmunities: ["Cold", "Fire"],
         defenseResistances: ["Physical: 10 (Except Silver)", "Poison: 10"],
         defenseWeaknesses: ["Good: 10"], 
+        speeds: {stride: 35, climb: 0, swim: 0, fly: 35, burrow: 0},
         canReactiveStrike: true,
         strikes: [
                 {

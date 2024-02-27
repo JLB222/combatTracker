@@ -27,8 +27,8 @@ import Image from 'next/image'
 // let allMonsterTest = bestiary.map(createEntry)
 
 
-import bestiaryTest from 'app/bestiaryTest.js'
-import Creature from 'components/creatureTest.jsx'
+import bestiaryTest from '/app/bestiaryTest.js'
+import Creature from '/components/creatureTest.jsx'
 
 function createCreature(data) {
   return (
@@ -70,6 +70,8 @@ export default function App() {
           {/* <li>add damage roller for rider damage</li> */}
           <li>As implemented, I'd need a different state for every different special attack a creature has.  Can we simplify all that into one state?</li>
           <li>Furthermore, every unique rider effect needs its own state, further complicating the rendering of damage.  Solution needed.</li>
+            <li>rider damage effects currently display the damage roll under all rider damage spans; they need their own rendering</li>
+            <li>Solution? : make a strikeRider.jsx component so each rider has its own riderDamage state?</li>
           <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li>
             <li>DONE: HP, AC, saving throws</li>
             <li>DONE: skill checks</li>

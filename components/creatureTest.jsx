@@ -1,31 +1,17 @@
 "use client"
-import {useState, useRef} from 'react';
+import {useState} from 'react';
 import {v4 as uuidv4} from 'uuid'
+import Defenses from './defenses.jsx'
 import Strike from './strikeTest.jsx'
 import Skills from './skillsTest.jsx'
 
 
 
 export default function creature(props) {
+    const [uniqueId] = useState(uuidv4()); // Generate a unique ID for each instance of creature
 
     const [elite, setElite] = useState(false)
     const [weak, setWeak] = useState(false)
-    const [shieldUp, setShieldUp] = useState(false)
-
-    const [health, setHealth] = useState(props.defenseHP)
-    const damageInputRef = useRef(null); // Create a ref for the input element that will change HP
-    const [uniqueId] = useState(uuidv4()); // Generate a unique ID for each instance of creature
-    function handleHealth() {
-        const inputValue = damageInputRef.current.value;
-        if (inputValue) {
-            setHealth(health - parseInt(inputValue, 10));  
-        }
-        damageInputRef.current.value = ""  //resets the input after the user clicks
-    }
-
-    const [fortSave, setFortSave] = useState(props.defenseFortSave)
-    const [rflxSave, setRflxSave] = useState(props.defenseRflxSave)
-    const [willSave, setWillSave] = useState(props.defenseWillSave)
     
     const [checkPerception, setCheckPerception] = useState(props.perception)
     
@@ -42,10 +28,6 @@ export default function creature(props) {
         return [result.reduce((a,b) => a+b, arr[2]), result]
     }
 
-    function handleSaveFort(num) { let roll = d20(); setFortSave(`+ ${roll} = ${roll + num}`)}
-    function handleSaveRflx(num) { let roll = d20(); setRflxSave(`+ ${roll} = ${roll + num}`)}
-    function handleSaveWill(num) { let roll = d20(); setWillSave(`+ ${roll} = ${roll + num}`)
-    }
     function handleCheckPerception(num) { let roll = d20(); setCheckPerception(`+ ${roll} = ${roll + num}`);}
 
     function handleEliteToggle() {
@@ -60,9 +42,6 @@ export default function creature(props) {
         }
         setWeak(!weak)
     }
-    function handleShieldRaise() {
-        setShieldUp(!shieldUp)
-    }
 
     let hiddenStyle = {
         display : "none"
@@ -74,16 +53,7 @@ export default function creature(props) {
     }
 
     const eliteWeakModifier = (elite ? 2:0) + (weak ? -2:0)
-    const eliteHPModifier = (level) => {
-        switch(true) {
-            case (level <= 1): return (elite ? 10:0) + (weak ? -10:0)
-            case (level >=2 && level <= 4): return (elite ? 15:0) + (weak ? -15:0)
-            case (level >=5 && level <= 19): return (elite ? 20:0) + (weak ? -20:0)
-            case (level >= 20): return (elite ? 30:0) + (weak ? -30:0)
-            default: 'Error.  What level did you enter?'
-        }
-    }
-    const shieldModifier = shieldUp ? 2:0
+
     return (
         <div className="monster" id={uniqueId}>
             <div className="column1">
@@ -108,33 +78,19 @@ export default function creature(props) {
                 </div>
             </div>
             <div className="column2">
-                <div className="defenses">
-                    <div className="hitPoints">HP: 
-                        <span>{health + eliteHPModifier(props.level)}</span>/
-                        <span style={eliteWeakModifier?selectedStyle:null}>{props.defenseHP + eliteHPModifier(props.level)}</span>
-                        <span><input ref={damageInputRef}/><button onClick={handleHealth}>Change</button></span>
-                    </div>
-                    <div className="armorClass" onClick={() => handleShieldRaise()}>
-                        <span>AC: </span>
-                        <span style={eliteWeakModifier?selectedStyle:null}>{props.defenseAC + eliteWeakModifier + shieldModifier}</span>
-                        <span> {shieldUp ? "Shield Raised" : "Raise Shield"}</span>
-                    </div>
-                    <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenseFortSave + eliteWeakModifier)}>
-                        <span>FORT: </span>
-                        <span style={eliteWeakModifier?selectedStyle:null}> {props.defenseFortSave + eliteWeakModifier}</span>
-                        <span> ({fortSave})</span>
-                    </div>
-                    <div className="saveReflex" onClick= {() => handleSaveRflx(props.defenseRflxSave + eliteWeakModifier)}>
-                        <span>RFLX: </span>
-                        <span style={eliteWeakModifier?selectedStyle:null}> {props.defenseRflxSave + eliteWeakModifier}</span>
-                        <span> ({rflxSave})</span>
-                    </div>
-                    <div className="saveWill" onClick= {() => handleSaveWill(props.defenseWillSave + eliteWeakModifier)}>
-                        <span>WILL: </span>
-                        <span style={eliteWeakModifier?selectedStyle:null}> {props.defenseWillSave + eliteWeakModifier}</span>
-                        <span> ({willSave})</span>
-                    </div>
-                </div>
+                <Defenses
+                elite = {elite}
+                weak = {weak}
+                level = {props.level}
+                HP = {props.defenseHP}
+                eliteWeakModifier = {eliteWeakModifier}
+                selectedStyle = {selectedStyle}
+                defenseAC = {props.defenseAC}
+                defenseFortSave = {props.defenseFortSave}
+                defenseRflxSave = {props.defenseRflxSave}
+                defenseWillSave = {props.defenseWillSave}
+                d20 = {d20}
+                ></Defenses>
             </div>
             <div className="column3">
                 <div className="skills">
