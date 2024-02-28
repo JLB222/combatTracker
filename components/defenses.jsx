@@ -42,8 +42,8 @@ function Defenses(props) {
 
 return (
     <div className="defenses">
-        <div className="hitPoints">HP: 
-            <span>{health + eliteHPModifier(props.level)}</span>/
+        <div className="hitPoints">HP:
+            <span> {health + eliteHPModifier(props.level)}</span>/
             <span style={props.eliteWeakModifier?props.selectedStyle:null}>{props.HP + eliteHPModifier(props.level)}</span>
             <span><input ref={damageInputRef}/><button onClick={handleHealth}>Change</button></span>
         </div>
@@ -66,6 +66,18 @@ return (
             <span>WILL: </span>
             <span style={props.eliteWeakModifier?props.selectedStyle:null}> {props.defenseWillSave + props.eliteWeakModifier}</span>
             <span> ({willSave})</span>
+        </div>
+        <div>
+            <span>Immunities: </span>
+            <span>{props.defenseImmunities.join(", ")}</span>
+        </div>
+        <div>
+            <span>Resistances: </span>
+            <span>{props.defenseResistances.join(", ")}</span>
+        </div>
+        <div>
+            <span>Weaknesses: </span>
+            <span>{props.defenseWeaknesses.join(", ")}</span>
         </div>
     </div>
 

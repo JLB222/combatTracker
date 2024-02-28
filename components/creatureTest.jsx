@@ -79,17 +79,20 @@ export default function creature(props) {
             </div>
             <div className="column2">
                 <Defenses
-                elite = {elite}
-                weak = {weak}
-                level = {props.level}
-                HP = {props.defenseHP}
-                eliteWeakModifier = {eliteWeakModifier}
-                selectedStyle = {selectedStyle}
-                defenseAC = {props.defenseAC}
-                defenseFortSave = {props.defenseFortSave}
-                defenseRflxSave = {props.defenseRflxSave}
-                defenseWillSave = {props.defenseWillSave}
-                d20 = {d20}
+                    elite = {elite}
+                    weak = {weak}
+                    level = {props.level}
+                    HP = {props.defenseHP}
+                    eliteWeakModifier = {eliteWeakModifier}
+                    selectedStyle = {selectedStyle}
+                    defenseAC = {props.defenseAC}
+                    defenseFortSave = {props.defenseFortSave}
+                    defenseRflxSave = {props.defenseRflxSave}
+                    defenseWillSave = {props.defenseWillSave}
+                    defenseImmunities = {props.defenseImmunities}
+                    defenseResistances = {props.defenseResistances}
+                    defenseWeaknesses = {props.defenseWeaknesses}
+                    d20 = {d20}
                 ></Defenses>
             </div>
             <div className="column3">

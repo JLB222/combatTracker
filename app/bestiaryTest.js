@@ -38,9 +38,9 @@ const bestiaryTest = [
         defenseFortSave: 15, 
         defenseRflxSave: 14, 
         defenseWillSave: 17, 
-        defenseImmunities: ["No Immunities"],
-        defenseResistances: ["No Resistances"],
-        defenseWeaknesses: ["Cold Iron: 5", "Good: 5"], 
+        defenseImmunities: ["None"],
+        defenseResistances: ["None"],
+        defenseWeaknesses: ["Cold Iron 5", "Good 5"], 
         speeds: {stride: 25, climb: 0, swim: 0, fly: 35, burrow: 0},
         canReactiveStrike: false,
         strikes: [
@@ -194,8 +194,8 @@ const bestiaryTest = [
         defenseRflxSave: 24, 
         defenseWillSave: 26, 
         defenseImmunities: ["Cold", "Fire"],
-        defenseResistances: ["Physical: 10 (Except Silver)", "Poison: 10"],
-        defenseWeaknesses: ["Good: 10"], 
+        defenseResistances: ["Physical 10 (Except Silver)", "Poison 10"],
+        defenseWeaknesses: ["Good 10"], 
         speeds: {stride: 35, climb: 0, swim: 0, fly: 35, burrow: 0},
         canReactiveStrike: true,
         strikes: [

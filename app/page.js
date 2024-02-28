@@ -47,6 +47,9 @@ function createCreature(data) {
       defenseFortSave = {data.defenseFortSave}
       defenseRflxSave = {data.defenseRflxSave}
       defenseWillSave = {data.defenseWillSave}
+      defenseImmunities = {data.defenseImmunities}
+      defenseResistances = {data.defenseResistances}
+      defenseWeaknesses = {data.defenseWeaknesses}
       perception = {data.perception}
       skills = {[data.skillBonusAcrobatics, data.skillBonusArcana, data.skillBonusAthletics, data.skillBonusCrafting, data.skillBonusDeception, data.skillBonusDiplomacy, data.skillBonusIntimidation, data.skillBonusMedicine, data.skillBonusNature, data.skillBonusOccultism, data.skillBonusPerformance, data.skillBonusReligion, data.skillBonusSociety, data.skillBonusStealth, data.skillBonusSurvival, data.skillBonusThievery]}
       strikes = {data.strikes}
@@ -102,7 +105,7 @@ export default function App() {
           <li>make each column it's own JSX component.  There's no need to overcomplicate creature.jsx</li>
             {/* <li>make a column for strikes</li> */}
             <li>make a jsx for profile column</li>
-            <li>make a jsx for defenses column</li>
+            {/* <li>make a jsx for defenses column</li> */}
             <li>add resistances and weaknesses to creature.jsx; ideally next to the Defenses column for easy consultation</li>
             {/* <li>make a jsx for skills column</li> */}
             <li>make a jsx for new special attacks column</li>
