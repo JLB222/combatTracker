@@ -104,9 +104,9 @@ export default function App() {
           {/* <li>for now, it is assumed that all creatures have a max of 1 rider, either damage or an effect.  Will update if/when this changes.</li> */}
           <li>make each column it's own JSX component.  There's no need to overcomplicate creature.jsx</li>
             {/* <li>make a column for strikes</li> */}
-            <li>make a jsx for profile column</li>
+            {/* <li>make a jsx for profile column</li> */}
             {/* <li>make a jsx for defenses column</li> */}
-            <li>add resistances and weaknesses to creature.jsx; ideally next to the Defenses column for easy consultation</li>
+            {/* <li>add resistances and weaknesses to creature.jsx; ideally next to the Defenses column for easy consultation</li> */}
             {/* <li>make a jsx for skills column</li> */}
             <li>make a jsx for new special attacks column</li>
             <li>make a jsx for new spells column?  or perhaps spells are part of the special column?</li>

@@ -4,6 +4,7 @@ import {v4 as uuidv4} from 'uuid'
 import Defenses from './defenses.jsx'
 import Strike from './strikeTest.jsx'
 import Skills from './skillsTest.jsx'
+import Profile from './profile.jsx';
 
 
 
@@ -57,25 +58,21 @@ export default function creature(props) {
     return (
         <div className="monster" id={uniqueId}>
             <div className="column1">
-                <div className="profile">
-                    {/* <image src={props.img}></image> */}
-                    <span className="level">{props.level} </span>
-                    <span className="name">{props.name} </span>
-                    <span className="initiative">Initiative </span>
-                    <span className="eliteToggle" style={elite?selectedStyle:null} onClick={() => handleEliteToggle()}> Elite </span>
-                    <span className="weakToggle" style={weak?selectedStyle:null}onClick={() => handleWeakToggle()}> Weak </span>
-                </div>
-                <div className="abilityMods">
-                    <span className="strengthMod">STR: {props.abilityModStrength} </span>
-                    <span className="dexterityMod">DEX: {props.abilityModDexterity} </span>
-                    <span className="constitutionMod">CON: {props.abilityModConstitution} </span>
-                    <span className="intelligenceMod">INT: {props.abilityModIntelligence} </span>
-                    <span className="wisdomMod">WIS: {props.abilityModWisdom} </span>
-                    <span className="charismaMod">CHA: {props.abilityModCharisma} </span>
-                </div>
-                <div className="tags">
-                    <span>{props.tags}</span>
-                </div>
+                <Profile
+                    level = {props.level}
+                    name = {props.name}
+                    elite = {elite}
+                    selectedStyle = {selectedStyle}
+                    handleEliteToggle = {handleEliteToggle}
+                    handleWeakToggle = {handleWeakToggle}
+                    abilityModStrength = {props.abilityModStrength}
+                    abilityModConstitution = {props.abilityModConstitution}
+                    abilityModDexterity = {props.abilityModDexterity}
+                    abilityModIntelligence = {props.abilityModIntelligence}
+                    abilityModWisdom = {props.abilityModWisdom}
+                    abilityModCharisma = {props.abilityModCharisma}
+                    tags = {props.tags}
+                />
             </div>
             <div className="column2">
                 <Defenses
@@ -93,7 +90,7 @@ export default function creature(props) {
                     defenseResistances = {props.defenseResistances}
                     defenseWeaknesses = {props.defenseWeaknesses}
                     d20 = {d20}
-                ></Defenses>
+                />
             </div>
             <div className="column3">
                 <div className="skills">

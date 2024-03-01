@@ -39,10 +39,10 @@ function Strike(props) {
                         : null
                     }
                     onClick={() => {
-                        handleCheckAttack(props.data.multiAttackPenalty[0] +props.eliteWeakModifier);
+                        handleCheckAttack(props.data.attackBonuses[0] +props.eliteWeakModifier);
                         setMAP(1);
                     }}
-        >+{props.data.multiAttackPenalty[0] + props.eliteWeakModifier}</span><span>/</span>
+        >+{props.data.attackBonuses[0] + props.eliteWeakModifier}</span><span>/</span>
         
         <span className="secondStrike" 
                     style={
@@ -52,10 +52,10 @@ function Strike(props) {
                         : null
                     }
                     onClick={() => {
-                        handleCheckAttack(props.data.multiAttackPenalty[1] + props.eliteWeakModifier);
+                        handleCheckAttack(props.data.attackBonuses[1] + props.eliteWeakModifier);
                         setMAP(2);
                     }}
-        >+{props.data.multiAttackPenalty[1] + props.eliteWeakModifier}</span><span>/</span>
+        >+{props.data.attackBonuses[1] + props.eliteWeakModifier}</span><span>/</span>
 
         <span className="thirdStrike" 
                     style={
@@ -65,10 +65,10 @@ function Strike(props) {
                         : null
                     }
                     onClick={() => {
-                        handleCheckAttack(props.data.multiAttackPenalty[2] + props.eliteWeakModifier);
+                        handleCheckAttack(props.data.attackBonuses[2] + props.eliteWeakModifier);
                         setMAP(3);
                     }}
-        >+{props.data.multiAttackPenalty[2] + props.eliteWeakModifier}</span><span>]</span>
+        >+{props.data.attackBonuses[2] + props.eliteWeakModifier}</span><span>]</span>
 
         <span className="strikeResult">{checkAttack}</span>
 
