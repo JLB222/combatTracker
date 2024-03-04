@@ -4,7 +4,8 @@ import {v4 as uuidv4} from 'uuid'
 import Defenses from './defenses.jsx'
 import Strike from './strikeTest.jsx'
 import Skills from './skillsTest.jsx'
-import Profile from './profile.jsx';
+import Profile from './profile.jsx'
+import Spells from './spells.jsx'
 
 
 
@@ -141,6 +142,13 @@ export default function creature(props) {
                             damageRoll={damageRoll}
                         />
                     ))}
+                </div>
+            </div>
+            <div className="column5">
+                <div className="Spells">
+                    <Spells>
+
+                    </Spells>
                 </div>
             </div>
 
