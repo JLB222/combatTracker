@@ -145,11 +145,13 @@ export default function creature(props) {
                 </div>
             </div>
             <div className="column5">
+                {props.spells[0] ? 
                 <div className="Spells">
-                    <Spells>
-
-                    </Spells>
+                    <Spells
+                        spells = {props.spells}
+                    />
                 </div>
+                : null}
             </div>
 
         </div>

@@ -70,7 +70,7 @@ const bestiaryTest = [
                 ]
             }
         ],
-        spellSaveDC: 26,
+        spellSaveDC: 0,  //setting this to 0 for creatures with no spells ensures that the spell column is not rendered 
         rituals: [
             {
                 name: "",

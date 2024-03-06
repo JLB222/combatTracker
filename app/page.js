@@ -53,6 +53,7 @@ function createCreature(data) {
       perception = {data.perception}
       skills = {[data.skillBonusAcrobatics, data.skillBonusArcana, data.skillBonusAthletics, data.skillBonusCrafting, data.skillBonusDeception, data.skillBonusDiplomacy, data.skillBonusIntimidation, data.skillBonusMedicine, data.skillBonusNature, data.skillBonusOccultism, data.skillBonusPerformance, data.skillBonusReligion, data.skillBonusSociety, data.skillBonusStealth, data.skillBonusSurvival, data.skillBonusThievery]}
       strikes = {data.strikes}
+      spells = {[data.spellSaveDC, data.spells, data.spellsAtWill, data.spellsConstant, data.rituals]}
     />
   )
 };
@@ -109,7 +110,7 @@ export default function App() {
             {/* <li>add resistances and weaknesses to creature.jsx; ideally next to the Defenses column for easy consultation</li> */}
             {/* <li>make a jsx for skills column</li> */}
             <li>make a jsx for new special attacks column</li>
-            <li>make a jsx for new spells column?  or perhaps spells are part of the special column?</li>
+            {/* <li>make a jsx for new spells column?  or perhaps spells are part of the special column?</li> */}
             <li>make a jsx for items & equipment column</li>
               <li>add an item array in the bestiary for creatures that have equipment</li>
               <li>have the shield raise option only for creatures that have a shield in their item array</li>
