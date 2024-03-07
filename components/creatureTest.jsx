@@ -6,6 +6,7 @@ import Strike from './strikeTest.jsx'
 import Skills from './skillsTest.jsx'
 import Profile from './profile.jsx'
 import Spells from './spells.jsx'
+import Special from './special.jsx'
 
 
 
@@ -62,7 +63,9 @@ export default function creature(props) {
                 <Profile
                     level = {props.level}
                     name = {props.name}
+                    languages = {props.languages}
                     elite = {elite}
+                    weak = {weak}
                     selectedStyle = {selectedStyle}
                     handleEliteToggle = {handleEliteToggle}
                     handleWeakToggle = {handleWeakToggle}
@@ -151,6 +154,14 @@ export default function creature(props) {
                         spells = {props.spells}
                     />
                 </div>
+                : null}
+            </div>
+            <div className="column6">
+                {props.special.length > 0 ? 
+                    <Special
+                    id = {props.id}
+                    specials = {props.special}
+                    />
                 : null}
             </div>
 

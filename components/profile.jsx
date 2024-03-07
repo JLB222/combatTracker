@@ -22,6 +22,9 @@ function Profile(props) {
             <div className="tags">
                 <span>{props.tags}</span>
             </div>
+            <div className="languages">
+                <span>{props.languages}</span>
+            </div>
         </div>
     )
 };

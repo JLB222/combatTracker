@@ -33,8 +33,10 @@ import Creature from '/components/creatureTest.jsx'
 function createCreature(data) {
   return (
     <Creature
+      id = {data.id}
       level = {data.level}
       name = {data.name}
+      languages = {data.languages.join(", ")}
       abilityModStrength = {data.abilityModStrength}
       abilityModConstitution = {data.abilityModConstitution}
       abilityModDexterity = {data.abilityModDexterity}
@@ -54,6 +56,7 @@ function createCreature(data) {
       skills = {[data.skillBonusAcrobatics, data.skillBonusArcana, data.skillBonusAthletics, data.skillBonusCrafting, data.skillBonusDeception, data.skillBonusDiplomacy, data.skillBonusIntimidation, data.skillBonusMedicine, data.skillBonusNature, data.skillBonusOccultism, data.skillBonusPerformance, data.skillBonusReligion, data.skillBonusSociety, data.skillBonusStealth, data.skillBonusSurvival, data.skillBonusThievery]}
       strikes = {data.strikes}
       spells = {[data.spellSaveDC, data.spells, data.spellsAtWill, data.spellsConstant, data.rituals]}
+      special = {data.specialAbilities}
     />
   )
 };
@@ -109,7 +112,7 @@ export default function App() {
             {/* <li>make a jsx for defenses column</li> */}
             {/* <li>add resistances and weaknesses to creature.jsx; ideally next to the Defenses column for easy consultation</li> */}
             {/* <li>make a jsx for skills column</li> */}
-            <li>make a jsx for new special attacks column</li>
+            {/* <li>make a jsx for new special attacks column</li> */}
             {/* <li>make a jsx for new spells column?  or perhaps spells are part of the special column?</li> */}
             <li>make a jsx for items & equipment column</li>
               <li>add an item array in the bestiary for creatures that have equipment</li>

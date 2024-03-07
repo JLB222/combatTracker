@@ -2,7 +2,7 @@ import {useState} from "react"
 
 function Spells(props) {
     return (
-        <div>
+        <div className="spells">
             <div>Spell DC: {props.spells[0]}</div>
 
             <div className="spellType">Limited Use Spells:</div>

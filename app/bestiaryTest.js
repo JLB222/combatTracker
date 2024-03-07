@@ -61,11 +61,11 @@ const bestiaryTest = [
                         riderDiceNumber: 0,
                         riderDiceSize: 0,
                         riderDamageBonus: 0,
-                        riderDamageType: ""
+                        riderDamageType: "rider damage's type"
                     },
                     {
                         type: "effect",
-                        riderName: "Slowing Frost",
+                        riderName: "name of rider effect",
                     }
                 ]
             }
@@ -103,9 +103,7 @@ const bestiaryTest = [
             }
         ],
         specialAbilities: [
-            {
-
-            }
+            
         ],
         notes: [
 
