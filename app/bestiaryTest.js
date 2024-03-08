@@ -458,6 +458,15 @@ const bestiaryTest = [
         ],
         specialAbilities: [
             {
+                name: "Frightful Presence",
+                type: "Aura",
+                auraSize: 10,
+                traits: ["Aura", "Divine", "Emotion", "Enchantment", "Fear", "Mental"],
+                dc: 31,
+                description: "A creature that first enters the area must attempt a Will save. Regardless of the result of the saving throw, the creature is temporarily immune to this monster’s Frightful Presence for 1 minute.",
+                results: ["Critical Success: Unaffected", "Success: Frightened 1", "Failure: Frightened 2", "Critical Failure: Frightened 4"]
+            },
+            {
                 name: "Magic Resilience",
                 type: "Passive",
                 description: "+1 Status Bonus to all saves vs. magic"

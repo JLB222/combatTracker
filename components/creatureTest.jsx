@@ -135,6 +135,7 @@ export default function creature(props) {
             </div>
             <div className="column4">
                 <div className="Strikes">
+                    {props.canReactiveStrike ? <div>Reactive Strike</div> : null}
                     {props.strikes.map((element, index) => (
                         <Strike 
                             key={index} 
@@ -148,20 +149,20 @@ export default function creature(props) {
                 </div>
             </div>
             <div className="column5">
+                {props.special.length > 0 ? 
+                    <Special
+                    damageRoll = {damageRoll}
+                    specials = {props.special}
+                    />
+                : null}
+            </div>
+            <div className="column6">
                 {props.spells[0] ? 
                 <div className="Spells">
                     <Spells
                         spells = {props.spells}
                     />
                 </div>
-                : null}
-            </div>
-            <div className="column6">
-                {props.special.length > 0 ? 
-                    <Special
-                    id = {props.id}
-                    specials = {props.special}
-                    />
                 : null}
             </div>
 
