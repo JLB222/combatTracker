@@ -25,6 +25,12 @@ function Profile(props) {
             <div className="languages">
                 <span>{props.languages}</span>
             </div>
+            <div className="recallKnowledge">
+                <div>Recall Knowledge DCs</div>
+                <div>{props.recallKnowledgeInfo[0]}: {props.recallKnowledgeInfo[1]}</div>
+                <div>Unspecific Lore: {props.recallKnowledgeInfo[2]}</div>
+                <div>Specific Lore: {props.recallKnowledgeInfo[3]}</div>
+            </div>
         </div>
     )
 };

@@ -58,6 +58,7 @@ function createCreature(data) {
       canReactiveStrike = {data.canReactiveStrike}
       spells = {[data.spellSaveDC, data.spells, data.spellsAtWill, data.spellsConstant, data.rituals]}
       special = {data.specialAbilities}
+      recallKnowledgeInfo = {[data.recallKnowledgeCategory, ...data.recallKnowledgeDC]}
     />
   )
 };
@@ -101,7 +102,7 @@ export default function App() {
           <li>Back-end: make a separate page(form) for easily adding new monsters to the bestiary array?</li>
           {/* <li>add healing and damage functionality to HP</li> */}
           {/* <li>Healing Update: Damage/Healing is currently applied through it's own DIV at the top of the page, but I'd rather have it so that each monster has an input by their HP.  The hurdle is identifying each monster's unique Input in the code. Line 122 in creature.jsx, I currently use querySelector.value and target the class, but that always finds the FIRST element with that class, so a 'master' input box at the top is my current workaround.</li> */}
-          <li>update bestiary to include DC to recall knowledge on the target</li>
+          {/* <li>update bestiary to include DC to recall knowledge on the target</li> */}
           {/* <li>add function to AC span; when clicked AC goes up by two to represent shield raising?</li> */}
           <li>add a section for condition tracking?</li>
           <li>add a general dice roller? for single or batch rolls</li>
