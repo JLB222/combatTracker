@@ -56,7 +56,7 @@ function createCreature(data) {
       skills = {[data.skillBonusAcrobatics, data.skillBonusArcana, data.skillBonusAthletics, data.skillBonusCrafting, data.skillBonusDeception, data.skillBonusDiplomacy, data.skillBonusIntimidation, data.skillBonusMedicine, data.skillBonusNature, data.skillBonusOccultism, data.skillBonusPerformance, data.skillBonusReligion, data.skillBonusSociety, data.skillBonusStealth, data.skillBonusSurvival, data.skillBonusThievery]}
       strikes = {data.strikes}
       canReactiveStrike = {data.canReactiveStrike}
-      spells = {[data.spellSaveDC, data.spells, data.spellsAtWill, data.spellsConstant, data.rituals]}
+      spells = {[data.spellSaveDC, data.spells, data.spellsAtWill, data.spellsConstant,data.spellsFocus, data.rituals,]}
       special = {data.specialAbilities}
       recallKnowledgeInfo = {[data.recallKnowledgeCategory, ...data.recallKnowledgeDC]}
     />
@@ -120,6 +120,7 @@ export default function App() {
               <li>add an item array in the bestiary for creatures that have equipment</li>
               <li>have the shield raise option only for creatures that have a shield in their item array</li>
             <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
+            <li>customize the different types of special abilities to be styled in different colors for easy reference at a glance.  EX;  reactions are red, passives are blue, whatever</li>
           {/* <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li> */}
           {/* <li>add to the weapon array whether each weapon is Melee or Ranged</li> */}
           <li>add the ability to add a Player Character Placeholder, to help the GM remember when it's the player's turn instead of the next monster's.  No stats, necessarily, because player stats are player's responsiblity. </li>

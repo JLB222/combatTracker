@@ -84,7 +84,7 @@ function Strike(props) {
             </span>
             <span className="damageType"> {props.data.damageType} </span>
             {/* Conditional render of any rider effects, including but not limited to extra damage */}
-            {props.data.rider.map((el,index) => el.type  === "extraDamage" ? 
+            {props.data.rider?.map((el,index) => el.type  === "extraDamage" ? 
                 <div key={index}>
                     {/* the purpose of the ternary is to conditionally render the '+ X' damage or nothing if the value is 0 (so that it doesn't display '1d6+0 evil' on the succubus, for example) */}
                     <span className="riderDamage" onClick={() => handleRiderDamage([el.riderDiceNumber, el.riderDiceSize, el.riderDamageBonus, el.riderDamageType])}> & {el.riderDiceNumber}d{el.riderDiceSize}{el.riderDamageBonus ? <span>+ {el.riderDamageBonus}</span> : <span></span>} {riderDamage}</span>

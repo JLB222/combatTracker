@@ -1,3 +1,5 @@
+import { Big_Shoulders_Inline_Display } from "next/font/google"
+
 const bestiaryTest = [ 
     {
         name: "name of creature",
@@ -106,6 +108,7 @@ const bestiaryTest = [
         specialAbilities: [
             
         ],
+        items: ["Crossbow"],
         notes: [
 
         ]
@@ -461,6 +464,12 @@ const bestiaryTest = [
         ],
         specialAbilities: [
             {
+                name: "Attack of Opportunity",
+                type: "Reaction",
+                trigger: "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using.",
+                effect: "The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike.",
+            },
+            {
                 name: "Frightful Presence",
                 type: "Aura",
                 auraSize: 10,
@@ -489,7 +498,132 @@ const bestiaryTest = [
             }
         ],
     }, 
-    
+    {
+        name: "Aasimar Redeemer",
+        id: 333,
+        source: "Bestiary pg.263",
+        level: 5,
+        tags: ["Neutral Good", "Medium", "Aasimar", "Human", "Humanoid"],
+        recallKnowledgeCategory: "Society",
+        recallKnowledgeDC: [20,18,15],  
+        perception: 11,
+        visionLowLight: false,
+        visionDark: true,
+        visionDarkGreater: false,
+        languages: ["Celestial", "Common"],
+        skillBonusAcrobatics: 0,
+        skillBonusArcana: 0,
+        skillBonusAthletics: 11,
+        skillBonusCrafting: 0,
+        skillBonusDeception: 0,
+        skillBonusDiplomacy: 12,
+        skillBonusIntimidation: 0,
+        skillBonusMedicine: 9,
+        skillBonusNature: 0,
+        skillBonusOccultism: 0,
+        skillBonusPerformance: 0,
+        skillBonusReligion: 11,
+        skillBonusSociety: 7,
+        skillBonusStealth: 0,
+        skillBonusSurvival: 0,
+        skillBonusThievery: 0,
+        skillBonusLore: [],
+        abilityModStrength: 4,
+        abilityModDexterity: 1,
+        abilityModConstitution: 3,
+        abilityModIntelligence: 0,
+        abilityModWisdom: 2,
+        abilityModCharisma: 3,
+        defenseHP: 73,
+        defenseAC: 23, 
+        defenseFortSave: 12, 
+        defenseRflxSave: 8, 
+        defenseWillSave: 11, 
+        defenseImmunities: ["None"],
+        defenseResistances: ["None"],
+        defenseWeaknesses: ["None"], 
+        speeds: {stride: 20, climb: 0, swim: 0, fly: 0, burrow: 0},
+        canReactiveStrike: false,
+        strikes: [
+            {
+                type: "Melee",
+                weapon: "Longsword",
+                weaponTraits: ["Versatile P"],
+                numberOfActions: 1,
+                attackBonuses: [15,10,5],
+                diceNumber: 1,
+                diceSize: 8,
+                damageBonus: 7,
+                damageType: "Slashing",
+            },
+            {
+                type: "Ranged",
+                weapon: "Crossbow",
+                weaponTraits: ["Range Increment 120", "Reload 1"],
+                numberOfActions: 1,
+                attackBonuses: [12,7,2],
+                diceNumber: 1,
+                diceSize: 8,
+                damageBonus: 3,
+                damageType: "Piercing",
+                rider: [
+                    {
+                        type: "effect",
+                        riderName: "Knockdown"
+                    }
+                ]
+            }
+
+        ],
+        spellSaveDC: 20,  //setting this to 0 for creatures with no spells ensures that the spell column is not rendered 
+        rituals: [],
+        spells: [],
+        spellsAtWill: [
+            {
+                name: "Light",
+                spellRank: 3,
+                tradition: "Divine",
+                innate: true,
+            },
+        ],
+        spellsConstant: [],
+        spellsFocus: [
+            {
+                name: "Lay on Hands",
+                spellRank: 3
+            }
+        ],
+        specialAbilities: [
+            {
+                name: "Shield Block",
+                type: "Reaction",
+                trigger: "The monster has its shield raised and takes damage from a physical attack.",
+                effect: "The monster snaps its shield into place to deflect a blow. The shield prevents the monster from taking an amount of damage up to the shield’s Hardness. The monster and the shield each take any remaining damage, possibly breaking or destroying the shield.",
+            },
+            {
+                name: "Divine Grace",
+                type: "Reaction",
+                trigger: "The anglekin is targeted by a spell that allows a saving throw.",
+                effect: "The scion gains a +2 circumstance bonus to the saving throw."
+            },
+            {
+                name: "Glimpse of Redemption",
+                type: "Reaction",
+                trigger: "An enemy damages one of the angelkin’s allies. Both the enemy and ally must be within 15 feet of the angelkin.",
+                effect: "The angelkin causes its foe to hesitate under the weight of its sins as visions of possible redemption play out in its mind’s eye. The foe chooses one of two options:",
+                options: ["The ally is completely unharmed by the triggering damage.", "The ally gains resistance 7 to all damage against the triggering damage. After the damaging effect resolves, the enemy becomes enfeebled 2 until the end of its next turn."]
+            }
+        ],
+        items: ["Crossbow", "Crossbow Bolts x10", "Half Plate", "Longsword", "Steel Shield"],
+        notes: [
+            {
+                entry: "Shield",
+                shieldHardness: 5,
+                shieldHP: 20,
+                shieldBrokenThreshold: 10
+            }
+        ]
+    }
 ]
 
 export default bestiaryTest
