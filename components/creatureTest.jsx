@@ -95,6 +95,8 @@ export default function creature(props) {
                     defenseResistances = {props.defenseResistances}
                     defenseWeaknesses = {props.defenseWeaknesses}
                     d20 = {d20}
+                    hasShield = {props.hasShield}
+                    notes = {props.notes}
                 />
             </div>
             <div className="column3">
@@ -136,7 +138,6 @@ export default function creature(props) {
             </div>
             <div className="column4">
                 <div className="Strikes">
-                    {props.canReactiveStrike ? <div>Reactive Strike</div> : null}
                     {props.strikes.map((element, index) => (
                         <Strike 
                             key={index} 
@@ -154,6 +155,8 @@ export default function creature(props) {
                     <Special
                     damageRoll = {damageRoll}
                     specials = {props.special}
+                    eliteWeakModifier = {eliteWeakModifier}
+                    selectedStyle = {selectedStyle}
                     />
                 : null}
             </div>

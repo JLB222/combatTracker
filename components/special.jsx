@@ -19,13 +19,13 @@ function Special(props) {
 
             : el.type === "Passive" ?
                 <div className="specialAbility">
-                    <div className="specialAbilityName">{el.name}</div>
+                    <div className="specialAbilityName">{el.name} {el.dc && <span style={props.eliteWeakModifier?props.selectedStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
                     <div className="specialAbilityDescription">{el.description}</div>
                 </div>
             
             : el.type === "Aura" ?
                 <div className="specialAbility">
-                    <div className="specialAbilityName">{el.name} | Radius: {el.auraSize} ft. {el.dc && <span> | DC: {el.dc}</span>}</div>
+                    <div className="specialAbilityName">{el.name} | Radius: {el.auraSize} ft. {el.dc && <span style={props.eliteWeakModifier?props.selectedStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
                     <div>[{el.traits.join(", ")}]</div>
                     <div className="specialAbilityDescription">{el.description}</div>
                     {el.results ? 

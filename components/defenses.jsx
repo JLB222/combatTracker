@@ -50,7 +50,7 @@ return (
         <div className="armorClass" onClick={() => handleShieldRaise()}>
             <span>AC: </span>
             <span style={props.eliteWeakModifier?props.selectedStyle:null}>{props.defenseAC + props.eliteWeakModifier + shieldModifier}</span>
-            <span> {shieldUp ? "Shield Raised" : "Raise Shield"}</span>
+            {props.hasShield ? <span> {shieldUp ? "Shield Raised" : "Raise Shield"}</span> : null}
         </div>
         <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenseFortSave + props.eliteWeakModifier)}>
             <span>FORT: </span>

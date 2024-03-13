@@ -59,6 +59,8 @@ function createCreature(data) {
       spells = {[data.spellSaveDC, data.spells, data.spellsAtWill, data.spellsConstant,data.spellsFocus, data.rituals,]}
       special = {data.specialAbilities}
       recallKnowledgeInfo = {[data.recallKnowledgeCategory, ...data.recallKnowledgeDC]}
+      hasShield = {data.notes?.some(el => el.entry === "Shield")}
+      notes = {data.notes}
     />
   )
 };
@@ -90,11 +92,12 @@ export default function App() {
           {/* <li>Elite & Weak tags need to change damage of strikes</li> */}
           {/* <li>Elite & weak Modifier need to change Monster HP</li> */}
           <li>Elite & weak Modifier need to change damage of monster's non-strike abilities.  Limited Use +4 dmg, & nonlimited +2</li>
+            <li>Add a creature to bestiary that has a damaging special attack </li>
           <li>figure out how to deal with Initiative.  Just make it editable by user?  click perception and it automatically fills in?  what if the enemy rolls stealth for initiative?  What about the app auto-sorting the monsters based on initiative?</li>
           <li>add the ability for user to add monsters to the list</li>
           <li>add ability to remove monsters from list</li>
           <li>add ability to re-organize entries by clicking & dragging the portrait of the creature</li>
-          <li>update bestiary with combat stats: speed,attacks,spells, specialAbilities </li>
+          {/* <li>update bestiary with combat stats: speed,attacks,spells, specialAbilities </li> */}
           {/* <li>attack update: attack is now a button, but only works for the first strike, Multi-Attack Penalty is not yet implemented.  Will probably need 3 buttons per attack.</li> */}
           {/* <li>Stylize the attack bonus after clicking it so the user can tell which one is being applied more easily</li> */}
           <li>add a damage roller to creature's Damage entry</li>
@@ -107,6 +110,7 @@ export default function App() {
           <li>add a section for condition tracking?</li>
           <li>add a general dice roller? for single or batch rolls</li>
           <li>Solved? Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li>
+          <li>Temporary HP?</li>
           {/* <li>for now, it is assumed that all creatures have a max of 1 rider, either damage or an effect.  Will update if/when this changes.</li> */}
           <li>make each column it's own JSX component.  There's no need to overcomplicate creature.jsx</li>
             {/* <li>make a column for strikes</li> */}
@@ -117,8 +121,9 @@ export default function App() {
             {/* <li>make a jsx for new special attacks column</li> */}
             {/* <li>make a jsx for new spells column?  or perhaps spells are part of the special column?</li> */}
             <li>make a jsx for items & equipment column</li>
-              <li>add an item array in the bestiary for creatures that have equipment</li>
-              <li>have the shield raise option only for creatures that have a shield in their item array</li>
+              {/* <li>add an item array in the bestiary for creatures that have equipment</li> */}
+              {/* <li>have the shield raise option only for creatures that have a shield in their item array</li> */}
+              <li>show the shield's HP, hardness, and BT in the Defenses column</li>
             <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
             <li>customize the different types of special abilities to be styled in different colors for easy reference at a glance.  EX;  reactions are red, passives are blue, whatever</li>
           {/* <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li> */}

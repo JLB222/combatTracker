@@ -487,6 +487,7 @@ const bestiaryTest = [
                 name: "Slowing Frost",
                 type: "Passive",
                 traits: ["Cold", "Divine", "Evocation"],
+                dc: 32,
                 description: "The ice devil channels the extreme cold of its body through its appendages and weapons. A creature hit by an ice devil’s weapon or unarmed attack in melee must attempt a DC 32 Fortitude save or be slowed 1 for 1d4 rounds. A weapon used by an ice devil gains the effects of a frost rune while the gelugon holds it, and the ice devil can throw any such weapon with a 20-foot range increment, trailing motes of frost."
             },
             {
