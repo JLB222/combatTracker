@@ -31,6 +31,7 @@ import bestiaryTest from '/app/bestiaryTest.js'
 import Creature from '/components/creatureTest.jsx'
 
 function createCreature(data) {
+  console.log(data.notes?.find(note => note.entry === "Shield"))
   return (
     <Creature
       id = {data.id}
@@ -59,7 +60,8 @@ function createCreature(data) {
       spells = {[data.spellSaveDC, data.spells, data.spellsAtWill, data.spellsConstant,data.spellsFocus, data.rituals,]}
       special = {data.specialAbilities}
       recallKnowledgeInfo = {[data.recallKnowledgeCategory, ...data.recallKnowledgeDC]}
-      hasShield = {data.notes?.some(el => el.entry === "Shield")}
+      hasShield = {data.notes?.some(note => note.entry === "Shield")}
+      shieldStats = {data.notes?.find(note => note.entry === "Shield")}
       notes = {data.notes}
     />
   )

@@ -96,7 +96,7 @@ export default function creature(props) {
                     defenseWeaknesses = {props.defenseWeaknesses}
                     d20 = {d20}
                     hasShield = {props.hasShield}
-                    notes = {props.notes}
+                    shieldStats = {props.shieldStats}
                 />
             </div>
             <div className="column3">

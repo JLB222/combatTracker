@@ -6,6 +6,8 @@ function Defenses(props) {
     const [health, setHealth] = useState(props.HP)
     const damageInputRef = useRef(null); // Create a ref for the input element that will change HP
 
+    const [shieldHealth, setShieldHealth] = (useState(props.hasShield ? props.shieldStats.shieldHP : null))
+
     const [shieldUp, setShieldUp] = useState(false)
     function handleShieldRaise() {
         setShieldUp(!shieldUp)
@@ -52,6 +54,13 @@ return (
             <span style={props.eliteWeakModifier?props.selectedStyle:null}>{props.defenseAC + props.eliteWeakModifier + shieldModifier}</span>
             {props.hasShield ? <span> {shieldUp ? "Shield Raised" : "Raise Shield"}</span> : null}
         </div>
+        {props.hasShield ? 
+            <div className="shieldHealth">
+                <span>Shield HP: {shieldHealth} / {props.shieldStats.shieldHP} </span>
+                <div>Broken Threshold:{props.shieldStats.shieldBrokenThreshold} </div>
+                <div>Hardness:{props.shieldStats.shieldHardness} </div>
+            </div> 
+        : null}
         <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenseFortSave + props.eliteWeakModifier)}>
             <span>FORT: </span>
             <span style={props.eliteWeakModifier?props.selectedStyle:null}> {props.defenseFortSave + props.eliteWeakModifier}</span>
