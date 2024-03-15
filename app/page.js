@@ -125,7 +125,8 @@ export default function App() {
             <li>make a jsx for items & equipment column</li>
               {/* <li>add an item array in the bestiary for creatures that have equipment</li> */}
               {/* <li>have the shield raise option only for creatures that have a shield in their item array</li> */}
-              <li>show the shield's HP, hardness, and BT in the Defenses column</li>
+              {/* <li>show the shield's HP, hardness, and BT in the Defenses column</li> */}
+              <li>add a shield HP tracker and button to change its value</li>
             <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
             <li>customize the different types of special abilities to be styled in different colors for easy reference at a glance.  EX;  reactions are red, passives are blue, whatever</li>
           {/* <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li> */}

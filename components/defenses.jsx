@@ -5,6 +5,7 @@ import { useState, useRef } from "react"
 function Defenses(props) {
     const [health, setHealth] = useState(props.HP)
     const damageInputRef = useRef(null); // Create a ref for the input element that will change HP
+    const shieldDamageInputRef = useRef(null);
 
     const [shieldHealth, setShieldHealth] = (useState(props.hasShield ? props.shieldStats.shieldHP : null))
 
@@ -28,7 +29,13 @@ function Defenses(props) {
         }
         damageInputRef.current.value = ""  //resets the input after the user clicks
     }
-
+    function handleShieldHealth() {
+        const shieldInputValue = shieldDamageInputRef.current.value;
+        if (shieldInputValue) {
+            setShieldHealth(shieldHealth - parseInt(shieldInputValue, 10));  
+        }
+        shieldDamageInputRef.current.value = ""  //resets the input after the user clicks
+    }
 
     const eliteHPModifier = (level) => {
         switch(true) {
@@ -57,6 +64,7 @@ return (
         {props.hasShield ? 
             <div className="shieldHealth">
                 <span>Shield HP: {shieldHealth} / {props.shieldStats.shieldHP} </span>
+                <span><input ref={shieldDamageInputRef}/><button onClick={handleShieldHealth}>Change</button></span>
                 <div>Broken Threshold:{props.shieldStats.shieldBrokenThreshold} </div>
                 <div>Hardness:{props.shieldStats.shieldHardness} </div>
             </div> 
