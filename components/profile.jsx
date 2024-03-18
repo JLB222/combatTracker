@@ -25,6 +25,12 @@ function Profile(props) {
             <div className="languages">
                 <span>{props.languages}</span>
             </div>
+            <div className="movementSpeeds">
+                {Object.keys(props.speeds).map((el, index) => props.speeds[el] > 0 ?
+                    <span class="moveType" key={index}>{el[0].toUpperCase() + el.slice(1)}: {props.speeds[el]}ft. </span>
+                : null
+                )}
+            </div>
             <div className="recallKnowledge">
                 <div>Recall Knowledge DCs</div>
                 <div>{props.recallKnowledgeInfo[0]}: {props.recallKnowledgeInfo[1]}</div>

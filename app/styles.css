@@ -37,6 +37,12 @@ p {
 .recallKnowledge {
     background-color: aqua;
 }
+.movementSpeeds {
+    background-color: aliceblue;
+}
+.moveType {
+    color:blueviolet
+}
 
 
 .column2 {

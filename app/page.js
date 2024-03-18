@@ -31,7 +31,6 @@ import bestiaryTest from '/app/bestiaryTest.js'
 import Creature from '/components/creatureTest.jsx'
 
 function createCreature(data) {
-  console.log(data.notes?.find(note => note.entry === "Shield"))
   return (
     <Creature
       id = {data.id}
@@ -63,6 +62,7 @@ function createCreature(data) {
       hasShield = {data.notes?.some(note => note.entry === "Shield")}
       shieldStats = {data.notes?.find(note => note.entry === "Shield")}
       notes = {data.notes}
+      speeds = {data.speeds}
     />
   )
 };
@@ -102,7 +102,7 @@ export default function App() {
           {/* <li>update bestiary with combat stats: speed,attacks,spells, specialAbilities </li> */}
           {/* <li>attack update: attack is now a button, but only works for the first strike, Multi-Attack Penalty is not yet implemented.  Will probably need 3 buttons per attack.</li> */}
           {/* <li>Stylize the attack bonus after clicking it so the user can tell which one is being applied more easily</li> */}
-          <li>add a damage roller to creature's Damage entry</li>
+          {/* <li>add a damage roller to creature's Damage entry</li> */}
           <li>re-format creature's attacks so there's a separate entry for things that will be there for every creature and things that won't be</li>
           <li>Back-end: make a separate page(form) for easily adding new monsters to the bestiary array?</li>
           {/* <li>add healing and damage functionality to HP</li> */}
@@ -126,7 +126,7 @@ export default function App() {
               {/* <li>add an item array in the bestiary for creatures that have equipment</li> */}
               {/* <li>have the shield raise option only for creatures that have a shield in their item array</li> */}
               {/* <li>show the shield's HP, hardness, and BT in the Defenses column</li> */}
-              <li>add a shield HP tracker and button to change its value</li>
+              {/* <li>add a shield HP tracker and button to change its value</li> */}
             <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
             <li>customize the different types of special abilities to be styled in different colors for easy reference at a glance.  EX;  reactions are red, passives are blue, whatever</li>
           {/* <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li> */}

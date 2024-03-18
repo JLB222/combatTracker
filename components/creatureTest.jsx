@@ -77,6 +77,7 @@ export default function creature(props) {
                     abilityModCharisma = {props.abilityModCharisma}
                     tags = {props.tags}
                     recallKnowledgeInfo = {props.recallKnowledgeInfo}
+                    speeds = {props.speeds}
                 />
             </div>
             <div className="column2">
