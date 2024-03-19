@@ -166,6 +166,8 @@ export default function creature(props) {
                 <div className="Spells">
                     <Spells
                         spells = {props.spells}
+                        eliteWeakModifier = {eliteWeakModifier}
+                        selectedStyle = {selectedStyle}
                     />
                 </div>
                 : null}
