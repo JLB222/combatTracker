@@ -624,6 +624,102 @@ const bestiaryTest = [
                 shieldBrokenThreshold: 10
             }
         ]
+    },
+    {
+        name: "Bloodseeker",
+        id: 51,
+        source: "Bestiary pg.42",
+        level: -1,
+        tags: ["Neutral", "Tiny", "Animal"],
+        recallKnowledgeCategory: "Nature",
+        recallKnowledgeDC: [13,11,8],  
+        perception: 6,
+        visionLowLight: false,
+        visionDark: true,
+        visionDarkGreater: false,
+        otherSenses: ["Scent (Imprecise) 60ft."],
+        languages: [],
+        skillBonusAcrobatics: 6,
+        skillBonusArcana: 0,
+        skillBonusAthletics: 0,
+        skillBonusCrafting: 0,
+        skillBonusDeception: 0,
+        skillBonusDiplomacy: 0,
+        skillBonusIntimidation: 0,
+        skillBonusMedicine: 0,
+        skillBonusNature: 0,
+        skillBonusOccultism: 0,
+        skillBonusPerformance: 0,
+        skillBonusReligion: 0,
+        skillBonusSociety: 0,
+        skillBonusStealth: 6,
+        skillBonusSurvival: 0,
+        skillBonusThievery: 0,
+        skillBonusLore: [],
+        abilityModStrength: -4,
+        abilityModDexterity: 3,
+        abilityModConstitution: 0,
+        abilityModIntelligence: -5,
+        abilityModWisdom: 1,
+        abilityModCharisma: -2,
+        defenseHP: 6,
+        defenseAC: 16, 
+        defenseFortSave: 5, 
+        defenseRflxSave: 8, 
+        defenseWillSave: 4, 
+        defenseImmunities: ["None"],
+        defenseResistances: ["None"],
+        defenseWeaknesses: ["None"], 
+        speeds: {stride: 10, climb: 0, swim: 0, fly: 30, burrow: 0},
+        canReactiveStrike: false,
+        strikes: [
+            {
+                type: "Melee",
+                weapon: "Barbed Leg",
+                weaponTraits: ["Finesse"],
+                numberOfActions: 1,
+                attackBonuses: [8,3,-2],
+                diceNumber: 0,
+                diceSize: 0,
+                damageBonus: 0,
+                damageType: "",
+                rider: [
+                    {
+                        type: "effect",
+                        riderName: "Attach"
+                    }
+                ]
+            }
+        ],
+        spellSaveDC: 0,  //setting this to 0 for creatures with no spells ensures that the spell column is not rendered 
+        rituals: [],
+        spells: [],
+        spellsAtWill: [],
+        spellsConstant: [],
+        spellsFocus: [],
+        specialAbilities: [
+            {
+                name: "Attach",
+                type: "Passive",
+                traits: [],
+                dc: null,
+                description: "When a bloodseeker hits a target larger than itself, its barbed legs attach it to that creature. This is similar to grabbing the creature, but the bloodseeker moves with that creature rather than holding it in place. The bloodseeker is flat-footed while attached. If the bloodseeker is killed or pushed away while attached to a creature it has drained blood from, that creature takes 1 persistent bleed damage. Escaping the attach or removing the bloodseeker in other ways doesn’t cause bleed damage."
+            },
+            {
+                name: "Blood Drain",
+                type: "Attack",
+                numberOfActions: 1,
+                traits: [],
+                requirements: "The bloodseeker is attached to a creature.",
+                description: "The bloodseeker uses its proboscis to drain blood from the creature it’s attached to. This deals 1d4 damage, and the bloodseeker gains temporary Hit Points equal to the damage dealt. A creature that has its blood drained by a bloodseeker is drained 1 until it receives healing (of any kind or amount).",
+                diceNumber: 1,
+                diceSize: 4,
+                damageBonus: 0,
+                damageType: "",
+            }
+        ],
+        items: [],
+        notes: []
     }
 ]
 

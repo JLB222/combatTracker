@@ -77,6 +77,9 @@ export default function App() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
         {showFullBestiary}
         <ul>TO-DO:
+          <li>Some creatures, like the Bloodseeker, have a basic Strike that deals no damage.  Showing 0d0+0 on their Strike section might confuse users, especially when making them elite makes it 0d0+2, suggesting it now does damage when it still shouldn't.  (or should it?)</li>
+          <li>Low level creatures might have a negative number for their MAP & it currently renders as '+-2' because the + is hard rendered atm.  Change it?</li>
+          <li>Give special styling to all instances of damage that can be clicked to roll damage, so the user can tell at a glance what they can click for damage.</li>
           {/* <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li> */}
           <li>Maybe:  adjust the d20 roll function to do something special to detect Nat 1s and Nat 20s.  Could just let the GM watch for that, but they might appreciate a visual indicator when these are rolled.</li>
           {/* <li>Add an onClick for damage rolls on the new strike.jsx</li> */}
@@ -86,15 +89,15 @@ export default function App() {
             <li>rider damage effects currently display the damage roll under all rider damage spans; they need their own rendering</li>
             <li>Solution? : make a strikeRider.jsx component so each rider has its own riderDamage state?</li>
           <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li>
-            <li>DONE: HP, AC, saving throws</li>
-            <li>DONE: skill checks</li>
-            <li>DONE: strike damage</li>
-            <li>Upcoming: special attacks</li>
+            {/* <li>HP, AC, saving throws</li> */}
+            {/* <li>skill checks</li> */}
+            {/* <li>strike damage</li> */}
           {/* <li>Back-end: tweak the skills.jsx file to make all skills like Acrobatics to improve readability and styling flexibility</li> */}
           {/* <li>Elite & Weak tags need to change damage of strikes</li> */}
           {/* <li>Elite & weak Modifier need to change Monster HP</li> */}
           <li>Elite & weak Modifier need to change damage of monster's non-strike abilities.  Limited Use +4 dmg, & nonlimited +2</li>
-            <li>Add a creature to bestiary that has a damaging special attack </li>
+            {/* <li>Add a creature to bestiary that has a damaging special attack in order to do this</li> */}
+            <li>Added section to specials for rendering of Unlimited (+2dmg) special attacks, but what about Limited (+4)?  Need to find a creature with such an ability.</li>
           <li>figure out how to deal with Initiative.  Just make it editable by user?  click perception and it automatically fills in?  what if the enemy rolls stealth for initiative?  What about the app auto-sorting the monsters based on initiative?</li>
           <li>add the ability for user to add monsters to the list</li>
           <li>add ability to remove monsters from list</li>
@@ -103,7 +106,6 @@ export default function App() {
           {/* <li>attack update: attack is now a button, but only works for the first strike, Multi-Attack Penalty is not yet implemented.  Will probably need 3 buttons per attack.</li> */}
           {/* <li>Stylize the attack bonus after clicking it so the user can tell which one is being applied more easily</li> */}
           {/* <li>add a damage roller to creature's Damage entry</li> */}
-          <li>re-format creature's attacks so there's a separate entry for things that will be there for every creature and things that won't be</li>
           <li>Back-end: make a separate page(form) for easily adding new monsters to the bestiary array?</li>
           {/* <li>add healing and damage functionality to HP</li> */}
           {/* <li>Healing Update: Damage/Healing is currently applied through it's own DIV at the top of the page, but I'd rather have it so that each monster has an input by their HP.  The hurdle is identifying each monster's unique Input in the code. Line 122 in creature.jsx, I currently use querySelector.value and target the class, but that always finds the FIRST element with that class, so a 'master' input box at the top is my current workaround.</li> */}
@@ -113,6 +115,7 @@ export default function App() {
           <li>add a general dice roller? for single or batch rolls</li>
           <li>Solved? Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li>
           <li>Temporary HP?</li>
+          <li>Other senses like Scent</li>
           {/* <li>for now, it is assumed that all creatures have a max of 1 rider, either damage or an effect.  Will update if/when this changes.</li> */}
           <li>make each column it's own JSX component.  There's no need to overcomplicate creature.jsx</li>
             {/* <li>make a column for strikes</li> */}

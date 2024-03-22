@@ -2,10 +2,17 @@ import {useState} from "react"
 
 function Special(props) {
     const [vulnDamage, setVulnDamage] = useState("")
-    function handleDamage(arr) {
+    function handleVulnDamage(arr) {
         let roll = props.damageRoll(arr)
         setVulnDamage(`--> [${roll[1]}] = ${roll[0]}`)
     }
+    
+    const [specialDamage, setSpecialDamage] = useState("")
+    function handleSpecialDamage(arr) {
+        let roll = props.damageRoll(arr)
+        setSpecialDamage(`--> [${roll[1]}] = ${roll[0] + props.eliteWeakModifier}`)
+    }
+
     return (
         <div className="Special">
 
@@ -39,12 +46,12 @@ function Special(props) {
                 </div>
 
             : el.type === "Demon Vulnerability" ?
-
                 <div className="specialAbility">
                     <div className="specialAbilityName">{el.name}</div>
-                    <div onClick={() => handleDamage(el.damageTaken)}>{el.damageTaken[0]}d{el.damageTaken[1]}{vulnDamage} {el.damageTaken[3]}</div>
+                    <div onClick={() => handleVulnDamage(el.damageTaken)}>{el.damageTaken[0]}d{el.damageTaken[1]}{vulnDamage} {el.damageTaken[3]}</div>
                     <div className="specialAbilityDescription">{el.description}</div>
                 </div>
+
             : el.type === "Reaction" ?
                 <div className="specialAbility"> 
                     <div className="specialAbilityName">{el.name} | {el.type}</div>
@@ -58,6 +65,21 @@ function Special(props) {
                         </ul> 
                     : null
                     }
+                </div>
+
+            : el.type === "Attack" ?
+                <div className="specialAbility">
+                    <div className="specialAbilityName">{el.name} | Actions: {el.numberOfActions}</div>
+                    <div onClick={() => handleSpecialDamage([el.diceNumber, el.diceSize, el.damageBonus, el.damageType])}>
+                        {el.diceNumber}d{el.diceSize}
+                        {props.eliteWeakModifier > 0 ? 
+                            <span style={props.eliteWeakModifier?props.selectedStyle:null}>+2</span> 
+                            : 
+                            <span style={props.eliteWeakModifier?props.selectedStyle:null}>-2</span>
+                        }
+                        {specialDamage} {el.damageType}
+                    </div>
+                    <div className="specialAbilityDescription">{el.description}</div>
                 </div>
             : null
             )}
