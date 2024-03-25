@@ -70,16 +70,18 @@ function Special(props) {
             : el.type === "Attack" ?
                 <div className="specialAbility">
                     <div className="specialAbilityName">{el.name} | Actions: {el.numberOfActions}</div>
+                    {el.requirements ? <div>Requirements: {el.requirements}</div> : null}
+                    <div className="specialAbilityDescription">{el.description}</div>
                     <div onClick={() => handleSpecialDamage([el.diceNumber, el.diceSize, el.damageBonus, el.damageType])}>
                         {el.diceNumber}d{el.diceSize}
                         {props.eliteWeakModifier > 0 ? 
                             <span style={props.eliteWeakModifier?props.selectedStyle:null}>+2</span> 
-                            : 
+                        :props.eliteWeakModifier < 0 ?
                             <span style={props.eliteWeakModifier?props.selectedStyle:null}>-2</span>
+                        :null
                         }
                         {specialDamage} {el.damageType}
                     </div>
-                    <div className="specialAbilityDescription">{el.description}</div>
                 </div>
             : null
             )}

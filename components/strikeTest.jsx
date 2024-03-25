@@ -75,12 +75,11 @@ function Strike(props) {
         <div className="strikeTags">[{props.data.weaponTraits.join(", ") || "No weapon traits"}]</div>
         <div className="strikeDamage">
             {/* Basic strike that all creatures should have. */}
-            <span className="damageNumber" 
-                onClick={() => handleDamage([props.data.diceNumber, props.data.diceSize, props.data.damageBonus, props.data.damageType])}>
-                    <span className="dieNumber">{props.data.diceNumber}</span>
-                    <span className="dieSize">d{props.data.diceSize}+</span>
-                    <span className="damageBonus" style={props.eliteWeakModifier ? props.selectedStyle : null}>{props.data.damageBonus +props.eliteWeakModifier}</span>
-                    <span className="damageResult"> {damage}</span>
+            <span className="damageNumber" onClick={() => handleDamage([props.data.diceNumber, props.data.diceSize, props.data.damageBonus, props.data.damageType])}>
+                    <span className="dieNumber">{props.data.diceNumber}</span><span>d</span>
+                    <span className="dieSize">{props.data.diceSize}</span><span>+</span>
+                    <span className="damageBonus" style={props.eliteWeakModifier ? props.selectedStyle : null}>{props.data.damageBonus +props.eliteWeakModifier} </span>
+                    <span className="damageResult">{damage}</span>
             </span>
             <span className="damageType"> {props.data.damageType} </span>
             {/* Conditional render of any rider effects, including but not limited to extra damage */}
@@ -92,7 +91,7 @@ function Strike(props) {
                 </div>
             : el.type === "effect" ? 
                 <div key={index} className="riderEffect"> & {el.riderName}</div>
-            : console.log(el))}
+            : null)}
         </div>
     </div>
     )

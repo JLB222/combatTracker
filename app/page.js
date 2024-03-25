@@ -53,6 +53,8 @@ function createCreature(data) {
       defenseResistances = {data.defenseResistances}
       defenseWeaknesses = {data.defenseWeaknesses}
       perception = {data.perception}
+      vision = {data.vision}
+      otherSenses = {data.otherSenses}
       skills = {[data.skillBonusAcrobatics, data.skillBonusArcana, data.skillBonusAthletics, data.skillBonusCrafting, data.skillBonusDeception, data.skillBonusDiplomacy, data.skillBonusIntimidation, data.skillBonusMedicine, data.skillBonusNature, data.skillBonusOccultism, data.skillBonusPerformance, data.skillBonusReligion, data.skillBonusSociety, data.skillBonusStealth, data.skillBonusSurvival, data.skillBonusThievery]}
       strikes = {data.strikes}
       canReactiveStrike = {data.canReactiveStrike}
@@ -113,9 +115,10 @@ export default function App() {
           {/* <li>add function to AC span; when clicked AC goes up by two to represent shield raising?</li> */}
           <li>add a section for condition tracking?</li>
           <li>add a general dice roller? for single or batch rolls</li>
-          <li>Solved? Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li>
+          {/* <li>Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li> */}
           <li>Temporary HP?</li>
-          <li>Other senses like Scent</li>
+          {/* <li>show levels of darkvision on page</li> */}
+          {/* <li>Other senses like Scent</li> */}
           {/* <li>for now, it is assumed that all creatures have a max of 1 rider, either damage or an effect.  Will update if/when this changes.</li> */}
           <li>make each column it's own JSX component.  There's no need to overcomplicate creature.jsx</li>
             {/* <li>make a column for strikes</li> */}
@@ -132,11 +135,13 @@ export default function App() {
               {/* <li>add a shield HP tracker and button to change its value</li> */}
             <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
             <li>customize the different types of special abilities to be styled in different colors for easy reference at a glance.  EX;  reactions are red, passives are blue, whatever</li>
+            <li>style: make a 'clickable' class for everything that can be clicked, so the user knows what they can interact with at a glance</li>
           {/* <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li> */}
           {/* <li>add to the weapon array whether each weapon is Melee or Ranged</li> */}
           <li>add the ability to add a Player Character Placeholder, to help the GM remember when it's the player's turn instead of the next monster's.  No stats, necessarily, because player stats are player's responsiblity. </li>
           <li>perhaps give the PC Placeholder some basic stats like Saving Throws and Skill Checks, so that the GM can, if they want, do secret checks quickly and easily.  This would involve the GM entering custom info and thus the need for the app to save that info in memory.</li>
           <li>for the phone version of the app, have the functionality to import images so you can, for example, take a picture of someone's Mini and use that as their Placeholder photo in the initiative order</li>
+          <li>since i've put reactive strike in the special abilities column, should I get rid of the hasReactiveStrike property? or can it be used for something else?</li>
         </ul>
     </main>
   )

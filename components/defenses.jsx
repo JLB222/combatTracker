@@ -84,18 +84,28 @@ return (
             <span style={props.eliteWeakModifier?props.selectedStyle:null}> {props.defenseWillSave + props.eliteWeakModifier}</span>
             <span> ({willSave})</span>
         </div>
-        <div>
-            <span>Immunities: </span>
-            <span>{props.defenseImmunities.join(", ")}</span>
-        </div>
-        <div>
-            <span>Resistances: </span>
-            <span>{props.defenseResistances.join(", ")}</span>
-        </div>
-        <div>
-            <span>Weaknesses: </span>
-            <span>{props.defenseWeaknesses.join(", ")}</span>
-        </div>
+
+        {props.defenseImmunities.length? 
+            <div>
+                <span>Immunities: </span> 
+                <span>{props.defenseImmunities.join(", ")}</span>
+            </div>
+        :null}
+
+        {props.defenseResistances.length?
+            <div>
+                <span>Resistances: </span>
+                <span>{props.defenseResistances.join(", ")}</span>
+            </div>
+        :null}
+
+        {props.defenseWeaknesses.length? 
+            <div>
+                <span>Weaknesses: </span>
+                <span>{props.defenseWeaknesses.join(", ")}</span>
+            </div>
+        :null}
+
     </div>
 
 )}

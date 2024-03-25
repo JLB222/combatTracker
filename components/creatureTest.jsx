@@ -102,6 +102,8 @@ export default function creature(props) {
             </div>
             <div className="column3">
                 <div className="skills">
+                    {props.vision? <div>{props.vision}</div> :null}
+                    {props.otherSenses.length? <div>{props.otherSenses}</div> :null}
                     <div className="checkPerception" 
                         onClick= {() => handleCheckPerception(props.perception + eliteWeakModifier)}>
                         <span>Perception: </span>
