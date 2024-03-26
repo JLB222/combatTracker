@@ -56,7 +56,7 @@ return (
             <span style={props.eliteWeakModifier?props.selectedStyle:null}>{props.HP + eliteHPModifier(props.level)}</span>
             <span><input ref={damageInputRef}/><button onClick={handleHealth}>Change</button></span>
         </div>
-        <div className="armorClass" onClick={() => handleShieldRaise()}>
+        <div className="armorClass" onClick={props.hasShield ? () => handleShieldRaise() : null}>
             <span>AC: </span>
             <span style={props.eliteWeakModifier?props.selectedStyle:null}>{props.defenseAC + props.eliteWeakModifier + shieldModifier}</span>
             {props.hasShield ? <span> {shieldUp ? "Shield Raised" : "Raise Shield"}</span> : null}
