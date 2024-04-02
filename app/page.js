@@ -115,6 +115,7 @@ export default function App() {
           {/* <li>add function to AC span; when clicked AC goes up by two to represent shield raising?</li> */}
           <li>add a section for condition tracking?</li>
           <li>add a general dice roller? for single or batch rolls</li>
+          <li>add Lore skills for creatures that have them</li>
           {/* <li>Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li> */}
           <li>Temporary HP?</li>
           {/* <li>show levels of darkvision on page</li> */}

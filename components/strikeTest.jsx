@@ -17,7 +17,7 @@ function Strike(props) {
     }
     function handleRiderDamage(arr) {
         let roll = props.damageRoll(arr)
-        setRiderDamage(` = ${roll[0]}`)
+        setRiderDamage(`--> [${roll[1]}] = ${roll[0]}`)
     }
 
     let mapStyle = {
@@ -42,7 +42,8 @@ function Strike(props) {
                         handleCheckAttack(props.data.attackBonuses[0] +props.eliteWeakModifier);
                         setMAP(1);
                     }}
-        >+{props.data.attackBonuses[0] + props.eliteWeakModifier}</span><span>/</span>
+        >+{props.data.attackBonuses[0] + props.eliteWeakModifier}</span>
+        <span>/</span>
         
         <span className="secondStrike" 
                     style={
@@ -55,7 +56,8 @@ function Strike(props) {
                         handleCheckAttack(props.data.attackBonuses[1] + props.eliteWeakModifier);
                         setMAP(2);
                     }}
-        >+{props.data.attackBonuses[1] + props.eliteWeakModifier}</span><span>/</span>
+        >+{props.data.attackBonuses[1] + props.eliteWeakModifier}</span>
+        <span>/</span>
 
         <span className="thirdStrike" 
                     style={
@@ -68,7 +70,8 @@ function Strike(props) {
                         handleCheckAttack(props.data.attackBonuses[2] + props.eliteWeakModifier);
                         setMAP(3);
                     }}
-        >+{props.data.attackBonuses[2] + props.eliteWeakModifier}</span><span>]</span>
+        >+{props.data.attackBonuses[2] + props.eliteWeakModifier}</span>
+        <span>]</span>
 
         <span className="strikeResult">{checkAttack}</span>
 

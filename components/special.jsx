@@ -55,6 +55,9 @@ function Special(props) {
             : el.type === "Reaction" ?
                 <div className="specialAbility"> 
                     <div className="specialAbilityName">{el.name} | {el.type}</div>
+                    {el.description ? 
+                    <div className="specialAbilityDescription"><span>{el.description}</span></div>
+                    :null}
                     <div className="specialAbilityDescription trigger">Trigger:</div><span>{el.trigger}</span>
                     <div className="specialAbilityDescription effect">Effect:</div><span>{el.effect}</span>
                     {el.options ?
