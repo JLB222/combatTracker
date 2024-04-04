@@ -79,6 +79,7 @@ export default function App() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
         {showFullBestiary}
         <ul>TO-DO:
+          <li>Add a way to calculate crit damage? or just let the user do it?</li>
           <li>Some creatures, like the Bloodseeker, have a basic Strike that deals no damage.  Showing 0d0+0 on their Strike section might confuse users, especially when making them elite makes it 0d0+2, suggesting it now does damage when it still shouldn't.  (or should it?)</li>
           <li>Low level creatures might have a negative number for their MAP & it currently renders as '+-2' because the + is hard rendered atm.  Change it?</li>
           <li>Give special styling to all instances of damage that can be clicked to roll damage, so the user can tell at a glance what they can click for damage.</li>
@@ -97,7 +98,7 @@ export default function App() {
           {/* <li>Back-end: tweak the skills.jsx file to make all skills like Acrobatics to improve readability and styling flexibility</li> */}
           {/* <li>Elite & Weak tags need to change damage of strikes</li> */}
           {/* <li>Elite & weak Modifier need to change Monster HP</li> */}
-          <li>Elite & weak Modifier need to change damage of monster's non-strike abilities.  Limited Use +4 dmg, & nonlimited +2</li>
+          {/* <li>Elite & weak Modifier need to change damage of monster's non-strike abilities.  Limited Use +4 dmg, & nonlimited +2</li> */}
             {/* <li>Add a creature to bestiary that has a damaging special attack in order to do this</li> */}
             <li>Added section to specials for rendering of Unlimited (+2dmg) special attacks, but what about Limited (+4)?  Need to find a creature with such an ability.</li>
           <li>figure out how to deal with Initiative.  Just make it editable by user?  click perception and it automatically fills in?  what if the enemy rolls stealth for initiative?  What about the app auto-sorting the monsters based on initiative?</li>

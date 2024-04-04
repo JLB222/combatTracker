@@ -385,12 +385,9 @@ const bestiaryTest = [
         skillBonusStealth: 22,
         skillBonusSurvival: 0,
         skillBonusThievery: 0,
-        skillBonusLore: [
-            {
-                loreName: "Warfare",
-                bonus: 30
-            }
-        ],
+        skillBonusLore: {
+                warfare: 30
+        },
         abilityModStrength: 6,
         abilityModDexterity: 5,
         abilityModConstitution: 5,

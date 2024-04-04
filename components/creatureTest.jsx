@@ -131,9 +131,7 @@ export default function creature(props) {
                         skillBonusStealth = {props.skills[13]}
                         skillBonusSurvival = {props.skills[14]}
                         skillBonusThievery = {props.skills[15]}
-
-                        skillBonusLore = {props.lore}
-
+                        
                         eliteWeakModifier = {eliteWeakModifier}
                         hiddenStyle = {hiddenStyle}
                         selectedStyle = {selectedStyle}
