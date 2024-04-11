@@ -28,7 +28,7 @@ import Image from 'next/image'
 
 
 import bestiaryTest from '/app/bestiaryTest.js'
-import Creature from '/components/creatureTest.jsx'
+import Creature from '/components/creature.jsx'
 
 function createCreature(data) {
   return (

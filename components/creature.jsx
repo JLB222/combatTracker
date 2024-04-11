@@ -7,7 +7,7 @@ import Skills from './skillsTest.jsx'
 import Profile from './profile.jsx'
 import Spells from './spells.jsx'
 import Special from './special.jsx'
-
+import Conditions from './conditions.jsx'
 
 
 export default function creature(props) {
@@ -173,6 +173,9 @@ export default function creature(props) {
                     />
                 </div>
                 : null}
+            </div>
+            <div>
+                <Conditions />
             </div>
 
         </div>

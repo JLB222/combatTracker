@@ -7,13 +7,6 @@ function Defenses(props) {
     const damageInputRef = useRef(null); // Create a ref for the input element that will change HP
     const shieldDamageInputRef = useRef(null);
 
-    const [shieldHealth, setShieldHealth] = (useState(props.hasShield ? props.shieldStats.shieldHP : null))
-
-    const [shieldUp, setShieldUp] = useState(false)
-    function handleShieldRaise() {
-        setShieldUp(!shieldUp)
-    }
-
     const [fortSave, setFortSave] = useState(props.defenseFortSave)
     const [rflxSave, setRflxSave] = useState(props.defenseRflxSave)
     const [willSave, setWillSave] = useState(props.defenseWillSave)
@@ -28,6 +21,13 @@ function Defenses(props) {
             setHealth(health - parseInt(inputValue, 10));  
         }
         damageInputRef.current.value = ""  //resets the input after the user clicks
+    }
+    
+    const [shieldHealth, setShieldHealth] = (useState(props.hasShield ? props.shieldStats.shieldHP : null))
+
+    const [shieldUp, setShieldUp] = useState(false)
+    function handleShieldRaise() {
+        setShieldUp(!shieldUp)
     }
     function handleShieldHealth() {
         const shieldInputValue = shieldDamageInputRef.current.value;
