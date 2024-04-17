@@ -59,124 +59,128 @@ export default function creature(props) {
 
     return (
         <div className="monster" id={uniqueId}>
-            <div className="column1">
-                <Profile
-                    level = {props.level}
-                    name = {props.name}
-                    languages = {props.languages}
-                    elite = {elite}
-                    weak = {weak}
-                    selectedStyle = {selectedStyle}
-                    handleEliteToggle = {handleEliteToggle}
-                    handleWeakToggle = {handleWeakToggle}
-                    abilityModStrength = {props.abilityModStrength}
-                    abilityModConstitution = {props.abilityModConstitution}
-                    abilityModDexterity = {props.abilityModDexterity}
-                    abilityModIntelligence = {props.abilityModIntelligence}
-                    abilityModWisdom = {props.abilityModWisdom}
-                    abilityModCharisma = {props.abilityModCharisma}
-                    tags = {props.tags}
-                    recallKnowledgeInfo = {props.recallKnowledgeInfo}
-                    speeds = {props.speeds}
-                />
-            </div>
-            <div className="column2">
-                <Defenses
-                    elite = {elite}
-                    weak = {weak}
-                    level = {props.level}
-                    HP = {props.defenseHP}
-                    eliteWeakModifier = {eliteWeakModifier}
-                    selectedStyle = {selectedStyle}
-                    defenseAC = {props.defenseAC}
-                    defenseFortSave = {props.defenseFortSave}
-                    defenseRflxSave = {props.defenseRflxSave}
-                    defenseWillSave = {props.defenseWillSave}
-                    defenseImmunities = {props.defenseImmunities}
-                    defenseResistances = {props.defenseResistances}
-                    defenseWeaknesses = {props.defenseWeaknesses}
-                    d20 = {d20}
-                    hasShield = {props.hasShield}
-                    shieldStats = {props.shieldStats}
-                />
-            </div>
-            <div className="column3">
-                <div className="skills">
-                    {props.vision? <div>{props.vision}</div> :null}
-                    {props.otherSenses.length? <div>{props.otherSenses}</div> :null}
-                    <div className="checkPerception" 
-                        onClick= {() => handleCheckPerception(props.perception + eliteWeakModifier)}>
-                        <span>Perception: </span>
-                        <span style={eliteWeakModifier?selectedStyle:null}>{props.perception + eliteWeakModifier}</span> 
-                        <span> ({checkPerception})</span>
-                        
-                    </div>
-                    <Skills
-                        skillBonusAcrobatics = {props.skills[0]}
-                        skillBonusArcana = {props.skills[1]}
-                        skillBonusAthletics = {props.skills[2]}
-                        skillBonusCrafting = {props.skills[3]}
-
-                        skillBonusDeception = {props.skills[4]}
-                        skillBonusDiplomacy = {props.skills[5]}
-                        skillBonusIntimidation = {props.skills[6]}
-                        skillBonusMedicine = {props.skills[7]}
-
-                        skillBonusNature = {props.skills[8]}
-                        skillBonusOccultism = {props.skills[9]}
-                        skillBonusPerformance = {props.skills[10]}
-                        skillBonusReligion = {props.skills[11]}
-                        
-                        skillBonusSociety = {props.skills[12]}
-                        skillBonusStealth = {props.skills[13]}
-                        skillBonusSurvival = {props.skills[14]}
-                        skillBonusThievery = {props.skills[15]}
-                        
-                        eliteWeakModifier = {eliteWeakModifier}
-                        hiddenStyle = {hiddenStyle}
+            <div className="topRow">
+                <div className="column1">
+                    <Profile
+                        level = {props.level}
+                        name = {props.name}
+                        languages = {props.languages}
+                        elite = {elite}
+                        weak = {weak}
                         selectedStyle = {selectedStyle}
-                        d20={d20}
-                    />         
+                        handleEliteToggle = {handleEliteToggle}
+                        handleWeakToggle = {handleWeakToggle}
+                        abilityModStrength = {props.abilityModStrength}
+                        abilityModConstitution = {props.abilityModConstitution}
+                        abilityModDexterity = {props.abilityModDexterity}
+                        abilityModIntelligence = {props.abilityModIntelligence}
+                        abilityModWisdom = {props.abilityModWisdom}
+                        abilityModCharisma = {props.abilityModCharisma}
+                        tags = {props.tags}
+                        recallKnowledgeInfo = {props.recallKnowledgeInfo}
+                        speeds = {props.speeds}
+                    />
                 </div>
-            </div>
-            <div className="column4">
-                <div className="Strikes">
-                    {props.strikes.map((element, index) => (
-                        <Strike 
-                            key={index} 
-                            data={element}
+                <div className="column2">
+                    <Defenses
+                        elite = {elite}
+                        weak = {weak}
+                        level = {props.level}
+                        HP = {props.defenseHP}
+                        eliteWeakModifier = {eliteWeakModifier}
+                        selectedStyle = {selectedStyle}
+                        defenseAC = {props.defenseAC}
+                        defenseFortSave = {props.defenseFortSave}
+                        defenseRflxSave = {props.defenseRflxSave}
+                        defenseWillSave = {props.defenseWillSave}
+                        defenseImmunities = {props.defenseImmunities}
+                        defenseResistances = {props.defenseResistances}
+                        defenseWeaknesses = {props.defenseWeaknesses}
+                        d20 = {d20}
+                        hasShield = {props.hasShield}
+                        shieldStats = {props.shieldStats}
+                    />
+                </div>
+                <div className="column3">
+                    <div className="skills">
+                        {props.vision? <div>{props.vision}</div> :null}
+                        {props.otherSenses.length? <div>{props.otherSenses}</div> :null}
+                        <div className="checkPerception" 
+                            onClick= {() => handleCheckPerception(props.perception + eliteWeakModifier)}>
+                            <span>Perception: </span>
+                            <span style={eliteWeakModifier?selectedStyle:null}>{props.perception + eliteWeakModifier}</span> 
+                            <span> ({checkPerception})</span>
+                            
+                        </div>
+                        <Skills
+                            skillBonusAcrobatics = {props.skills[0]}
+                            skillBonusArcana = {props.skills[1]}
+                            skillBonusAthletics = {props.skills[2]}
+                            skillBonusCrafting = {props.skills[3]}
+
+                            skillBonusDeception = {props.skills[4]}
+                            skillBonusDiplomacy = {props.skills[5]}
+                            skillBonusIntimidation = {props.skills[6]}
+                            skillBonusMedicine = {props.skills[7]}
+
+                            skillBonusNature = {props.skills[8]}
+                            skillBonusOccultism = {props.skills[9]}
+                            skillBonusPerformance = {props.skills[10]}
+                            skillBonusReligion = {props.skills[11]}
+                            
+                            skillBonusSociety = {props.skills[12]}
+                            skillBonusStealth = {props.skills[13]}
+                            skillBonusSurvival = {props.skills[14]}
+                            skillBonusThievery = {props.skills[15]}
+                            
                             eliteWeakModifier = {eliteWeakModifier}
+                            hiddenStyle = {hiddenStyle}
                             selectedStyle = {selectedStyle}
                             d20={d20}
-                            damageRoll={damageRoll}
-                        />
-                    ))}
+                        />         
+                    </div>
                 </div>
-            </div>
-            <div className="column5">
-                {props.special.length > 0 ? 
-                    <Special
-                    damageRoll = {damageRoll}
-                    specials = {props.special}
-                    eliteWeakModifier = {eliteWeakModifier}
-                    selectedStyle = {selectedStyle}
-                    />
-                : null}
-            </div>
-            <div className="column6">
-                {props.spells[0] ? 
-                <div className="Spells">
-                    <Spells
-                        spells = {props.spells}
+                <div className="column4">
+                    <div className="Strikes">
+                        {props.strikes.map((element, index) => (
+                            <Strike 
+                                key={index} 
+                                data={element}
+                                eliteWeakModifier = {eliteWeakModifier}
+                                selectedStyle = {selectedStyle}
+                                d20={d20}
+                                damageRoll={damageRoll}
+                            />
+                        ))}
+                    </div>
+                </div>
+                <div className="column5">
+                    {props.special.length > 0 ? 
+                        <Special
+                        damageRoll = {damageRoll}
+                        specials = {props.special}
                         eliteWeakModifier = {eliteWeakModifier}
                         selectedStyle = {selectedStyle}
-                    />
+                        />
+                    : null}
                 </div>
-                : null}
+                <div className="column6">
+                    {props.spells[0] ? 
+                    <div className="Spells">
+                        <Spells
+                            spells = {props.spells}
+                            eliteWeakModifier = {eliteWeakModifier}
+                            selectedStyle = {selectedStyle}
+                        />
+                    </div>
+                    : null}
+                </div>
+
             </div>
-            <div>
+            <div className="bottomRow">
                 <Conditions />
             </div>
+           
 
         </div>
         
