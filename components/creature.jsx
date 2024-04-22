@@ -57,6 +57,30 @@ export default function creature(props) {
 
     const eliteWeakModifier = (elite ? 2:0) + (weak ? -2:0)
 
+    const [abilityReduction, setAbilityReduction] = useState([0,0,0,0])
+
+    function increaseCondition(index) {
+        setAbilityReduction((prev) => {
+            // Create a copy of the previous state array using the spread operator
+            const updatedArray = [...prev];
+            // Increase the value at the specified index by 1
+            updatedArray[index]++;
+            // Return the updated array, which will replace the previous state
+            return updatedArray;
+        });
+    };
+
+    function decreaseCondition(index) {
+        setAbilityReduction((prev) => {
+            // Create a copy of the previous state array using the spread operator
+            const updatedArray = [...prev];
+            // Decrease the value at the specified index by 1
+            updatedArray[index] = Math.max(0, updatedArray[index] - 1);
+            // Return the updated array, which will replace the previous state
+            return updatedArray;
+        });
+    };
+
     return (
         <div className="monster" id={uniqueId}>
             <div className="topRow">
@@ -99,6 +123,8 @@ export default function creature(props) {
                         d20 = {d20}
                         hasShield = {props.hasShield}
                         shieldStats = {props.shieldStats}
+
+                        abilityReduction = {abilityReduction}
                     />
                 </div>
                 <div className="column3">
@@ -137,6 +163,8 @@ export default function creature(props) {
                             hiddenStyle = {hiddenStyle}
                             selectedStyle = {selectedStyle}
                             d20={d20}
+
+
                         />         
                     </div>
                 </div>
@@ -178,7 +206,11 @@ export default function creature(props) {
 
             </div>
             <div className="bottomRow">
-                <Conditions />
+                <Conditions 
+                    abilityReduction = {abilityReduction}
+                    increaseCondition = {increaseCondition}
+                    decreaseCondition = {decreaseCondition}
+                />
             </div>
            
 
