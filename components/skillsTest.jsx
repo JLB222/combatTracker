@@ -156,6 +156,25 @@ function SkillsTest(props) {
         Survival: props.skillBonusSurvival,
         Thievery: props.skillBonusThievery,
     };
+    // based on the conditions state array in conditions.jsx:  [enfeebledValue, clumsyValue, drainedValue, stupefiedValue]
+    const skillAttribute = {
+        Acrobatics: 1,
+        Arcana: 3,
+        Athletics: 0,
+        Crafting: 3,
+        Deception: 3,
+        Diplomacy: 3,
+        Intimidation: 3,
+        Medicine: 3,
+        Nature: 3,
+        Occultism: 3,
+        Performance: 3,
+        Religion: 3,
+        Society: 3,
+        Stealth: 1,
+        Survival: 3,
+        Thievery: 1,
+    }
 
     const [skills, setSkills] = useState(initialState);
 
@@ -171,7 +190,7 @@ function SkillsTest(props) {
         return (
             <div className={`check${skillName}`}>
                 <span>{skillName}: </span>
-                <span style={props.eliteWeakModifier?props.selectedStyle:null}>{initialState[skillName] + props.eliteWeakModifier}</span>
+                <span style={props.eliteWeakModifier?props.selectedStyle:null}>{initialState[skillName] + props.eliteWeakModifier - props.abilityReduction[skillAttribute[skillName]]}</span>
                 <span> ({skills[skillName]})</span>
             </div>
         );
@@ -180,7 +199,7 @@ function SkillsTest(props) {
     return (
         <div className="skills">
             {Object.keys(initialState).map((skillName) => (
-                <div key={skillName} onClick={() => handleCheck(skillName, initialState[skillName] + props.eliteWeakModifier)} style={initialState[skillName] === 0 ? props.hiddenStyle : null}>
+                <div key={skillName} onClick={() => handleCheck(skillName, initialState[skillName] + props.eliteWeakModifier - props.abilityReduction[skillAttribute[skillName]])} style={initialState[skillName] === 0 ? props.hiddenStyle : null}>
                     {renderSkill(skillName)}
                 </div>
             ))}

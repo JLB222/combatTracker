@@ -132,9 +132,9 @@ export default function creature(props) {
                         {props.vision? <div>{props.vision}</div> :null}
                         {props.otherSenses.length? <div>{props.otherSenses}</div> :null}
                         <div className="checkPerception" 
-                            onClick= {() => handleCheckPerception(props.perception + eliteWeakModifier)}>
+                            onClick= {() => handleCheckPerception(props.perception + eliteWeakModifier - abilityReduction[3])}>
                             <span>Perception: </span>
-                            <span style={eliteWeakModifier?selectedStyle:null}>{props.perception + eliteWeakModifier}</span> 
+                            <span style={eliteWeakModifier?selectedStyle:null}>{props.perception + eliteWeakModifier - abilityReduction[3]}</span> 
                             <span> ({checkPerception})</span>
                             
                         </div>
@@ -164,7 +164,7 @@ export default function creature(props) {
                             selectedStyle = {selectedStyle}
                             d20={d20}
 
-
+                            abilityReduction = {abilityReduction}
                         />         
                     </div>
                 </div>
