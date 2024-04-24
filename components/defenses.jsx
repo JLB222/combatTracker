@@ -51,7 +51,12 @@ return (
     <div className="defenses">
         <div className="hitPoints">HP:
             <span> {health + eliteHPModifier(props.level) - (props.abilityReduction[2] * Math.max(props.level, 1))}</span>/
-            <span style={props.eliteWeakModifier?props.selectedStyle:null}>
+            <span style={
+                        (props.abilityReduction[2] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
+                        : props.abilityReduction[2] > 0 ? props.abilityReductionStyle
+                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : null
+            }>
                 {props.HP + eliteHPModifier(props.level) - (props.abilityReduction[2] * Math.max(props.level, 1))}
             </span>
             <span>
@@ -61,7 +66,14 @@ return (
         </div>
         <div className="armorClass" onClick={props.hasShield ? () => handleShieldRaise() : null}>
             <span>AC: </span>
-            <span style={props.eliteWeakModifier?props.selectedStyle:null}>{props.defenseAC + props.eliteWeakModifier + shieldModifier - props.abilityReduction[1]}</span>
+            <span style={
+                        (props.abilityReduction[1] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
+                        : props.abilityReduction[1] > 0 ? props.abilityReductionStyle
+                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : null
+            }>
+                {props.defenseAC + props.eliteWeakModifier + shieldModifier - props.abilityReduction[1]}
+            </span>
             {props.hasShield ? <span> {shieldUp ? "Shield Raised" : "Raise Shield"}</span> : null}
         </div>
         {props.hasShield ? 
@@ -74,17 +86,38 @@ return (
         : null}
         <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenseFortSave + props.eliteWeakModifier - props.abilityReduction[2])}>
             <span>FORT: </span>
-            <span style={props.eliteWeakModifier?props.selectedStyle:null}> {props.defenseFortSave + props.eliteWeakModifier - props.abilityReduction[2]}</span>
+            <span style={
+                        (props.abilityReduction[2] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
+                        : props.abilityReduction[2] > 0 ? props.abilityReductionStyle
+                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : null
+            }> 
+                {props.defenseFortSave + props.eliteWeakModifier - props.abilityReduction[2]}
+            </span>
             <span> ({fortSave})</span>
         </div>
         <div className="saveReflex" onClick= {() => handleSaveRflx(props.defenseRflxSave + props.eliteWeakModifier - props.abilityReduction[1])}>
             <span>RFLX: </span>
-            <span style={props.eliteWeakModifier?props.selectedStyle:null}> {props.defenseRflxSave + props.eliteWeakModifier - props.abilityReduction[1]}</span>
+            <span style={
+                        (props.abilityReduction[1] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
+                        : props.abilityReduction[1] > 0 ? props.abilityReductionStyle
+                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : null
+            }>
+                {props.defenseRflxSave + props.eliteWeakModifier - props.abilityReduction[1]}
+            </span>
             <span> ({rflxSave})</span>
         </div>
         <div className="saveWill" onClick= {() => handleSaveWill(props.defenseWillSave + props.eliteWeakModifier - props.abilityReduction[3])}>
             <span>WILL: </span>
-            <span style={props.eliteWeakModifier?props.selectedStyle:null}> {props.defenseWillSave + props.eliteWeakModifier - props.abilityReduction[3]}</span>
+            <span style={
+                        (props.abilityReduction[3] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
+                        : props.abilityReduction[3] > 0 ? props.abilityReductionStyle
+                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : null
+            }> 
+                {props.defenseWillSave + props.eliteWeakModifier - props.abilityReduction[3]}
+            </span>
             <span> ({willSave})</span>
         </div>
 

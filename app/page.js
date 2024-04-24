@@ -79,7 +79,9 @@ export default function App() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
         {showFullBestiary}
         <ul>TO-DO:
-          <li>Add condition reductions to skills.jsx</li>
+          <li>reduce creature's strike damage when they are Enfeebled? special attacks?</li>
+          <li>have style changes happen when something's value is altered by conditions</li>
+          {/* <li>Add condition reductions to skills.jsx</li> */}
           <li>Add a way to calculate crit damage? or just let the user do it?</li>
           <li>Some creatures, like the Bloodseeker, have a basic Strike that deals no damage.  Showing 0d0+0 on their Strike section might confuse users, especially when making them elite makes it 0d0+2, suggesting it now does damage when it still shouldn't.  (or should it?)</li>
           <li>Low level creatures might have a negative number for their MAP & it currently renders as '+-2' because the + is hard rendered atm.  Change it?</li>

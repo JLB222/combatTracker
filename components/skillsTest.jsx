@@ -156,7 +156,7 @@ function SkillsTest(props) {
         Survival: props.skillBonusSurvival,
         Thievery: props.skillBonusThievery,
     };
-    // based on the conditions state array in conditions.jsx:  [enfeebledValue, clumsyValue, drainedValue, stupefiedValue]
+    // based on the index of the conditions state array in conditions.jsx:  [enfeebled, clumsy, drained, stupefied]
     const skillAttribute = {
         Acrobatics: 1,
         Arcana: 3,
@@ -190,7 +190,14 @@ function SkillsTest(props) {
         return (
             <div className={`check${skillName}`}>
                 <span>{skillName}: </span>
-                <span style={props.eliteWeakModifier?props.selectedStyle:null}>{initialState[skillName] + props.eliteWeakModifier - props.abilityReduction[skillAttribute[skillName]]}</span>
+                <span style={
+                        (props.abilityReduction[skillAttribute[skillName]] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
+                        : props.abilityReduction[skillAttribute[skillName]] > 0 ? props.abilityReductionStyle
+                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : null
+                        }>
+                    {initialState[skillName] + props.eliteWeakModifier - props.abilityReduction[skillAttribute[skillName]]}
+                </span>
                 <span> ({skills[skillName]})</span>
             </div>
         );
@@ -199,7 +206,11 @@ function SkillsTest(props) {
     return (
         <div className="skills">
             {Object.keys(initialState).map((skillName) => (
-                <div key={skillName} onClick={() => handleCheck(skillName, initialState[skillName] + props.eliteWeakModifier - props.abilityReduction[skillAttribute[skillName]])} style={initialState[skillName] === 0 ? props.hiddenStyle : null}>
+                <div 
+                    key={skillName} 
+                    onClick={() => handleCheck(skillName, initialState[skillName] + props.eliteWeakModifier - props.abilityReduction[skillAttribute[skillName]])} 
+                    style={initialState[skillName] === 0 ? props.hiddenStyle : null}
+                >
                     {renderSkill(skillName)}
                 </div>
             ))}

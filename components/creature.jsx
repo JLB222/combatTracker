@@ -9,6 +9,21 @@ import Spells from './spells.jsx'
 import Special from './special.jsx'
 import Conditions from './conditions.jsx'
 
+//style active for skills creature is untrained in
+const hiddenStyle = {
+    display : "none"
+}
+//style active if a creature stat has been affected by the Elite or Weak template
+const selectedStyle = {
+    fontWeight: "bold",
+    backgroundColor: "black",
+    color: "white"
+}
+//style active if a given ability score has been reduced by conditions
+const abilityReductionStyle = {
+    fontStyle: "italic",
+    color: "purple"
+}
 
 export default function creature(props) {
     const [uniqueId] = useState(uuidv4()); // Generate a unique ID for each instance of creature
@@ -46,18 +61,10 @@ export default function creature(props) {
         setWeak(!weak)
     }
 
-    let hiddenStyle = {
-        display : "none"
-    }
-    let selectedStyle = {
-        fontWeight: "bold",
-        backgroundColor: "black",
-        color: "white"
-    }
-
     const eliteWeakModifier = (elite ? 2:0) + (weak ? -2:0)
 
     const [abilityReduction, setAbilityReduction] = useState([0,0,0,0])
+
 
     function increaseCondition(index) {
         setAbilityReduction((prev) => {
@@ -125,6 +132,7 @@ export default function creature(props) {
                         shieldStats = {props.shieldStats}
 
                         abilityReduction = {abilityReduction}
+                        abilityReductionStyle = {abilityReductionStyle}
                     />
                 </div>
                 <div className="column3">
@@ -134,7 +142,14 @@ export default function creature(props) {
                         <div className="checkPerception" 
                             onClick= {() => handleCheckPerception(props.perception + eliteWeakModifier - abilityReduction[3])}>
                             <span>Perception: </span>
-                            <span style={eliteWeakModifier?selectedStyle:null}>{props.perception + eliteWeakModifier - abilityReduction[3]}</span> 
+                            <span style={
+                                ( abilityReduction[3] > 0 && eliteWeakModifier) ? { ...abilityReductionStyle, ...selectedStyle }
+                                : abilityReduction[3] > 0 ? abilityReductionStyle
+                                : eliteWeakModifier ? selectedStyle 
+                                : null
+                            }>
+                                {props.perception + eliteWeakModifier - abilityReduction[3]}
+                            </span> 
                             <span> ({checkPerception})</span>
                             
                         </div>
@@ -165,6 +180,7 @@ export default function creature(props) {
                             d20={d20}
 
                             abilityReduction = {abilityReduction}
+                            abilityReductionStyle = {abilityReductionStyle}
                         />         
                     </div>
                 </div>
