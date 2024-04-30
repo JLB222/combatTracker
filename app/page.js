@@ -79,7 +79,10 @@ export default function App() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
         {showFullBestiary}
         <ul>TO-DO:
-          <li>reduce creature's strike damage when they are Enfeebled? special attacks?</li>
+          {/* <li>reduce creature's strike accuracy & damage when they are Enfeebled?</li> */}
+          <li>change attack & damage bonus style when enfeebled?</li>
+          <li>special attack damage reduced by enfeebled?</li>
+          <li>spell DC reduced by Stupefied</li>
           <li>have style changes happen when something's value is altered by conditions</li>
           {/* <li>Add condition reductions to skills.jsx</li> */}
           <li>Add a way to calculate crit damage? or just let the user do it?</li>

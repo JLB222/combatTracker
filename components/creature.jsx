@@ -194,6 +194,9 @@ export default function creature(props) {
                                 selectedStyle = {selectedStyle}
                                 d20={d20}
                                 damageRoll={damageRoll}
+
+                                abilityReduction = {abilityReduction}
+                                abilityReductionStyle = {abilityReductionStyle}
                             />
                         ))}
                     </div>

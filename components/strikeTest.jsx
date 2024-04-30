@@ -25,7 +25,9 @@ function Strike(props) {
         textDecorationLine: "underline"
     }
 
-    
+    const attackAffectedByEnfeebled = props.data.type === "Melee" && !props.data.weaponTraits.some(element => element === "Finesse")
+    const damageAffectedByEnfeebled = props.data.type === "Melee" || (props.data.type === "Ranged" && props.data.weaponTraits.some(element => /Thrown:\s*\d+/.test(element)))
+
     return (
     <div className="strike">
         <span className="strikeType">({props.data.type}) </span>
@@ -39,10 +41,10 @@ function Strike(props) {
                         : null
                     }
                     onClick={() => {
-                        handleCheckAttack(props.data.attackBonuses[0] +props.eliteWeakModifier);
+                        handleCheckAttack(props.data.attackBonuses[0] +props.eliteWeakModifier - (attackAffectedByEnfeebled ? props.abilityReduction[0] : props.abilityReduction[1]));
                         setMAP(1);
                     }}
-        >+{props.data.attackBonuses[0] + props.eliteWeakModifier}</span>
+        >+{props.data.attackBonuses[0] + props.eliteWeakModifier - (attackAffectedByEnfeebled ? props.abilityReduction[0] : props.abilityReduction[1])}</span>
         <span>/</span>
         
         <span className="secondStrike" 
@@ -53,10 +55,10 @@ function Strike(props) {
                         : null
                     }
                     onClick={() => {
-                        handleCheckAttack(props.data.attackBonuses[1] + props.eliteWeakModifier);
+                        handleCheckAttack(props.data.attackBonuses[1] + props.eliteWeakModifier - (attackAffectedByEnfeebled ? props.abilityReduction[0] : props.abilityReduction[1]));
                         setMAP(2);
                     }}
-        >+{props.data.attackBonuses[1] + props.eliteWeakModifier}</span>
+        >+{props.data.attackBonuses[1] + props.eliteWeakModifier - (attackAffectedByEnfeebled ? props.abilityReduction[0] : props.abilityReduction[1])}</span>
         <span>/</span>
 
         <span className="thirdStrike" 
@@ -67,10 +69,10 @@ function Strike(props) {
                         : null
                     }
                     onClick={() => {
-                        handleCheckAttack(props.data.attackBonuses[2] + props.eliteWeakModifier);
+                        handleCheckAttack(props.data.attackBonuses[2] + props.eliteWeakModifier - (attackAffectedByEnfeebled ? props.abilityReduction[0] : props.abilityReduction[1]));
                         setMAP(3);
                     }}
-        >+{props.data.attackBonuses[2] + props.eliteWeakModifier}</span>
+        >+{props.data.attackBonuses[2] + props.eliteWeakModifier - (attackAffectedByEnfeebled ? props.abilityReduction[0] : props.abilityReduction[1])}</span>
         <span>]</span>
 
         <span className="strikeResult">{checkAttack}</span>
@@ -78,10 +80,12 @@ function Strike(props) {
         <div className="strikeTags">[{props.data.weaponTraits.join(", ") || "No weapon traits"}]</div>
         <div className="strikeDamage">
             {/* Basic strike that all creatures should have. */}
-            <span className="damageNumber" onClick={() => handleDamage([props.data.diceNumber, props.data.diceSize, props.data.damageBonus, props.data.damageType])}>
+            <span className="damageNumber" onClick={() => handleDamage([props.data.diceNumber, props.data.diceSize, props.data.damageBonus - (damageAffectedByEnfeebled?props.abilityReduction[0]:0), props.data.damageType])}>
                     <span className="dieNumber">{props.data.diceNumber}</span><span>d</span>
                     <span className="dieSize">{props.data.diceSize}</span><span>+</span>
-                    <span className="damageBonus" style={props.eliteWeakModifier ? props.selectedStyle : null}>{props.data.damageBonus +props.eliteWeakModifier} </span>
+                    <span className="damageBonus" style={props.eliteWeakModifier ? props.selectedStyle : null}>
+                        {props.data.damageBonus + props.eliteWeakModifier - (damageAffectedByEnfeebled?props.abilityReduction[0]:0)}
+                    </span>
                     <span className="damageResult">{damage}</span>
             </span>
             <span className="damageType"> {props.data.damageType} </span>
