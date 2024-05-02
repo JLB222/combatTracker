@@ -3,7 +3,15 @@ import {useState} from "react"
 function Spells(props) {
     return (
         <div className="spells">
-            <div>Spell DC: <span style={props.eliteWeakModifier?props.selectedStyle:null}>{props.spells[0] + props.eliteWeakModifier}</span></div>
+            <div>Spell DC: 
+                <span style={
+                    props.eliteWeakModifier && props.abilityReduction[3] > 0 ? {...props.selectedStyle, ...props.abilityReductionStyle }
+                    : props.eliteWeakModifier ? props.selectedStyle
+                    : props.abilityReduction[3] > 0 ? props.abilityReductionStyle
+                    : null}>
+                    {props.spells[0] + props.eliteWeakModifier - props.abilityReduction[3]}
+                </span>
+            </div>
 
             {props.spells[1].length > 0 && <div className="spellType">Limited Use Spells: {props.eliteWeakModifier? <span style={props.selectedStyle}>{props.eliteWeakModifier > 0 ? "Elite: +4" : "Weak: -4"} Damage</span> :null}</div>}
             {props.spells[1]?.map((el,index) => (

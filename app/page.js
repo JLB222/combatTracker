@@ -81,9 +81,10 @@ export default function App() {
         <ul>TO-DO:
           {/* <li>reduce creature's strike accuracy & damage when they are Enfeebled?</li> */}
           <li>change attack & damage bonus style when enfeebled?</li>
-          <li>special attack damage reduced by enfeebled?</li>
-          <li>spell DC reduced by Stupefied</li>
+          <li>special attack damage reduced by enfeebled? how to know if a special attack is str-based? special.jsx doesn't currently track melee vs ranged</li>
+          {/* <li>spell DC reduced by Stupefied</li> */}
           <li>have style changes happen when something's value is altered by conditions</li>
+          <li>Final CSS:  Make sure the toggles that affect style don't clash with each other:  MAP, EliteWeak, and Conditions</li>
           {/* <li>Add condition reductions to skills.jsx</li> */}
           <li>Add a way to calculate crit damage? or just let the user do it?</li>
           <li>Some creatures, like the Bloodseeker, have a basic Strike that deals no damage.  Showing 0d0+0 on their Strike section might confuse users, especially when making them elite makes it 0d0+2, suggesting it now does damage when it still shouldn't.  (or should it?)</li>

@@ -22,7 +22,7 @@ const selectedStyle = {
 //style active if a given ability score has been reduced by conditions
 const abilityReductionStyle = {
     fontStyle: "italic",
-    color: "purple"
+    color: "green"
 }
 
 export default function creature(props) {
@@ -218,6 +218,9 @@ export default function creature(props) {
                             spells = {props.spells}
                             eliteWeakModifier = {eliteWeakModifier}
                             selectedStyle = {selectedStyle}
+
+                            abilityReduction = {abilityReduction}
+                            abilityReductionStyle = {abilityReductionStyle}
                         />
                     </div>
                     : null}
