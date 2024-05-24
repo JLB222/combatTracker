@@ -1,34 +1,8 @@
+"use client"  
 import Image from 'next/image'
-// import Creature from 'components/creature.jsx'
-// import bestiary from 'app/bestiary.js'
-
-
-// function createEntry(entry) {
-//   return (
-//     <Creature
-//       name = {entry[0]}
-//       level = {entry[1]}
-//       abilityMods = {...entry[6]}
-//       tags = {entry[2].join(", ")}
-//       perception = {entry[3]}
-//       defenses = {entry[7]}
-//       skills = {entry[5]}
-//       strikes = {entry[10]}
-//     />
-//   )
-// };
-
-// let test = createEntry(bestiary[0])
-// let test1 = createEntry(bestiary[1])
-// let test2 = createEntry(bestiary[2])
-// let test3 = createEntry(bestiary[3])
-//let chosenMonsterArray = [bestiary[0], bestiary[1], bestiary[2],bestiary[3]]
-//let chosenMonsterList = chosenMonsterArray.map(createEntry)
-// let allMonsterTest = bestiary.map(createEntry)
-
-
 import bestiaryTest from '/app/bestiaryTest.js'
 import Creature from '/components/creature.jsx'
+import React, { useState } from 'react'
 
 function createCreature(data) {
   return (
@@ -68,16 +42,65 @@ function createCreature(data) {
     />
   )
 };
-let objectTest = createCreature(bestiaryTest[0])
-let showFullBestiary = bestiaryTest.map(createCreature)
+
+// let objectTest = createCreature(bestiaryTest[0])
+// let showFullBestiary = bestiaryTest.map(createCreature)
+
+// let selectedCreatures = [bestiaryTest[0]]
+// let showSelectedCreatures = selectedCreatures.map(createCreature)
+
+function App() {
+  const [selectedCreatures, setSelectedCreatures] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCreatureId, setSelectedCreatureId] = useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+  const handleSelectChange = (event) => {
+    setSelectedCreatureId(event.target.value);
+  };
+  const handleAddCreature = () => {
+    const selectedId = parseInt(selectedCreatureId);
+    const creature = bestiaryTest.find(c => c.id === selectedId);
+    if (creature) {
+      const newCreature = { ...creature, instanceId: Date.now() }; // Unique instance ID for each selection
+      setSelectedCreatures(prevSelected => [...prevSelected, newCreature]);
+    }
+  };
+  const filteredCreatures = bestiaryTest.filter(creature =>
+    creature.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
 
-
-
-export default function App() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        {showFullBestiary}
+      <div>
+        <h2>Bestiary</h2>
+        <input
+          type="text"
+          placeholder="Search creatures..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <select value={selectedCreatureId} onChange={handleSelectChange}>
+          <option value="">Select a creature...</option>
+          {filteredCreatures.map(creature => (
+            <option key={creature.id} value={creature.id}>
+              {creature.name}
+            </option>
+          ))}
+        </select>
+        <button onClick={handleAddCreature}>Add Creature</button>
+
+        <h2>Selected Creatures</h2>
+        {selectedCreatures.length > 0 ? (
+          selectedCreatures.map(createCreature)
+        ) : (
+          <p>No creatures selected.</p>
+        )}
+      </div>
+
         <ul>TO-DO:
           {/* <li>reduce creature's strike accuracy & damage when they are Enfeebled?</li> */}
           <li>change attack & damage bonus style when enfeebled?</li>
@@ -155,3 +178,5 @@ export default function App() {
     </main>
   )
 }
+
+export default App

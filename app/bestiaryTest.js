@@ -726,7 +726,11 @@ const bestiaryTest = [
             {
                 name: "Pack Attack",
                 type: "Passive",
-                description: "The dog’s Strikes deal 1d4 extra damage to creatures within the reach of at least two of the dog’s allies."
+                description: "The dog’s Strikes deal 1d4 extra damage to creatures within the reach of at least two of the dog’s allies.",
+                diceNumber: 1,
+                diceSize: 4,
+                damageBonus: 0,
+                damageType: "Piercing",
             },
 
         ],
