@@ -50,7 +50,6 @@ function Conditions(props) {
                     <li>Dazzled</li>
                     <li>Blinded</li>
                     <li>Deafened</li>
-                    <li>Concealed</li>
                     <li>Invisible</li>
                 </ul>
             </div>

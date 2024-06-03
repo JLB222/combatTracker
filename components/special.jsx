@@ -28,6 +28,12 @@ function Special(props) {
                 <div className="specialAbility">
                     <div className="specialAbilityName">{el.name} {el.dc && <span style={props.eliteWeakModifier?props.selectedStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
                     <div className="specialAbilityDescription">{el.description}</div>
+                    {el.diceNumber ? 
+                    <div onClick={() => handleSpecialDamage([el.diceNumber, el.diceSize, el.damageBonus, el.damageType])}>
+                        {el.diceNumber}d{el.diceSize}
+                        {specialDamage} {el.damageType}
+                    </div>
+                    : null}
                 </div>
             
             : el.type === "Aura" ?

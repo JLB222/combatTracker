@@ -134,6 +134,7 @@ input {
 .conditionContainer {
     display: flex;
     width: 100%;
+    background-color: cadetblue;
 }
 .conditionContainer ul {
     display: flex;

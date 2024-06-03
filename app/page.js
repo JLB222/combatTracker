@@ -102,6 +102,7 @@ function App() {
       </div>
 
         <ul>TO-DO:
+          <li>When a user clicks one of the rollers, it can be hard to tell if they rolled the same number twice in a row, or if it just didn't acknowledge the 2nd click, leading to doubt.  especially prevalent on d4s</li>
           {/* <li>reduce creature's strike accuracy & damage when they are Enfeebled?</li> */}
           <li>change attack & damage bonus style when enfeebled?</li>
           <li>special attack damage reduced by enfeebled? how to know if a special attack is str-based? special.jsx doesn't currently track melee vs ranged</li>
@@ -132,7 +133,7 @@ function App() {
             {/* <li>Add a creature to bestiary that has a damaging special attack in order to do this</li> */}
             <li>Added section to specials for rendering of Unlimited (+2dmg) special attacks, but what about Limited (+4)?  Need to find a creature with such an ability.</li>
           <li>figure out how to deal with Initiative.  Just make it editable by user?  click perception and it automatically fills in?  what if the enemy rolls stealth for initiative?  What about the app auto-sorting the monsters based on initiative?</li>
-          <li>add the ability for user to add monsters to the list</li>
+          {/* <li>add the ability for user to add monsters to the list</li> */}
           <li>add ability to remove monsters from list</li>
           <li>add ability to re-organize entries by clicking & dragging the portrait of the creature</li>
           {/* <li>update bestiary with combat stats: speed,attacks,spells, specialAbilities </li> */}

@@ -386,7 +386,7 @@ const bestiaryTest = [
         skillBonusSurvival: 0,
         skillBonusThievery: 0,
         skillBonusLore: {
-                warfare: 30
+                Warfare: 30
         },
         abilityModStrength: 6,
         abilityModDexterity: 5,
@@ -651,7 +651,11 @@ const bestiaryTest = [
             {
                 name: "Pack Attack",
                 type: "Passive",
-                description: "The dog’s Strikes deal 1d4 extra damage to creatures within the reach of at least two of the dog’s allies."
+                description: "The dog’s Strikes deal 1d4 extra damage to creatures within the reach of at least two of the dog’s allies.",
+                diceNumber: 1,
+                diceSize: 4,
+                damageBonus: 0,
+                damageType: "Piercing"
             }
         ],
     },
@@ -860,7 +864,148 @@ const bestiaryTest = [
             }
         ]
     },
+    {
+        name: "Vordine (Infantry Devil)",
+        id: 2906,
+        source: "Monster Core p. 87",
+        level: 5,
+        tags: ["Medium", "Devil", "Fiend", "Unholy"],
+        recallKnowledgeCategory: "Religion",
+        recallKnowledgeDC: [20,18,15],  
+        perception: 12,
+        vision: "Greater Darkvision",
+        otherSenses: [],
+        languages: ["Common", "Diabolic", "Telepathy: 100ft."],
+        skillBonusAcrobatics: 13,
+        skillBonusArcana: 0,
+        skillBonusAthletics: 15,
+        skillBonusCrafting: 0,
+        skillBonusDeception: 0,
+        skillBonusDiplomacy: 0,
+        skillBonusIntimidation: 13,
+        skillBonusMedicine: 0,
+        skillBonusNature: 0,
+        skillBonusOccultism: 0,
+        skillBonusPerformance: 0,
+        skillBonusReligion: 12,
+        skillBonusSociety: 0,
+        skillBonusStealth: 0,
+        skillBonusSurvival: 0,
+        skillBonusThievery: 0,
+        skillBonusLore: {Warfare: 30},
+        abilityModStrength: 4,
+        abilityModDexterity: 4,
+        abilityModConstitution: 5,
+        abilityModIntelligence: 2,
+        abilityModWisdom: 3,
+        abilityModCharisma: 2,
+        defenseHP: 60,
+        defenseAC: 22, 
+        defenseFortSave: 14, 
+        defenseRflxSave: 13, 
+        defenseWillSave: 10, 
+        defenseImmunities: ["Fire"],
+        defenseResistances: ["Physical 5 (Except Silver)", "Poison 5"],
+        defenseWeaknesses: ["Holy 5"], 
+        speeds: {stride: 25, climb: 0, swim: 0, fly: 0, burrow: 0},
+        canReactiveStrike: true,
+        strikes: [
+            {
+                type: "Melee",
+                weapon: "Trident",
+                weaponTraits: ["Magical", "Unholy"],
+                numberOfActions: 1,
+                attackBonuses: [15,10,5],
+                diceNumber: 1,
+                diceSize: 8,
+                damageBonus: 10,
+                damageType: "Piercing",
+            },
+            {
+                type: "Melee",
+                weapon: "Hoof",
+                weaponTraits: ["Magical", "Unholy", "Agile"],
+                numberOfActions: 1,
+                attackBonuses: [15,11,7],  
+                diceNumber: 1,
+                diceSize: 4,
+                damageBonus: 7,
+                damageType: "Bludgeoning",
+                rider: [
+                    {
+                        type: "extraDamage",
+                        riderDiceNumber: 1,
+                        riderDiceSize: 4,
+                        riderDamageBonus: 0,
+                        riderDamageType: "Fire"
+                    }
+                ]
+            },
+            {
+                type: "Melee",
+                weapon: "Whip",
+                weaponTraits: ["Magical", "Unholy", "Disarm", "Trip", "Nonlethal", "Reach: 10"],
+                numberOfActions: 1,
+                attackBonuses: [15,10,5], 
+                diceNumber: 1,
+                diceSize: 4,
+                damageBonus: 4,
+                damageType: "Slashing",
+            },
+            {
+                type: "Ranged",
+                weapon: "Trident",
+                weaponTraits: ["Magical", "Unholy", "Thrown: 20"],
+                numberOfActions: 1,
+                attackBonuses: [13,8,3],  
+                diceNumber: 1,
+                diceSize: 8,
+                damageBonus: 10,
+                damageType: "Piercing"
+            }
+        ],
+        spellSaveDC: 19,  
+        rituals: [
+            {
+                name: "Diabolic Pact",
+                ritualRank: 1
+            }
+        ],
+        spellsAtWill: [
+            {
+                name: "Translocate",
+                spellRank: 4,
+                tradition: "Divine",
+                innate: true,
+            },
+        ],
+        specialAbilities: [
+            {
+                name: "Attack of Opportunity",
+                type: "Reaction",
+                trigger: "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using.",
+                effect: "The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike.",
+            },
+            {
+                name: "Burning Hoofprints",
+                type: "Activity",
+                numberOfActions: 2,
+                traits: ["Divine", "Fire", "Unholy"],
+                description: "The vordine Strides, trailing hoofprints in each square they exit. The hoofprints burn for 1 minute. A creature on the ground that enters a square with burning hoofprints or begins its turn in one takes 1d4 fire damage."
+            },
+            {
+                name: "Trident of Dis",
+                type: "Activity",
+                numberOfActions: 1,
+                traits: [],
+                description: "The vordine makes a trident Strike, increasing their reach to 10 feet for that Strike. If there is an unholy ally between the vordine and their target, that creature's energy causes the Strike to deal an additional 1d6 spirit damage."
+            }
+        ],
+        items: ["Breastplate", "Trident", "Whip"],
+        notes: [
 
+        ]
+    },
 
 ]
 
