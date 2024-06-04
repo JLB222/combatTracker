@@ -177,11 +177,19 @@ function SkillsTest(props) {
     }
 
     const [skills, setSkills] = useState(initialState);
-
     function handleCheck(skillName, num) {
         let roll = props.d20();
         setSkills({
             ...skills,
+            [skillName]: `+ ${roll} = ${roll + num}`
+        });
+    };
+
+    const [loreSkills, setLoreSkills] = useState(props.skillBonusLore)
+    function handleLoreCheck(skillName, num) {
+        let roll = props.d20();
+        setLoreSkills({
+            ...loreSkills,
             [skillName]: `+ ${roll} = ${roll + num}`
         });
     };
@@ -211,9 +219,20 @@ function SkillsTest(props) {
                     onClick={() => handleCheck(skillName, initialState[skillName] + props.eliteWeakModifier - props.abilityReduction[skillAttribute[skillName]])} 
                     style={initialState[skillName] === 0 ? props.hiddenStyle : null}
                 >
-                    {renderSkill(skillName)}
+                {renderSkill(skillName)}
                 </div>
             ))}
+            {Object.keys(props.skillBonusLore).length ? 
+                Object.keys(props.skillBonusLore).map(el =>
+                    <div
+                        key={el}
+                        onClick={() => handleLoreCheck(el, props.skillBonusLore[el] + props.eliteWeakModifier - props.abilityReduction[3])} 
+                    >
+                        <span>{el} Lore: </span><span>{props.skillBonusLore[el]} </span>
+                        <span>({loreSkills[el]})</span>
+                    </div>
+                )
+            :null}
         </div>
     );
 }

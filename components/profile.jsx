@@ -37,6 +37,13 @@ function Profile(props) {
                 <div>Unspecific Lore: {props.recallKnowledgeInfo[2]}</div>
                 <div>Specific Lore: {props.recallKnowledgeInfo[3]}</div>
             </div>
+            {props.items ? 
+                <div className="items">
+                    <span>Items: {props.items.join(", ")}</span>
+                </div>
+            :null
+            }
+
         </div>
     )
 };

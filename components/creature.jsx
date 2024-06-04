@@ -110,6 +110,7 @@ export default function creature(props) {
                         tags = {props.tags}
                         recallKnowledgeInfo = {props.recallKnowledgeInfo}
                         speeds = {props.speeds}
+                        items = {props.items}
                     />
                 </div>
                 <div className="column2">
@@ -181,6 +182,8 @@ export default function creature(props) {
 
                             abilityReduction = {abilityReduction}
                             abilityReductionStyle = {abilityReductionStyle}
+
+                            skillBonusLore = {props.skillBonusLore}
                         />         
                     </div>
                 </div>

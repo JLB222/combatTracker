@@ -39,6 +39,8 @@ function createCreature(data) {
       shieldStats = {data.notes?.find(note => note.entry === "Shield")}
       notes = {data.notes}
       speeds = {data.speeds}
+      items = {data.items}
+      skillBonusLore = {data.skillBonusLore}
     />
   )
 };
@@ -161,12 +163,12 @@ function App() {
             {/* <li>make a jsx for skills column</li> */}
             {/* <li>make a jsx for new special attacks column</li> */}
             {/* <li>make a jsx for new spells column?  or perhaps spells are part of the special column?</li> */}
-            <li>make a jsx for items & equipment column</li>
+            {/* <li>make a jsx for items & equipment column - just added it to profile.jsx instead</li> */}
               {/* <li>add an item array in the bestiary for creatures that have equipment</li> */}
               {/* <li>have the shield raise option only for creatures that have a shield in their item array</li> */}
               {/* <li>show the shield's HP, hardness, and BT in the Defenses column</li> */}
               {/* <li>add a shield HP tracker and button to change its value</li> */}
-            <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li>
+            {/* <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li> */}
             <li>customize the different types of special abilities to be styled in different colors for easy reference at a glance.  EX;  reactions are red, passives are blue, whatever</li>
             <li>style: make a 'clickable' class for everything that can be clicked, so the user knows what they can interact with at a glance</li>
           {/* <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li> */}
