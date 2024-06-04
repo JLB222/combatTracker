@@ -228,7 +228,16 @@ function SkillsTest(props) {
                         key={el}
                         onClick={() => handleLoreCheck(el, props.skillBonusLore[el] + props.eliteWeakModifier - props.abilityReduction[3])} 
                     >
-                        <span>{el} Lore: </span><span>{props.skillBonusLore[el]} </span>
+                        <span>{el} Lore: </span>
+                        <span
+                        style={
+                            (props.abilityReduction[3] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
+                            : props.abilityReduction[3] > 0 ? props.abilityReductionStyle
+                            : props.eliteWeakModifier ? props.selectedStyle 
+                            : null
+                            }
+                        >
+                        {props.skillBonusLore[el] + props.eliteWeakModifier - props.abilityReduction[3]} </span>
                         <span>({loreSkills[el]})</span>
                     </div>
                 )
