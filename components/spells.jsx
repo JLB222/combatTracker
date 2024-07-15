@@ -14,7 +14,7 @@ function Spells(props) {
             </div>
 
             {props.spells[1]?.length > 0 && <div className="spellType">Limited Use Spells: </div>}
-            {props.eliteWeakModifier? <span style={props.selectedStyle}>{props.eliteWeakModifier > 0 ? "Elite: +4" : "Weak: -4"} Damage</span> :null}
+            {props.spells[1]?.length > 0 && props.eliteWeakModifier? <span style={props.selectedStyle}>{props.eliteWeakModifier > 0 ? "Elite: +4" : "Weak: -4"} Damage</span> :null}
             {props.spells[1]?.map((el,index) => (
                 <div key={index}>
                     <span>Rank {el.spellRank}: {el.name} x{el.numberOfUses}</span>
@@ -22,7 +22,7 @@ function Spells(props) {
             ))}
 
             {props.spells[2]?.length > 0 && <div className="spellType">At-Will Spells: </div>}
-            {props.eliteWeakModifier? <span style={props.selectedStyle}>{props.eliteWeakModifier > 0 ? "Elite: +2" : "Weak: -2"} Damage</span> :null}
+            {props.spells[2]?.length > 0 && props.eliteWeakModifier? <span style={props.selectedStyle}>{props.eliteWeakModifier > 0 ? "Elite: +2" : "Weak: -2"} Damage</span> :null}
             {props.spells[2]?.map((el,index) => (
                 <div key={index}>
                     <span>Rank {el.spellRank}: {el.name}</span>

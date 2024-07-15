@@ -90,6 +90,45 @@ input {
 }
 
 /* Column 5 */
+.specialAbility {
+    border: 1px solid green;
+    margin: 5px;
+    padding-left: 3px;
+    width: 400px;
+    max-width: 400px;
+}
+.passive {
+    color: blue;
+}
+.demonVuln {
+    color: indigo;
+}
+.aura {
+    color: purple;
+}
+.reaction {
+    color: green;
+}
+.attack {
+    color: orange;
+}
+.activity {
+    color: red;
+}
+.specialAbilityName {
+    font-weight: 700;
+    margin-top: 5px;
+    width: 400px;
+    max-width: 400px;
+}
+
+
+.trigger, .effect {
+    color: black;
+    font-weight: bold;
+}
+
+/* Column 6 */
 .spells {
     border: 1px solid darkgreen;
     margin-top: 5px;
@@ -106,26 +145,7 @@ input {
     max-width: 400px;
 }
 
-/* Column 6 */
-.specialAbilityName {
-    color: green;
-    font-weight: 700;
-    margin-top: 5px;
-    width: 400px;
-    max-width: 400px;
-}
-.specialAbility {
-    border: 1px solid green;
-    margin: 5px;
-    padding-left: 3px;
-    width: 400px;
-    max-width: 400px;
-}
-
-.trigger, .effect {
-    color: black;
-    font-weight: bold;
-}
+/* Conditions */
 
 .bottomRow {
     display: flex;
@@ -150,3 +170,4 @@ input {
 .deprivedSenses {
     width: 50%;
 }
+

@@ -104,6 +104,7 @@ function App() {
       </div>
 
         <ul>TO-DO:
+        <li>style: make a 'clickable' class for everything that can be clicked, so the user knows what they can interact with at a glance</li>
           <li>When a user clicks one of the rollers, it can be hard to tell if they rolled the same number twice in a row, or if it just didn't acknowledge the 2nd click, leading to doubt.  especially prevalent on d4s</li>
           {/* <li>reduce creature's strike accuracy & damage when they are Enfeebled?</li> */}
           <li>change attack & damage bonus style when enfeebled?</li>
@@ -115,7 +116,6 @@ function App() {
           <li>Add a way to calculate crit damage? or just let the user do it?</li>
           <li>Some creatures, like the Bloodseeker, have a basic Strike that deals no damage.  Showing 0d0+0 on their Strike section might confuse users, especially when making them elite makes it 0d0+2, suggesting it now does damage when it still shouldn't.  (or should it?)</li>
           <li>Low level creatures might have a negative number for their MAP & it currently renders as '+-2' because the + is hard rendered atm.  Change it?</li>
-          <li>Give special styling to all instances of damage that can be clicked to roll damage, so the user can tell at a glance what they can click for damage.</li>
           {/* <li>flirt with the idea of using an array of objects for the bestiary, instead of an array of arrays.  maybe create a 2nd bestiary.js and dabble with rendering both?</li> */}
           <li>Maybe:  adjust the d20 roll function to do something special to detect Nat 1s and Nat 20s.  Could just let the GM watch for that, but they might appreciate a visual indicator when these are rolled.</li>
           {/* <li>Add an onClick for damage rolls on the new strike.jsx</li> */}
@@ -124,7 +124,7 @@ function App() {
           <li>Furthermore, every unique rider effect needs its own state, further complicating the rendering of damage.  Solution needed.</li>
             <li>rider damage effects currently display the damage roll under all rider damage spans; they need their own rendering</li>
             <li>Solution? : make a strikeRider.jsx component so each rider has its own riderDamage state?</li>
-          <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li>
+          {/* <li>bold all of the stats affected by the Elite or Weak modifier, so user can tell at a glance they've been altered.</li> */}
             {/* <li>HP, AC, saving throws</li> */}
             {/* <li>skill checks</li> */}
             {/* <li>strike damage</li> */}
@@ -155,7 +155,7 @@ function App() {
           {/* <li>show levels of darkvision on page</li> */}
           {/* <li>Other senses like Scent</li> */}
           {/* <li>for now, it is assumed that all creatures have a max of 1 rider, either damage or an effect.  Will update if/when this changes.</li> */}
-          <li>make each column it's own JSX component.  There's no need to overcomplicate creature.jsx</li>
+          {/* <li>make each column it's own JSX component.  There's no need to overcomplicate creature.jsx</li> */}
             {/* <li>make a column for strikes</li> */}
             {/* <li>make a jsx for profile column</li> */}
             {/* <li>make a jsx for defenses column</li> */}
@@ -169,8 +169,7 @@ function App() {
               {/* <li>show the shield's HP, hardness, and BT in the Defenses column</li> */}
               {/* <li>add a shield HP tracker and button to change its value</li> */}
             {/* <li>add to bestiary and creature.jsx a Notes section; info GMs won't need often but should be there (like lore skills for enemies) & ability references like Venoms</li> */}
-            <li>customize the different types of special abilities to be styled in different colors for easy reference at a glance.  EX;  reactions are red, passives are blue, whatever</li>
-            <li>style: make a 'clickable' class for everything that can be clicked, so the user knows what they can interact with at a glance</li>
+            {/* <li>customize the different types of special abilities to be styled in different colors for easy reference at a glance.  EX;  reactions are red, passives are blue, whatever</li> */}
           {/* <li>edit bestiary entries to match the new Succubus format (so that they actually work with the new code)</li> */}
           {/* <li>add to the weapon array whether each weapon is Melee or Ranged</li> */}
           <li>add the ability to add a Player Character Placeholder, to help the GM remember when it's the player's turn instead of the next monster's.  No stats, necessarily, because player stats are player's responsiblity. </li>

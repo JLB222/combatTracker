@@ -2,7 +2,7 @@ import { Big_Shoulders_Inline_Display } from "next/font/google"
 
 const bestiaryTest = [ 
     {
-        name: "name of creature",
+        name: "test creature",
         id: 0,
         source: "location",
         level: 0,
