@@ -171,3 +171,18 @@ input {
     width: 50%;
 }
 
+/* Clickable */
+.clickable {
+    cursor: pointer;
+    color: #007bff; /* A standard clickable color like blue */
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+.clickable:hover {
+color: #0056b3; /* Slightly darker shade on hover */
+box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2); /* Subtle shadow on hover */
+}
+
+.clickable:active {
+transform: scale(0.98); /* Optional: Adds a slight "pressed" effect */
+}

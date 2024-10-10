@@ -22,6 +22,12 @@ function Special(props) {
                 <div className="specialAbility activity">
                     <div className="specialAbilityName">{el.name} | Actions: {el.numberOfActions}</div>
                     <div className="specialAbilityDescription">{el.description}</div>
+                    {el.diceNumber ? 
+                    <div className="clickable" onClick={() => handleSpecialDamage([el.diceNumber, el.diceSize, el.damageBonus, el.damageType])}>
+                        {el.diceNumber}d{el.diceSize}
+                        {specialDamage} {el.damageType}
+                    </div>
+                    : null}
                 </div>
 
             : el.type === "Passive" ?
@@ -29,7 +35,7 @@ function Special(props) {
                     <div className="specialAbilityName">{el.name} {el.dc && <span style={props.eliteWeakModifier?props.selectedStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
                     <div className="specialAbilityDescription">{el.description}</div>
                     {el.diceNumber ? 
-                    <div onClick={() => handleSpecialDamage([el.diceNumber, el.diceSize, el.damageBonus, el.damageType])}>
+                    <div className="clickable" onClick={() => handleSpecialDamage([el.diceNumber, el.diceSize, el.damageBonus, el.damageType])}>
                         {el.diceNumber}d{el.diceSize}
                         {specialDamage} {el.damageType}
                     </div>
@@ -54,7 +60,7 @@ function Special(props) {
             : el.type === "Demon Vulnerability" ?
                 <div className="specialAbility demonVuln">
                     <div className="specialAbilityName">{el.name}</div>
-                    <div onClick={() => handleVulnDamage(el.damageTaken)}>{el.damageTaken[0]}d{el.damageTaken[1]}{vulnDamage} {el.damageTaken[3]}</div>
+                    <div className="clickable" onClick={() => handleVulnDamage(el.damageTaken)}>{el.damageTaken[0]}d{el.damageTaken[1]}{vulnDamage} {el.damageTaken[3]}</div>
                     <div className="specialAbilityDescription">{el.description}</div>
                 </div>
 
@@ -75,23 +81,7 @@ function Special(props) {
                     : null
                     }
                 </div>
-
-            : el.type === "Attack" ?
-                <div className="specialAbility attack">
-                    <div className="specialAbilityName">{el.name} | Actions: {el.numberOfActions}</div>
-                    {el.requirements ? <div>Requirements: {el.requirements}</div> : null}
-                    <div className="specialAbilityDescription">{el.description}</div>
-                    <div onClick={() => handleSpecialDamage([el.diceNumber, el.diceSize, el.damageBonus, el.damageType])}>
-                        {el.diceNumber}d{el.diceSize}
-                        {props.eliteWeakModifier > 0 ? 
-                            <span style={props.eliteWeakModifier?props.selectedStyle:null}>+2</span> 
-                        :props.eliteWeakModifier < 0 ?
-                            <span style={props.eliteWeakModifier?props.selectedStyle:null}>-2</span>
-                        :null
-                        }
-                        {specialDamage} {el.damageType}
-                    </div>
-                </div>
+                 
             : null
             )}
 

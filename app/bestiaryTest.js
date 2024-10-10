@@ -20,6 +20,7 @@ const bestiaryTest = [
         skillBonusDeception: 0,
         skillBonusDiplomacy: 0,
         skillBonusIntimidation: 0,
+        skillBonusLore: {Warfare: 30},
         skillBonusMedicine: 0,
         skillBonusNature: 0,
         skillBonusOccultism: 0,
@@ -48,7 +49,7 @@ const bestiaryTest = [
         canReactiveStrike: false,
         strikes: [
             {
-                type: "whether its melee or ranged",
+                type: "whether it is melee or ranged",
                 weapon: "Fist, Claw, Tail, etc",
                 weaponTraits: [""],
                 numberOfActions: 1,
@@ -105,7 +106,56 @@ const bestiaryTest = [
             }
         ],
         specialAbilities: [
-            
+            {
+                name: "Attach",
+                type: "Passive",
+                traits: [],
+                dc: null,
+                description: "When a bloodseeker hits a target larger than itself, its barbed legs attach it to that creature. This is similar to grabbing the creature, but the bloodseeker moves with that creature rather than holding it in place. The bloodseeker is flat-footed while attached. If the bloodseeker is killed or pushed away while attached to a creature it has drained blood from, that creature takes 1 persistent bleed damage. Escaping the attach or removing the bloodseeker in other ways doesn’t cause bleed damage."
+            },
+            {
+                name: "Blood Drain",
+                type: "Activity",
+                numberOfActions: 1,
+                traits: [],
+                requirements: "The bloodseeker is attached to a creature.",
+                description: "The bloodseeker uses its proboscis to drain blood from the creature it’s attached to. This deals 1d4 damage, and the bloodseeker gains temporary Hit Points equal to the damage dealt. A creature that has its blood drained by a bloodseeker is drained 1 until it receives healing (of any kind or amount).",
+                diceNumber: 1,
+                diceSize: 4,
+                damageBonus: 0,
+                damageType: "",
+            },
+            {
+                name: "Rejection Vulnerability",
+                type: "Demon Vulnerability",
+                damageTaken: [2,6,0,"Mental"],
+                description: "As succubi are beings of pure lust, creatures that reject their lust can metaphysically harm them. When a succubus fails a Diplomacy check to Embrace or Request, or when a creature succeeds at its save against a succubus’s mental spell or ability, the succubus takes 2d6 mental damage. For one hour after causing mental damage to a succubus in this way, a creature can deal 2d6 mental damage to the succubus with a successful Demoralize incorporating its rejection.",
+            },
+            {
+                name: "Seductive Presence",
+                type: "Aura",
+                auraSize: 10,
+                traits: ["Aura", "Charm", "Emotion", "Mental"],
+                description: "Any creature in the aura that could be sexually attracted to a succubus takes a –2 circumstance penalty to checks and DCs to oppose the succubus’s mental spells, Deception, and Diplomacy."
+            },
+            {
+                name: "Attack of Opportunity",
+                type: "Reaction",
+                trigger: "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using.",
+                effect: "The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike.",
+            },
+            {
+                name: "Burning Hoofprints",
+                type: "Activity",
+                numberOfActions: 2,
+                traits: ["Divine", "Fire", "Unholy"],
+                description: "The vordine Strides, trailing hoofprints in each square they exit. The hoofprints burn for 1 minute. A creature on the ground that enters a square with burning hoofprints or begins its turn in one takes 1d4 fire damage.",
+                diceNumber: 1,
+                diceSize: 4,
+                damageBonus: 0,
+                damageType: "Fire",
+            }
+
         ],
         items: ["Crossbow"],
         notes: [
@@ -991,14 +1041,22 @@ const bestiaryTest = [
                 type: "Activity",
                 numberOfActions: 2,
                 traits: ["Divine", "Fire", "Unholy"],
-                description: "The vordine Strides, trailing hoofprints in each square they exit. The hoofprints burn for 1 minute. A creature on the ground that enters a square with burning hoofprints or begins its turn in one takes 1d4 fire damage."
+                description: "The vordine Strides, trailing hoofprints in each square they exit. The hoofprints burn for 1 minute. A creature on the ground that enters a square with burning hoofprints or begins its turn in one takes 1d4 fire damage.",
+                diceNumber: 1,
+                diceSize: 4,
+                damageBonus: 0,
+                damageType: "Fire",
             },
             {
                 name: "Trident of Dis",
                 type: "Activity",
                 numberOfActions: 1,
                 traits: [],
-                description: "The vordine makes a trident Strike, increasing their reach to 10 feet for that Strike. If there is an unholy ally between the vordine and their target, that creature's energy causes the Strike to deal an additional 1d6 spirit damage."
+                description: "The vordine makes a trident Strike, increasing their reach to 10 feet for that Strike. If there is an unholy ally between the vordine and their target, that creature's energy causes the Strike to deal an additional 1d6 spirit damage.",
+                diceNumber: 1,
+                diceSize: 6,
+                damageBonus: 0,
+                damageType: "Spirit",
             }
         ],
         items: ["Breastplate", "Trident", "Whip"],

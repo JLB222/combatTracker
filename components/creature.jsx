@@ -142,7 +142,7 @@ export default function creature(props) {
                         {props.otherSenses.length? <div>{props.otherSenses}</div> :null}
                         <div className="checkPerception" 
                             onClick= {() => handleCheckPerception(props.perception + eliteWeakModifier - abilityReduction[3])}>
-                            <span>Perception: </span>
+                            <span className="clickable">Perception: </span>
                             <span style={
                                 ( abilityReduction[3] > 0 && eliteWeakModifier) ? { ...abilityReductionStyle, ...selectedStyle }
                                 : abilityReduction[3] > 0 ? abilityReductionStyle

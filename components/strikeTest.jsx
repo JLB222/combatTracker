@@ -33,7 +33,7 @@ function Strike(props) {
         <span className="strikeType">({props.data.type}) </span>
         <span className="strikeWeapon">{props.data.weapon}: [</span>
 
-        <span className="firstStrike" 
+        <span className="firstStrike clickable" 
                     style={
                         (MAP === 1 && props.eliteWeakModifier) ? { ...props.selectedStyle, ...mapStyle } 
                         : MAP === 1 ? mapStyle 
@@ -47,7 +47,7 @@ function Strike(props) {
         >+{props.data.attackBonuses[0] + props.eliteWeakModifier - (attackAffectedByEnfeebled ? props.abilityReduction[0] : props.abilityReduction[1])}</span>
         <span>/</span>
         
-        <span className="secondStrike" 
+        <span className="secondStrike clickable" 
                     style={
                         (MAP === 2 && props.eliteWeakModifier) ? { ...props.selectedStyle, ...mapStyle } 
                         : MAP === 2 ? mapStyle 
@@ -61,7 +61,7 @@ function Strike(props) {
         >+{props.data.attackBonuses[1] + props.eliteWeakModifier - (attackAffectedByEnfeebled ? props.abilityReduction[0] : props.abilityReduction[1])}</span>
         <span>/</span>
 
-        <span className="thirdStrike" 
+        <span className="thirdStrike clickable" 
                     style={
                         (MAP === 3 && props.eliteWeakModifier) ? { ...props.selectedStyle, ...mapStyle } 
                         : MAP === 3 ? mapStyle 
@@ -80,7 +80,7 @@ function Strike(props) {
         <div className="strikeTags">[{props.data.weaponTraits.join(", ") || "No weapon traits"}]</div>
         <div className="strikeDamage">
             {/* Basic strike that all creatures should have. */}
-            <span className="damageNumber" onClick={() => handleDamage([props.data.diceNumber, props.data.diceSize, props.data.damageBonus - (damageAffectedByEnfeebled?props.abilityReduction[0]:0), props.data.damageType])}>
+            <span className="damageNumber clickable" onClick={() => handleDamage([props.data.diceNumber, props.data.diceSize, props.data.damageBonus - (damageAffectedByEnfeebled?props.abilityReduction[0]:0), props.data.damageType])}>
                     <span className="dieNumber">{props.data.diceNumber}</span><span>d</span>
                     <span className="dieSize">{props.data.diceSize}</span><span>+</span>
                     <span className="damageBonus" style={props.eliteWeakModifier ? props.selectedStyle : null}>
@@ -93,7 +93,7 @@ function Strike(props) {
             {props.data.rider?.map((el,index) => el.type  === "extraDamage" ? 
                 <div key={index}>
                     {/* the purpose of the ternary is to conditionally render the '+ X' damage or nothing if the value is 0 (so that it doesn't display '1d6+0 evil' on the succubus, for example) */}
-                    <span className="riderDamage" onClick={() => handleRiderDamage([el.riderDiceNumber, el.riderDiceSize, el.riderDamageBonus, el.riderDamageType])}> & {el.riderDiceNumber}d{el.riderDiceSize}{el.riderDamageBonus ? <span>+ {el.riderDamageBonus}</span> : <span></span>} {riderDamage}</span>
+                    <span className="riderDamage clickable" onClick={() => handleRiderDamage([el.riderDiceNumber, el.riderDiceSize, el.riderDamageBonus, el.riderDamageType])}> & {el.riderDiceNumber}d{el.riderDiceSize}{el.riderDamageBonus ? <span>+ {el.riderDamageBonus}</span> : <span></span>} {riderDamage}</span>
                     <span> {el.riderDamageType}</span>
                 </div>
             : el.type === "effect" ? 

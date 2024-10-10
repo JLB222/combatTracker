@@ -74,7 +74,7 @@ return (
             }>
                 {props.defenseAC + props.eliteWeakModifier + shieldModifier - props.abilityReduction[1]}
             </span>
-            {props.hasShield ? <span> {shieldUp ? "Shield Raised" : "Raise Shield"}</span> : null}
+            {props.hasShield ? <span className="clickable"> {shieldUp ? "Shield Raised" : "Raise Shield"}</span> : null}
         </div>
         {props.hasShield ? 
             <div className="shieldHealth">
@@ -84,7 +84,7 @@ return (
                 <div>Hardness:{props.shieldStats.shieldHardness} </div>
             </div> 
         : null}
-        <div className="saveFortitude" onClick= {() => handleSaveFort(props.defenseFortSave + props.eliteWeakModifier - props.abilityReduction[2])}>
+        <div className="saveFortitude clickable" onClick= {() => handleSaveFort(props.defenseFortSave + props.eliteWeakModifier - props.abilityReduction[2])}>
             <span>FORT: </span>
             <span style={
                         (props.abilityReduction[2] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
@@ -96,7 +96,7 @@ return (
             </span>
             <span> ({fortSave})</span>
         </div>
-        <div className="saveReflex" onClick= {() => handleSaveRflx(props.defenseRflxSave + props.eliteWeakModifier - props.abilityReduction[1])}>
+        <div className="saveReflex clickable" onClick= {() => handleSaveRflx(props.defenseRflxSave + props.eliteWeakModifier - props.abilityReduction[1])}>
             <span>RFLX: </span>
             <span style={
                         (props.abilityReduction[1] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
@@ -108,7 +108,7 @@ return (
             </span>
             <span> ({rflxSave})</span>
         </div>
-        <div className="saveWill" onClick= {() => handleSaveWill(props.defenseWillSave + props.eliteWeakModifier - props.abilityReduction[3])}>
+        <div className="saveWill clickable" onClick= {() => handleSaveWill(props.defenseWillSave + props.eliteWeakModifier - props.abilityReduction[3])}>
             <span>WILL: </span>
             <span style={
                         (props.abilityReduction[3] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }

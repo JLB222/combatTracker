@@ -104,7 +104,7 @@ function App() {
       </div>
 
         <ul>TO-DO:
-        <li>style: make a 'clickable' class for everything that can be clicked, so the user knows what they can interact with at a glance</li>
+        {/* <li>style: make a 'clickable' class for everything that can be clicked, so the user knows what they can interact with at a glance</li> */}
           <li>When a user clicks one of the rollers, it can be hard to tell if they rolled the same number twice in a row, or if it just didn't acknowledge the 2nd click, leading to doubt.  especially prevalent on d4s</li>
           {/* <li>reduce creature's strike accuracy & damage when they are Enfeebled?</li> */}
           <li>change attack & damage bonus style when enfeebled?</li>
