@@ -62,9 +62,9 @@ function SkillsTest(props) {
             <div className={`check${skillName}`}>
                 <span className="clickable">{skillName}: </span>
                 <span style={
-                        (props.abilityReduction[skillAttribute[skillName]] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
+                        (props.abilityReduction[skillAttribute[skillName]] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.eliteWeakStyle }
                         : props.abilityReduction[skillAttribute[skillName]] > 0 ? props.abilityReductionStyle
-                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : props.eliteWeakModifier ? props.eliteWeakStyle 
                         : null
                         }>
                     {initialState[skillName] + props.eliteWeakModifier - props.abilityReduction[skillAttribute[skillName]]}
@@ -94,9 +94,9 @@ function SkillsTest(props) {
                         <span className="clickable">{el} Lore: </span>
                         <span
                         style={
-                            (props.abilityReduction[3] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.selectedStyle }
+                            (props.abilityReduction[3] > 0 && props.eliteWeakModifier) ? { ...props.abilityReductionStyle, ...props.eliteWeakStyle }
                             : props.abilityReduction[3] > 0 ? props.abilityReductionStyle
-                            : props.eliteWeakModifier ? props.selectedStyle 
+                            : props.eliteWeakModifier ? props.eliteWeakStyle 
                             : null
                             }
                         >

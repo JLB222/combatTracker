@@ -8,8 +8,8 @@ function Profile(props) {
                 <span className="level">{props.level} </span>
                 <span className="name">{props.name} </span>
                 <span className="initiative">Initiative </span>
-                <span className="eliteToggle clickable" style={props.elite?props.selectedStyle:null} onClick={() => props.handleEliteToggle()}> Elite </span>
-                <span className="weakToggle clickable" style={props.weak?props.selectedStyle:null}onClick={() => props.handleWeakToggle()}> Weak </span>
+                <span className="eliteToggle clickable" style={props.elite?props.eliteWeakStyle:null} onClick={() => props.handleEliteToggle()}> Elite </span>
+                <span className="weakToggle clickable" style={props.weak?props.eliteWeakStyle:null}onClick={() => props.handleWeakToggle()}> Weak </span>
             </div>
             <div className="abilityMods">
                 <span className="strengthMod">STR: {props.abilityModStrength} </span>

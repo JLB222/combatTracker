@@ -32,7 +32,7 @@ function Special(props) {
 
             : el.type === "Passive" ?
                 <div className="specialAbility passive">
-                    <div className="specialAbilityName">{el.name} {el.dc && <span style={props.eliteWeakModifier?props.selectedStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
+                    <div className="specialAbilityName">{el.name} {el.dc && <span style={props.eliteWeakModifier?props.eliteWeakStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
                     <div className="specialAbilityDescription">{el.description}</div>
                     {el.diceNumber ? 
                     <div className="clickable" onClick={() => handleSpecialDamage([el.diceNumber, el.diceSize, el.damageBonus, el.damageType])}>
@@ -44,7 +44,7 @@ function Special(props) {
             
             : el.type === "Aura" ?
                 <div className="specialAbility aura">
-                    <div className="specialAbilityName">{el.name} | Radius: {el.auraSize} ft. {el.dc && <span style={props.eliteWeakModifier?props.selectedStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
+                    <div className="specialAbilityName">{el.name} | Radius: {el.auraSize} ft. {el.dc && <span style={props.eliteWeakModifier?props.eliteWeakStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
                     <div>[{el.traits.join(", ")}]</div>
                     <div className="specialAbilityDescription">{el.description}</div>
                     {el.results ? 

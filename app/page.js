@@ -45,12 +45,6 @@ function createCreature(data) {
   )
 };
 
-// let objectTest = createCreature(bestiaryTest[0])
-// let showFullBestiary = bestiaryTest.map(createCreature)
-
-// let selectedCreatures = [bestiaryTest[0]]
-// let showSelectedCreatures = selectedCreatures.map(createCreature)
-
 function App() {
   const [selectedCreatures, setSelectedCreatures] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -106,6 +100,7 @@ function App() {
         <ul>TO-DO:
         {/* <li>style: make a 'clickable' class for everything that can be clicked, so the user knows what they can interact with at a glance</li> */}
           <li>When a user clicks one of the rollers, it can be hard to tell if they rolled the same number twice in a row, or if it just didn't acknowledge the 2nd click, leading to doubt.  especially prevalent on d4s</li>
+          <li>Potential solution:  an array of style objects that cycles every click.  the text color changes so you know if it's a new number or not</li>
           {/* <li>reduce creature's strike accuracy & damage when they are Enfeebled?</li> */}
           <li>change attack & damage bonus style when enfeebled?</li>
           <li>special attack damage reduced by enfeebled? how to know if a special attack is str-based? special.jsx doesn't currently track melee vs ranged</li>

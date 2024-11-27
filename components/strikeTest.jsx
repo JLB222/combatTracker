@@ -35,9 +35,9 @@ function Strike(props) {
 
         <span className="firstStrike clickable" 
                     style={
-                        (MAP === 1 && props.eliteWeakModifier) ? { ...props.selectedStyle, ...mapStyle } 
+                        (MAP === 1 && props.eliteWeakModifier) ? { ...props.eliteWeakStyle, ...mapStyle } 
                         : MAP === 1 ? mapStyle 
-                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : props.eliteWeakModifier ? props.eliteWeakStyle 
                         : null
                     }
                     onClick={() => {
@@ -49,9 +49,9 @@ function Strike(props) {
         
         <span className="secondStrike clickable" 
                     style={
-                        (MAP === 2 && props.eliteWeakModifier) ? { ...props.selectedStyle, ...mapStyle } 
+                        (MAP === 2 && props.eliteWeakModifier) ? { ...props.eliteWeakStyle, ...mapStyle } 
                         : MAP === 2 ? mapStyle 
-                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : props.eliteWeakModifier ? props.eliteWeakStyle 
                         : null
                     }
                     onClick={() => {
@@ -63,9 +63,9 @@ function Strike(props) {
 
         <span className="thirdStrike clickable" 
                     style={
-                        (MAP === 3 && props.eliteWeakModifier) ? { ...props.selectedStyle, ...mapStyle } 
+                        (MAP === 3 && props.eliteWeakModifier) ? { ...props.eliteWeakStyle, ...mapStyle } 
                         : MAP === 3 ? mapStyle 
-                        : props.eliteWeakModifier ? props.selectedStyle 
+                        : props.eliteWeakModifier ? props.eliteWeakStyle 
                         : null
                     }
                     onClick={() => {
@@ -83,7 +83,7 @@ function Strike(props) {
             <span className="damageNumber clickable" onClick={() => handleDamage([props.data.diceNumber, props.data.diceSize, props.data.damageBonus - (damageAffectedByEnfeebled?props.abilityReduction[0]:0), props.data.damageType])}>
                     <span className="dieNumber">{props.data.diceNumber}</span><span>d</span>
                     <span className="dieSize">{props.data.diceSize}</span><span>+</span>
-                    <span className="damageBonus" style={props.eliteWeakModifier ? props.selectedStyle : null}>
+                    <span className="damageBonus" style={props.eliteWeakModifier ? props.eliteWeakStyle : null}>
                         {props.data.damageBonus + props.eliteWeakModifier - (damageAffectedByEnfeebled?props.abilityReduction[0]:0)}
                     </span>
                     <span className="damageResult">{damage}</span>

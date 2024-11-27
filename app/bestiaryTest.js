@@ -30,7 +30,6 @@ const bestiaryTest = [
         skillBonusStealth: 0,
         skillBonusSurvival: 0,
         skillBonusThievery: 0,
-        skillBonusLore: {},
         abilityModStrength: 0,
         abilityModDexterity: 0,
         abilityModConstitution: 0,

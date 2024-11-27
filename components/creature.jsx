@@ -14,10 +14,10 @@ const hiddenStyle = {
     display : "none"
 }
 //style active if a creature stat has been affected by the Elite or Weak template
-const selectedStyle = {
+const eliteWeakStyle = {
     fontWeight: "bold",
     backgroundColor: "black",
-    color: "white"
+    color: "aqua"
 }
 //style active if a given ability score has been reduced by conditions
 const abilityReductionStyle = {
@@ -98,7 +98,7 @@ export default function creature(props) {
                         languages = {props.languages}
                         elite = {elite}
                         weak = {weak}
-                        selectedStyle = {selectedStyle}
+                        eliteWeakStyle = {eliteWeakStyle}
                         handleEliteToggle = {handleEliteToggle}
                         handleWeakToggle = {handleWeakToggle}
                         abilityModStrength = {props.abilityModStrength}
@@ -120,7 +120,7 @@ export default function creature(props) {
                         level = {props.level}
                         HP = {props.defenseHP}
                         eliteWeakModifier = {eliteWeakModifier}
-                        selectedStyle = {selectedStyle}
+                        eliteWeakStyle = {eliteWeakStyle}
                         defenseAC = {props.defenseAC}
                         defenseFortSave = {props.defenseFortSave}
                         defenseRflxSave = {props.defenseRflxSave}
@@ -144,9 +144,9 @@ export default function creature(props) {
                             onClick= {() => handleCheckPerception(props.perception + eliteWeakModifier - abilityReduction[3])}>
                             <span className="clickable">Perception: </span>
                             <span style={
-                                ( abilityReduction[3] > 0 && eliteWeakModifier) ? { ...abilityReductionStyle, ...selectedStyle }
+                                ( abilityReduction[3] > 0 && eliteWeakModifier) ? { ...abilityReductionStyle, ...eliteWeakStyle }
                                 : abilityReduction[3] > 0 ? abilityReductionStyle
-                                : eliteWeakModifier ? selectedStyle 
+                                : eliteWeakModifier ? eliteWeakStyle 
                                 : null
                             }>
                                 {props.perception + eliteWeakModifier - abilityReduction[3]}
@@ -177,7 +177,7 @@ export default function creature(props) {
                             
                             eliteWeakModifier = {eliteWeakModifier}
                             hiddenStyle = {hiddenStyle}
-                            selectedStyle = {selectedStyle}
+                            eliteWeakStyle = {eliteWeakStyle}
                             d20={d20}
 
                             abilityReduction = {abilityReduction}
@@ -194,7 +194,7 @@ export default function creature(props) {
                                 key={index} 
                                 data={element}
                                 eliteWeakModifier = {eliteWeakModifier}
-                                selectedStyle = {selectedStyle}
+                                eliteWeakStyle = {eliteWeakStyle}
                                 d20={d20}
                                 damageRoll={damageRoll}
 
@@ -210,7 +210,7 @@ export default function creature(props) {
                         damageRoll = {damageRoll}
                         specials = {props.special}
                         eliteWeakModifier = {eliteWeakModifier}
-                        selectedStyle = {selectedStyle}
+                        eliteWeakStyle = {eliteWeakStyle}
                         />
                     : null}
                 </div>
@@ -220,7 +220,7 @@ export default function creature(props) {
                         <Spells
                             spells = {props.spells}
                             eliteWeakModifier = {eliteWeakModifier}
-                            selectedStyle = {selectedStyle}
+                            eliteWeakStyle = {eliteWeakStyle}
 
                             abilityReduction = {abilityReduction}
                             abilityReductionStyle = {abilityReductionStyle}
