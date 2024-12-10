@@ -1063,7 +1063,394 @@ const bestiaryTest = [
 
         ]
     },
-
+    {
+        "name": "Aapoph Granitescale",
+        "id": 3184,
+        "source": "Monster Core Pg304",
+        "level": 6,
+        "tags": [
+          "Medium",
+          "Humanoid",
+          "Mutant",
+          "Serpentfolk"
+        ],
+        "recallKnowledgeCategory": "Society",
+        "recallKnowledgeDC": [
+          22,
+          20,
+          17
+        ],
+        "perception": 13,
+        "vision": "Darkvision",
+        "otherSenses": [
+          "Scent (imprecise) 30ft"
+        ],
+        "languages": [
+          "Aklo",
+          "Common",
+          "Sakvroth",
+          "Telepathy 100ft"
+        ],
+        "skillBonusAcrobatics": 14,
+        "skillBonusArcana": 0,
+        "skillBonusAthletics": 15,
+        "skillBonusCrafting": 0,
+        "skillBonusDeception": 0,
+        "skillBonusDiplomacy": 0,
+        "skillBonusIntimidation": 15,
+        "skillBonusLore": {},
+        "skillBonusMedicine": 0,
+        "skillBonusNature": 0,
+        "skillBonusOccultism": 0,
+        "skillBonusPerformance": 0,
+        "skillBonusReligion": 0,
+        "skillBonusSociety": 0,
+        "skillBonusStealth": 0,
+        "skillBonusSurvival": 0,
+        "skillBonusThievery": 0,
+        "abilityModStrength": 5,
+        "abilityModDexterity": 4,
+        "abilityModConstitution": 4,
+        "abilityModIntelligence": -1,
+        "abilityModWisdom": 1,
+        "abilityModCharisma": 1,
+        "defenseHP": 120,
+        "defenseAC": 24,
+        "defenseFortSave": 16,
+        "defenseRflxSave": 14,
+        "defenseWillSave": 11,
+        "defenseImmunities": [],
+        "defenseResistances": [
+          "Poison 5"
+        ],
+        "defenseWeaknesses": [],
+        "speeds": {
+          "stride": 25,
+          "climb": 0,
+          "swim": 0,
+          "fly": 0,
+          "burrow": 0
+        },
+        "canReactiveStrike": true,
+        "strikes": [
+          {
+            "type": "Melee",
+            "weapon": "Longspear",
+            "weaponTraits": [
+              "Reach 10"
+            ],
+            "attackBonuses": [
+              17,
+              12,
+              7
+            ],
+            "diceNumber": 1,
+            "diceSize": 8,
+            "damageBonus": 11,
+            "damageType": "piercing"
+          },
+          {
+            "type": "Melee",
+            "weapon": "Fangs",
+            "weaponTraits": [],
+            "attackBonuses": [
+              17,
+              12,
+              7
+            ],
+            "diceNumber": 1,
+            "diceSize": 8,
+            "damageBonus": 11,
+            "damageType": "piercing",
+            "rider": [
+              {
+                "riderName": "Serpentfolk Venom",
+                "type": "effect",
+                "riderDiceNumber": 0,
+                "riderDiceSize": 0,
+                "riderDamageBonus": 0,
+                "riderDamageType": ""
+              }
+            ]
+          },
+          {
+            "type": "Ranged",
+            "weapon": "Javelin",
+            "weaponTraits": [
+              "Range Increment 30"
+            ],
+            "attackBonuses": [
+              16,
+              11,
+              6
+            ],
+            "diceNumber": 1,
+            "diceSize": 6,
+            "damageBonus": 11,
+            "damageType": "piercing"
+          }
+        ],
+        "spellSaveDC": 0,
+        "rituals": [],
+        "spells": [],
+        "spellsAtWill": [],
+        "spellsConstant": [],
+        "specialAbilities": [
+            {
+                "name": "Mental Resilience",
+                "type": "Passive",
+                "description": "+2 Status Bonus to saves vs mental effects",
+              },
+          {
+            "name": "Chipping Scales",
+            "type": "Reaction",
+            "numberOfActions": 0,
+            "traits": [
+              ""
+            ],
+            "description": "",
+            "diceNumber": 0,
+            "diceSize": 0,
+            "damageBonus": 0,
+            "damageType": "",
+            "trigger": "The granitescale is about to take piercing or slashing damage",
+            "effect": "The granitescale twists to take the blow on their hardest scales, which they shed to reduce the incoming force. The granitescale gains resistance 15 to the damage, but their AC is reduced by 2 for 1 day, when the shed scales regrow."
+          },
+          {
+            "name": "Reactive Strike",
+            "type": "Reaction",
+            "numberOfActions": 0,
+            "traits": [
+              ""
+            ],
+            "description": "",
+            "diceNumber": 0,
+            "diceSize": 0,
+            "damageBonus": 0,
+            "damageType": "",
+            "trigger": "A creature within the monster's reach uses a manipulate action or a move action, makes a ranged attack, or leaves a square during a move action it's using",
+            "effect": "The monster attempts a melee Strike against the triggering creature. If the attack is a critical hit and the trigger was a manipulate action, the monster disrupts that action. This Strike doesn't count toward the monster's multiple attack penalty, and its multiple attack penalty doesn't apply to this Strike."
+          },
+          {
+            "name": "Rattling Spear",
+            "type": "Activity",
+            "numberOfActions": 1,
+            "traits": [
+              "Auditory",
+              "Emotion",
+              "Mental"
+            ],
+            "description": "",
+            "diceNumber": 0,
+            "diceSize": 0,
+            "damageBonus": 0,
+            "damageType": "",
+            "requirement": "The granitescale's last action was a successful longspear Strike.",
+            "trigger": "",
+            "effect": "The granitescale rattles the base of their spear, attempting an Intimidation check to Demoralize all enemies within 30 feet (compare the check result to the targets' Will DCs individually)."
+          },
+          {
+            "name": "Serpentfolk Venom",
+            "type": "Passive",
+            "numberOfActions": 0,
+            "traits": [
+              "Poison"
+            ],
+            "description": "Saving Throw DC 22 Fortitude; Maximum Duration 6 rounds; Stage 1 1d4 poison damage and enfeebled 1 (1 round); Stage 2 2d4 poison damage and enfeebled 1 (1 round)",
+            "diceNumber": 0,
+            "diceSize": 0,
+            "damageBonus": 0,
+            "damageType": "poison",
+            "trigger": "",
+            "effect": ""
+          }
+        ],
+        "items": "",
+        "notes": []
+    },
+    {
+        "name": "Aapoph Serpentfolk",
+        "id": 3182,
+        "source": "Monster Core Pg303",
+        "level": 3,
+        "tags": [
+          "Medium",
+          "Humanoid",
+          "Mutant",
+          "Serpentfolk"
+        ],
+        "recallKnowledgeCategory": "Society",
+        "recallKnowledgeDC": [
+          18,
+          16,
+          13
+        ],
+        "perception": 8,
+        "vision": "Darkvision",
+        "otherSenses": [
+          "Scent (imprecise) 30ft"
+        ],
+        "languages": [
+          "Aklo",
+          "Sakvroth",
+          "Telepathy 100ft"
+        ],
+        "skillBonusAcrobatics": 7,
+        "skillBonusArcana": 0,
+        "skillBonusAthletics": 11,
+        "skillBonusCrafting": 0,
+        "skillBonusDeception": 0,
+        "skillBonusDiplomacy": 0,
+        "skillBonusIntimidation": 6,
+        "skillBonusLore": {},
+        "skillBonusMedicine": 0,
+        "skillBonusNature": 0,
+        "skillBonusOccultism": 0,
+        "skillBonusPerformance": 0,
+        "skillBonusReligion": 0,
+        "skillBonusSociety": 0,
+        "skillBonusStealth": 0,
+        "skillBonusSurvival": 0,
+        "skillBonusThievery": 0,
+        "abilityModStrength": 4,
+        "abilityModDexterity": 2,
+        "abilityModConstitution": 3,
+        "abilityModIntelligence": -1,
+        "abilityModWisdom": 1,
+        "abilityModCharisma": -1,
+        "defenseHP": 60,
+        "defenseAC": 18,
+        "defenseFortSave": 10,
+        "defenseRflxSave": 7,
+        "defenseWillSave": 6,
+        "defenseImmunities": [],
+        "defenseResistances": [
+          "Poison 5"
+        ],
+        "defenseWeaknesses": [],
+        "speeds": {
+          "stride": 25,
+          "climb": 0,
+          "swim": 0,
+          "fly": 0,
+          "burrow": 0
+        },
+        "canReactiveStrike": true,
+        "strikes": [
+          {
+            "type": "Melee",
+            "weapon": "Scimitar",
+            "weaponTraits": [
+              "Forceful",
+              "Sweep"
+            ],
+            "attackBonuses": [
+              11,
+              6,
+              1
+            ],
+            "diceNumber": 1,
+            "diceSize": 6,
+            "damageBonus": 6,
+            "damageType": "slashing"
+          },
+          {
+            "type": "Melee",
+            "weapon": "Fangs",
+            "weaponTraits": [],
+            "attackBonuses": [
+              11,
+              6,
+              1
+            ],
+            "diceNumber": 1,
+            "diceSize": 8,
+            "damageBonus": 6,
+            "damageType": "piercing",
+            "rider": [
+              {
+                "riderName": "SerpentfolkVenom",
+                "type": "Effect",
+                "riderDiceNumber": 0,
+                "riderDiceSize": 0,
+                "riderDamageBonus": 0,
+                "riderDamageType": ""
+              }
+            ]
+          },
+          {
+            "type": "Melee",
+            "weapon": "Tail",
+            "weaponTraits": [
+              "Agile"
+            ],
+            "attackBonuses": [
+              11,
+              7,
+              3
+            ],
+            "diceNumber": 1,
+            "diceSize": 6,
+            "damageBonus": 6,
+            "damageType": "bludgeoning",
+            "rider": [
+              {
+                "riderName": "Knockdown",
+                "type": "Effect",
+                "riderDiceNumber": 0,
+                "riderDiceSize": 0,
+                "riderDamageBonus": 0,
+                "riderDamageType": ""
+              }
+            ]
+          }
+        ],
+        "spellSaveDC": 0,
+        "rituals": [],
+        "spells": [],
+        "spellsAtWill": [],
+        "spellsConstant": [],
+        "specialAbilities": [
+            {
+                "name": "Mental Resilience",
+                "type": "Passive",
+                "description": "+2 Status Bonus to saves vs mental effects",
+              },
+          {
+            "name": "Serpentfolk Venom",
+            "type": "Passive",
+            "numberOfActions": 0,
+            "traits": "Poison",
+            "diceNumber": 0,
+            "diceSize": 0,
+            "damageBonus": 0,
+            "damageType": "",
+            "trigger": "",
+            "description": "Saving Throw DC 20 Fortitude; Maximum Duration 6 rounds; Stage 1 1d4 poison damage and enfeebled 1 (1 round); Stage 2 2d4 poison damage and enfeebled 1 (1 round)",
+            "effect": "",
+          },
+          {
+            "name": "Slithering Attack",
+            "type": "Activity",
+            "numberOfActions": 1,
+            "traits": [],
+            "diceNumber": 0,
+            "diceSize": 0,
+            "damageBonus": 0,
+            "damageType": "",
+            "trigger": "",
+            "effect": "The aapoph serpentfolk makes one scimitar or fangs Strike and one tail Strike, each targeting a different creature. These attacks both count toward the aapoph's multiple attack penalty, but the penalty doesn't increase until after the aapoph makes both attacks."
+          },
+        ],
+        "items": [
+          "Scimitar"
+        ],
+        "notes": []
+    }
 ]
 
+// some specials have both a description and effect.  keep them
+// some special abilities have a requirement, such as Aapoph Granitescale's rattling spear ability; add it to the form.
+// specialabilities also may include poisons or diseases with a maxDuration and variable numbers of stage effects.  need to implement this
+// both Aapophs have a status bonus to Will saves.  Where to add that? notes? make it a special like i did for succubi?
 export default bestiaryTest

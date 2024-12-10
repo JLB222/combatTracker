@@ -17,7 +17,7 @@ function SkillsTest(props) {
         Society: props.skillBonusSociety,
         Stealth: props.skillBonusStealth,
         Survival: props.skillBonusSurvival,
-        Thievery: props.skillBonusThievery,
+        Thievery: props.skillBonusThievery
     };
     // based on the index of the conditions state array in conditions.jsx:  [enfeebled, clumsy, drained, stupefied]
     const skillAttribute = {
@@ -36,7 +36,7 @@ function SkillsTest(props) {
         Society: 3,
         Stealth: 1,
         Survival: 3,
-        Thievery: 1,
+        Thievery: 1
     }
 
     const [skills, setSkills] = useState(initialState);

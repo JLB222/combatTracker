@@ -21,7 +21,9 @@ function Special(props) {
             el.type === "Activity" ? 
                 <div className="specialAbility activity">
                     <div className="specialAbilityName">{el.name} | Actions: {el.numberOfActions}</div>
-                    <div className="specialAbilityDescription">{el.description}</div>
+                    {el.requirement && <div className="specialAbilityRequirement reqs">Requirement: </div>}
+                    {el.requirement && <div>{el.requirement}</div>}
+                    <div className="specialAbilityDescription">{el.effect || el.description}</div>
                     {el.diceNumber ? 
                     <div className="clickable" onClick={() => handleSpecialDamage([el.diceNumber, el.diceSize, el.damageBonus, el.damageType])}>
                         {el.diceNumber}d{el.diceSize}

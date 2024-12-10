@@ -98,6 +98,8 @@ function App() {
       </div>
 
         <ul>TO-DO:
+          <li>Make an 'affliction' category for special abilities?</li>
+          <li>both description and effect are necessary on some stat blocks; keep this in mind for components</li>
         {/* <li>style: make a 'clickable' class for everything that can be clicked, so the user knows what they can interact with at a glance</li> */}
           <li>When a user clicks one of the rollers, it can be hard to tell if they rolled the same number twice in a row, or if it just didn't acknowledge the 2nd click, leading to doubt.  especially prevalent on d4s</li>
           <li>Potential solution:  an array of style objects that cycles every click.  the text color changes so you know if it's a new number or not</li>
