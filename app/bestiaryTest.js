@@ -1251,18 +1251,14 @@ const bestiaryTest = [
           },
           {
             "name": "Serpentfolk Venom",
-            "type": "Passive",
-            "numberOfActions": 0,
-            "traits": [
-              "Poison"
-            ],
-            "description": "Saving Throw DC 22 Fortitude; Maximum Duration 6 rounds; Stage 1 1d4 poison damage and enfeebled 1 (1 round); Stage 2 2d4 poison damage and enfeebled 1 (1 round)",
-            "diceNumber": 0,
-            "diceSize": 0,
-            "damageBonus": 0,
-            "damageType": "poison",
-            "trigger": "",
-            "effect": ""
+            "type": "Affliction",
+            "traits": "Poison",
+            "dc": "22",
+            "maxDuration": "6 rounds",
+            "stages": [
+                "1d4 Poison Damage & Enfeebled 1 (1 Round)",
+                "2d4 Poison Damage & Enfeebled 1 (1 Round)"
+            ]
           }
         ],
         "items": "",
@@ -1411,23 +1407,21 @@ const bestiaryTest = [
         "spellsAtWill": [],
         "spellsConstant": [],
         "specialAbilities": [
-            {
+          {
                 "name": "Mental Resilience",
                 "type": "Passive",
                 "description": "+2 Status Bonus to saves vs mental effects",
-              },
+          },
           {
             "name": "Serpentfolk Venom",
-            "type": "Passive",
-            "numberOfActions": 0,
+            "type": "Affliction",
             "traits": "Poison",
-            "diceNumber": 0,
-            "diceSize": 0,
-            "damageBonus": 0,
-            "damageType": "",
-            "trigger": "",
-            "description": "Saving Throw DC 20 Fortitude; Maximum Duration 6 rounds; Stage 1 1d4 poison damage and enfeebled 1 (1 round); Stage 2 2d4 poison damage and enfeebled 1 (1 round)",
-            "effect": "",
+            "dc": "20",
+            "maxDuration": "6 rounds",
+            "stages": [
+                "1d4 Poison Damage & Enfeebled 1 (1 Round)",
+                "2d4 Poison Damage & Enfeebled 1 (1 Round)"
+            ]
           },
           {
             "name": "Slithering Attack",
@@ -1450,7 +1444,7 @@ const bestiaryTest = [
 ]
 
 // some specials have both a description and effect.  keep them
-// some special abilities have a requirement, such as Aapoph Granitescale's rattling spear ability; add it to the form.
+// some special abilities have options or variable success effects, such as the Aasimar Redeemer's champion reaction or the Abandoned Zealot's 'Anathemic Aversion'.  this needs to be in the form
 // specialabilities also may include poisons or diseases with a maxDuration and variable numbers of stage effects.  need to implement this
 // both Aapophs have a status bonus to Will saves.  Where to add that? notes? make it a special like i did for succubi?
 export default bestiaryTest

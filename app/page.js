@@ -98,7 +98,8 @@ function App() {
       </div>
 
         <ul>TO-DO:
-          <li>Make an 'affliction' category for special abilities?</li>
+          <li>Immunities, resistances, and weaknesses are displayed in the Defenses column even if they have none, because that property exists in their bestiary entry (albeit empty). I previously used .length to only render them if they had at least 1 element in their array.  We should probably eliminate properties on individual creatures if they're empty to save memory.</li>
+          {/* <li>Make an 'affliction' category for special abilities?</li> */}
           <li>both description and effect are necessary on some stat blocks; keep this in mind for components</li>
         {/* <li>style: make a 'clickable' class for everything that can be clicked, so the user knows what they can interact with at a glance</li> */}
           <li>When a user clicks one of the rollers, it can be hard to tell if they rolled the same number twice in a row, or if it just didn't acknowledge the 2nd click, leading to doubt.  especially prevalent on d4s</li>
@@ -146,7 +147,7 @@ function App() {
           {/* <li>add function to AC span; when clicked AC goes up by two to represent shield raising?</li> */}
           <li>add a section for condition tracking?</li>
           <li>add a general dice roller? for single or batch rolls</li>
-          <li>add Lore skills for creatures that have them</li>
+          {/* <li>add Lore skills for creatures that have them</li> */}
           {/* <li>Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li> */}
           <li>Temporary HP?</li>
           {/* <li>show levels of darkvision on page</li> */}

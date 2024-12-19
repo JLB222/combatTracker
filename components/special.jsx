@@ -83,7 +83,13 @@ function Special(props) {
                     : null
                     }
                 </div>
-                 
+            : el.type === "Affliction" ? 
+                <div className="specialAbility affliction">
+                    <div className="afflictionName">{el.name} | DC: {+el.dc && <span style={props.eliteWeakModifier?props.eliteWeakStyle:null}> {+el.dc + props.eliteWeakModifier}</span>}</div>
+                    <div className="afflictionTraits">[{el.traits}]</div>
+                    <div className="afflictionDuration">Max Duration: {el.maxDuration}</div>
+                    <div className="afflictionStages">{el.stages.map((el,i) => <div><span class="afflictionStageNumber">{`Stage ${i+1}`}</span>{`: ${el}`}</div>)}</div>
+                </div>
             : null
             )}
 

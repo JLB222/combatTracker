@@ -121,21 +121,21 @@ return (
             <span> ({willSave})</span>
         </div>
 
-        {props.defenseImmunities.length? 
+        {props.defenseImmunities ? 
             <div>
                 <span>Immunities: </span> 
                 <span>{props.defenseImmunities.join(", ")}</span>
             </div>
         :null}
 
-        {props.defenseResistances.length?
+        {props.defenseResistances ?
             <div>
                 <span>Resistances: </span>
                 <span>{props.defenseResistances.join(", ")}</span>
             </div>
         :null}
 
-        {props.defenseWeaknesses.length? 
+        {props.defenseWeaknesses ? 
             <div>
                 <span>Weaknesses: </span>
                 <span>{props.defenseWeaknesses.join(", ")}</span>

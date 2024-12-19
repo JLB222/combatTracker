@@ -128,6 +128,10 @@ input {
     font-weight: bold;
 }
 
+.afflictionStageNumber {
+    font-weight: bold;
+}
+
 /* Column 6 */
 .spells {
     border: 1px solid darkgreen;
