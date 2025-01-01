@@ -41,9 +41,9 @@ const bestiaryTest = [
         defenseFortSave: 0, 
         defenseRflxSave: 0, 
         defenseWillSave: 0, 
-        defenseImmunities: [],
-        defenseResistances: [],
-        defenseWeaknesses: [], 
+        
+        
+        
         speeds: {stride: 25, climb: 0, swim: 0, fly: 0, burrow: 0},
         canReactiveStrike: false,
         strikes: [
@@ -201,9 +201,6 @@ const bestiaryTest = [
         defenseFortSave: 5, 
         defenseRflxSave: 8, 
         defenseWillSave: 4, 
-        defenseImmunities: [],
-        defenseResistances: [],
-        defenseWeaknesses: [], 
         speeds: {stride: 10, climb: 0, swim: 0, fly: 30, burrow: 0},
         canReactiveStrike: false,
         strikes: [
@@ -295,8 +292,6 @@ const bestiaryTest = [
         defenseFortSave: 15, 
         defenseRflxSave: 14, 
         defenseWillSave: 17, 
-        defenseImmunities: [],
-        defenseResistances: [],
         defenseWeaknesses: ["Cold Iron 5", "Good 5"], 
         speeds: {stride: 25, climb: 0, swim: 0, fly: 35, burrow: 0},
         canReactiveStrike: false,
@@ -675,10 +670,7 @@ const bestiaryTest = [
         defenseAC: 15, 
         defenseFortSave: 5, 
         defenseRflxSave: 7, 
-        defenseWillSave: 4, 
-        defenseImmunities: [],
-        defenseResistances: [],
-        defenseWeaknesses: [], 
+        defenseWillSave: 4,
         speeds: {stride: 30, climb: 0, swim: 0, fly: 0, burrow: 0},
         canReactiveStrike: false,
         strikes: [
@@ -748,9 +740,6 @@ const bestiaryTest = [
         defenseFortSave: 7, 
         defenseRflxSave: 5, 
         defenseWillSave: 5, 
-        defenseImmunities: [],
-        defenseResistances: [],
-        defenseWeaknesses: [], 
         speeds: {stride: 35, climb: 0, swim: 0, fly: 0, burrow: 0},
         canReactiveStrike: false,
         strikes: [
@@ -828,9 +817,6 @@ const bestiaryTest = [
         defenseFortSave: 12, 
         defenseRflxSave: 8, 
         defenseWillSave: 11, 
-        defenseImmunities: [],
-        defenseResistances: [],
-        defenseWeaknesses: [], 
         speeds: {stride: 20, climb: 0, swim: 0, fly: 0, burrow: 0},
         canReactiveStrike: false,
         strikes: [
