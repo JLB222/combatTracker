@@ -1431,6 +1431,4 @@ const bestiaryTest = [
 
 // some specials have both a description and effect.  keep them
 // some special abilities have options or variable success effects, such as the Aasimar Redeemer's champion reaction or the Abandoned Zealot's 'Anathemic Aversion'.  this needs to be in the form
-// specialabilities also may include poisons or diseases with a maxDuration and variable numbers of stage effects.  need to implement this
-// both Aapophs have a status bonus to Will saves.  Where to add that? notes? make it a special like i did for succubi?
 export default bestiaryTest
