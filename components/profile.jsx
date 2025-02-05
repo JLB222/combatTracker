@@ -10,6 +10,7 @@ function Profile(props) {
                 <span className="initiative">Initiative </span>
                 <span className="eliteToggle clickable" style={props.elite?props.eliteWeakStyle:null} onClick={() => props.handleEliteToggle()}> Elite </span>
                 <span className="weakToggle clickable" style={props.weak?props.eliteWeakStyle:null}onClick={() => props.handleWeakToggle()}> Weak </span>
+                <span>{props.instanceId}</span>
             </div>
             <div className="abilityMods">
                 <span className="strengthMod">STR: {props.abilityModStrength} </span>

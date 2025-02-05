@@ -19,7 +19,7 @@ function Special(props) {
             {props.specials.map(el => 
             
             el.type === "Activity" ? 
-                <div className="specialAbility activity">
+                <div className="specialAbility activity" key={el.name}>
                     <div className="specialAbilityName">{el.name} | Actions: {el.numberOfActions}</div>
                     {el.requirement && <div className="specialAbilityRequirement reqs">Requirement: </div>}
                     {el.requirement && <div>{el.requirement}</div>}
@@ -33,7 +33,7 @@ function Special(props) {
                 </div>
 
             : el.type === "Passive" ?
-                <div className="specialAbility passive">
+                <div className="specialAbility passive" key={el.name}>
                     <div className="specialAbilityName">{el.name} {el.dc && <span style={props.eliteWeakModifier?props.eliteWeakStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
                     <div className="specialAbilityDescription">{el.description}</div>
                     {el.diceNumber ? 
@@ -45,7 +45,7 @@ function Special(props) {
                 </div>
             
             : el.type === "Aura" ?
-                <div className="specialAbility aura">
+                <div className="specialAbility aura" key={el.name}>
                     <div className="specialAbilityName">{el.name} | Radius: {el.auraSize} ft. {el.dc && <span style={props.eliteWeakModifier?props.eliteWeakStyle:null}> | DC: {el.dc + props.eliteWeakModifier}</span>}</div>
                     <div>[{el.traits.join(", ")}]</div>
                     <div className="specialAbilityDescription">{el.description}</div>
@@ -60,14 +60,14 @@ function Special(props) {
                 </div>
 
             : el.type === "Demon Vulnerability" ?
-                <div className="specialAbility demonVuln">
+                <div className="specialAbility demonVuln" key={el.name}>
                     <div className="specialAbilityName">{el.name}</div>
                     <div className="clickable" onClick={() => handleVulnDamage(el.damageTaken)}>{el.damageTaken[0]}d{el.damageTaken[1]}{vulnDamage} {el.damageTaken[3]}</div>
                     <div className="specialAbilityDescription">{el.description}</div>
                 </div>
 
             : el.type === "Reaction" ?
-                <div className="specialAbility reaction"> 
+                <div className="specialAbility reaction" key={el.name}> 
                     <div className="specialAbilityName">{el.name} | {el.type}</div>
                     {el.description ? 
                     <div className="specialAbilityDescription"><span>{el.description}</span></div>
@@ -84,7 +84,7 @@ function Special(props) {
                     }
                 </div>
             : el.type === "Affliction" ? 
-                <div className="specialAbility affliction">
+                <div className="specialAbility affliction" key={el.name}>
                     <div className="afflictionName">{el.name} | DC: {+el.dc && <span style={props.eliteWeakModifier?props.eliteWeakStyle:null}> {+el.dc + props.eliteWeakModifier}</span>}</div>
                     <div className="afflictionTraits">[{el.traits}]</div>
                     <div className="afflictionDuration">Max Duration: {el.maxDuration}</div>

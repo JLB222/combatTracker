@@ -25,7 +25,7 @@ const abilityReductionStyle = {
     color: "green"
 }
 
-export default function creature(props) {
+export default function Creature(props) {
     const [uniqueId] = useState(uuidv4()); // Generate a unique ID for each instance of creature
 
     const [elite, setElite] = useState(false)
@@ -87,12 +87,14 @@ export default function creature(props) {
             return updatedArray;
         });
     };
-
+    
     return (
         <div className="monster" id={uniqueId}>
-            <div className="topRow">
+            <button className="removeButton" onClick= {() => props.handleRemoveCreature(props.instanceId)}>Remove Creature</button>
+            <div className="topRow"> 
                 <div className="column1">
                     <Profile
+                        key = {"Profile " + uniqueId}
                         level = {props.level}
                         name = {props.name}
                         languages = {props.languages}
@@ -111,6 +113,7 @@ export default function creature(props) {
                         recallKnowledgeInfo = {props.recallKnowledgeInfo}
                         speeds = {props.speeds}
                         items = {props.items}
+                        instanceId = {props.instanceId}
                     />
                 </div>
                 <div className="column2">

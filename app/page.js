@@ -4,54 +4,58 @@ import bestiaryTest from '/app/bestiaryTest.js'
 import Creature from '/components/creature.jsx'
 import React, { useState } from 'react'
 
-function createCreature(data) {
-  return (
-    <Creature
-      id = {data.id}
-      level = {data.level}
-      name = {data.name}
-      languages = {data.languages.join(", ")}
-      abilityModStrength = {data.abilityModStrength}
-      abilityModConstitution = {data.abilityModConstitution}
-      abilityModDexterity = {data.abilityModDexterity}
-      abilityModIntelligence = {data.abilityModIntelligence}
-      abilityModWisdom = {data.abilityModWisdom}
-      abilityModCharisma = {data.abilityModCharisma}
-      tags = {data.tags.join(", ")}
-      defenseHP = {data.defenseHP}
-      defenseAC = {data.defenseAC}
-      defenseFortSave = {data.defenseFortSave}
-      defenseRflxSave = {data.defenseRflxSave}
-      defenseWillSave = {data.defenseWillSave}
-      defenseImmunities = {data.defenseImmunities}
-      defenseResistances = {data.defenseResistances}
-      defenseWeaknesses = {data.defenseWeaknesses}
-      perception = {data.perception}
-      vision = {data.vision}
-      otherSenses = {data.otherSenses}
-      skills = {[data.skillBonusAcrobatics, data.skillBonusArcana, data.skillBonusAthletics, data.skillBonusCrafting, data.skillBonusDeception, data.skillBonusDiplomacy, data.skillBonusIntimidation, data.skillBonusMedicine, data.skillBonusNature, data.skillBonusOccultism, data.skillBonusPerformance, data.skillBonusReligion, data.skillBonusSociety, data.skillBonusStealth, data.skillBonusSurvival, data.skillBonusThievery]}
-      strikes = {data.strikes}
-      canReactiveStrike = {data.canReactiveStrike}
-      spells = {[data.spellSaveDC, data.spells, data.spellsAtWill, data.spellsConstant,data.spellsFocus, data.rituals,]}
-      special = {data.specialAbilities}
-      recallKnowledgeInfo = {[data.recallKnowledgeCategory, ...data.recallKnowledgeDC]}
-      hasShield = {data.notes?.some(note => note.entry === "Shield")}
-      shieldStats = {data.notes?.find(note => note.entry === "Shield")}
-      notes = {data.notes}
-      speeds = {data.speeds}
-      items = {data.items}
-      skillBonusLore = {data.skillBonusLore}
-    />
-  )
-};
 
 function App() {
+  function createCreature(data) {
+    return (
+      <Creature
+        key = {data.instanceId}
+        id = {data.id}
+        level = {data.level}
+        name = {data.name}
+        languages = {data.languages.join(", ")}
+        abilityModStrength = {data.abilityModStrength}
+        abilityModConstitution = {data.abilityModConstitution}
+        abilityModDexterity = {data.abilityModDexterity}
+        abilityModIntelligence = {data.abilityModIntelligence}
+        abilityModWisdom = {data.abilityModWisdom}
+        abilityModCharisma = {data.abilityModCharisma}
+        tags = {data.tags.join(", ")}
+        defenseHP = {data.defenseHP}
+        defenseAC = {data.defenseAC}
+        defenseFortSave = {data.defenseFortSave}
+        defenseRflxSave = {data.defenseRflxSave}
+        defenseWillSave = {data.defenseWillSave}
+        defenseImmunities = {data.defenseImmunities}
+        defenseResistances = {data.defenseResistances}
+        defenseWeaknesses = {data.defenseWeaknesses}
+        perception = {data.perception}
+        vision = {data.vision}
+        otherSenses = {data.otherSenses}
+        skills = {[data.skillBonusAcrobatics, data.skillBonusArcana, data.skillBonusAthletics, data.skillBonusCrafting, data.skillBonusDeception, data.skillBonusDiplomacy, data.skillBonusIntimidation, data.skillBonusMedicine, data.skillBonusNature, data.skillBonusOccultism, data.skillBonusPerformance, data.skillBonusReligion, data.skillBonusSociety, data.skillBonusStealth, data.skillBonusSurvival, data.skillBonusThievery]}
+        strikes = {data.strikes}
+        canReactiveStrike = {data.canReactiveStrike}
+        spells = {[data.spellSaveDC, data.spells, data.spellsAtWill, data.spellsConstant,data.spellsFocus, data.rituals,]}
+        special = {data.specialAbilities}
+        recallKnowledgeInfo = {[data.recallKnowledgeCategory, ...data.recallKnowledgeDC]}
+        hasShield = {data.notes?.some(note => note.entry === "Shield")}
+        shieldStats = {data.notes?.find(note => note.entry === "Shield")}
+        notes = {data.notes}
+        speeds = {data.speeds}
+        items = {data.items}
+        skillBonusLore = {data.skillBonusLore}
+        instanceId = {data.instanceId}  //this is added to each creature upon clicking the 'Add Creature' button and is used to identify which creature to remove when the 'Remove Creature' button is clicked
+        handleRemoveCreature = {handleRemoveCreature}
+      />
+    )
+  };
   const [selectedCreatures, setSelectedCreatures] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCreatureId, setSelectedCreatureId] = useState('');
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+    console.log(event)
   };
   const handleSelectChange = (event) => {
     setSelectedCreatureId(event.target.value);
@@ -67,8 +71,10 @@ function App() {
   const filteredCreatures = bestiaryTest.filter(creature =>
     creature.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-
+  function handleRemoveCreature(creatureInstanceId){
+    console.log(creatureInstanceId)
+    setSelectedCreatures(prevSelected => [...prevSelected.filter(el => el.instanceId !== creatureInstanceId)]);
+  }
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
@@ -134,7 +140,7 @@ function App() {
             <li>Added section to specials for rendering of Unlimited (+2dmg) special attacks, but what about Limited (+4)?  Need to find a creature with such an ability.</li>
           <li>figure out how to deal with Initiative.  Just make it editable by user?  click perception and it automatically fills in?  what if the enemy rolls stealth for initiative?  What about the app auto-sorting the monsters based on initiative?</li>
           {/* <li>add the ability for user to add monsters to the list</li> */}
-          <li>add ability to remove monsters from list</li>
+          {/* <li>add ability to remove monsters from list</li> */}
           <li>add ability to re-organize entries by clicking & dragging the portrait of the creature</li>
           {/* <li>update bestiary with combat stats: speed,attacks,spells, specialAbilities </li> */}
           {/* <li>attack update: attack is now a button, but only works for the first strike, Multi-Attack Penalty is not yet implemented.  Will probably need 3 buttons per attack.</li> */}
