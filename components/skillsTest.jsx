@@ -2,22 +2,22 @@ import { useState } from "react";
 
 function SkillsTest(props) {
     const initialState = {
-        Acrobatics: props.skillBonusAcrobatics,
-        Arcana: props.skillBonusArcana,
-        Athletics: props.skillBonusAthletics,
-        Crafting: props.skillBonusCrafting,
-        Deception: props.skillBonusDeception,
-        Diplomacy: props.skillBonusDiplomacy,
-        Intimidation: props.skillBonusIntimidation,
-        Medicine: props.skillBonusMedicine,
-        Nature: props.skillBonusNature,
-        Occultism: props.skillBonusOccultism,
-        Performance: props.skillBonusPerformance,
-        Religion: props.skillBonusReligion,
-        Society: props.skillBonusSociety,
-        Stealth: props.skillBonusStealth,
-        Survival: props.skillBonusSurvival,
-        Thievery: props.skillBonusThievery
+        Acrobatics: props.skillBonusAcrobatics || props.abilityModDexterity,
+        Arcana: props.skillBonusArcana || props.abilityModIntelligence,
+        Athletics: props.skillBonusAthletics || props.abilityModStrength,
+        Crafting: props.skillBonusCrafting || props.abilityModIntelligence,
+        Deception: props.skillBonusDeception || props.abilityModCharisma,
+        Diplomacy: props.skillBonusDiplomacy || props.abilityModCharisma,
+        Intimidation: props.skillBonusIntimidation || props.abilityModCharisma,
+        Medicine: props.skillBonusMedicine || props.abilityModWisdom,
+        Nature: props.skillBonusNature || props.abilityModWisdom,
+        Occultism: props.skillBonusOccultism || props.abilityModIntelligence,
+        Performance: props.skillBonusPerformance || props.abilityModCharisma,
+        Religion: props.skillBonusReligion || props.abilityModWisdom,
+        Society: props.skillBonusSociety || props.abilityModIntelligence,
+        Stealth: props.skillBonusStealth || props.abilityModDexterity,
+        Survival: props.skillBonusSurvival || props.abilityModWisdom,
+        Thievery: props.skillBonusThievery || props.abilityModDexterity
     };
     // based on the index of the conditions state array in conditions.jsx:  [enfeebled, clumsy, drained, stupefied]
     const skillAttribute = {
@@ -80,7 +80,6 @@ function SkillsTest(props) {
                 <div 
                     key={skillName} 
                     onClick={() => handleCheck(skillName, initialState[skillName] + props.eliteWeakModifier - props.abilityReduction[skillAttribute[skillName]])} 
-                    style={initialState[skillName] === 0 ? props.hiddenStyle : null}
                 >
                 {renderSkill(skillName)}
                 </div>

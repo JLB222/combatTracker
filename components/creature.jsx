@@ -113,7 +113,6 @@ export default function Creature(props) {
                         recallKnowledgeInfo = {props.recallKnowledgeInfo}
                         speeds = {props.speeds}
                         items = {props.items}
-                        instanceId = {props.instanceId}
                     />
                 </div>
                 <div className="column2">
@@ -187,6 +186,12 @@ export default function Creature(props) {
                             abilityReductionStyle = {abilityReductionStyle}
 
                             skillBonusLore = {props.skillBonusLore}
+
+                            abilityModStrength = {props.abilityModStrength}
+                            abilityModDexterity = {props.abilityModDexterity}
+                            abilityModIntelligence = {props.abilityModIntelligence}
+                            abilityModWisdom = {props.abilityModWisdom}
+                            abilityModCharisma = {props.abilityModCharisma}
                         />         
                     </div>
                 </div>

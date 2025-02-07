@@ -104,6 +104,7 @@ function App() {
       </div>
 
         <ul>TO-DO:
+          <li>consider styling the skills that are untrained differently than those that are</li>
           {/* <li>Immunities, resistances, and weaknesses are displayed in the Defenses column even if they have none, because that property exists in their bestiary entry (albeit empty). I previously used .length to only render them if they had at least 1 element in their array.  We should probably eliminate properties on individual creatures if they're empty to save memory.</li> */}
           {/* <li>Make an 'affliction' category for special abilities?</li> */}
           <li>both description and effect are necessary on some stat blocks; keep this in mind for components</li>
