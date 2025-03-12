@@ -104,7 +104,11 @@ function App() {
       </div>
 
         <ul>TO-DO:
+          {/* <li>Add tooltips to the Senses block. (Blind, Deafened, etc)</li> */}
+          <li>Add tooltips to the Conditions block. (Enfeebled, Drained, etc)</li>
+          <li>html is not currently very semantic.  tons of divs and spans that should be something more clear.</li>
           <li>consider styling the skills that are untrained differently than those that are</li>
+          <li>style the skills list so that every other row is a different color so they're easier to read</li>
           {/* <li>Immunities, resistances, and weaknesses are displayed in the Defenses column even if they have none, because that property exists in their bestiary entry (albeit empty). I previously used .length to only render them if they had at least 1 element in their array.  We should probably eliminate properties on individual creatures if they're empty to save memory.</li> */}
           {/* <li>Make an 'affliction' category for special abilities?</li> */}
           <li>both description and effect are necessary on some stat blocks; keep this in mind for components</li>
@@ -115,7 +119,7 @@ function App() {
           <li>change attack & damage bonus style when enfeebled?</li>
           <li>special attack damage reduced by enfeebled? how to know if a special attack is str-based? special.jsx doesn't currently track melee vs ranged</li>
           {/* <li>spell DC reduced by Stupefied</li> */}
-          <li>have style changes happen when something's value is altered by conditions</li>
+          {/* <li>have style changes happen when something's value is altered by conditions</li> */}
           <li>Final CSS:  Make sure the toggles that affect style don't clash with each other:  MAP, EliteWeak, and Conditions</li>
           {/* <li>Add condition reductions to skills.jsx</li> */}
           <li>Add a way to calculate crit damage? or just let the user do it?</li>
@@ -152,7 +156,7 @@ function App() {
           {/* <li>Healing Update: Damage/Healing is currently applied through it's own DIV at the top of the page, but I'd rather have it so that each monster has an input by their HP.  The hurdle is identifying each monster's unique Input in the code. Line 122 in creature.jsx, I currently use querySelector.value and target the class, but that always finds the FIRST element with that class, so a 'master' input box at the top is my current workaround.</li> */}
           {/* <li>update bestiary to include DC to recall knowledge on the target</li> */}
           {/* <li>add function to AC span; when clicked AC goes up by two to represent shield raising?</li> */}
-          <li>add a section for condition tracking?</li>
+          {/* <li>add a section for condition tracking?</li> */}
           <li>add a general dice roller? for single or batch rolls</li>
           {/* <li>add Lore skills for creatures that have them</li> */}
           {/* <li>Rider effects on monster attacks are difficult.  Some have poisons, some are just extra damage, some are conditions like grab.  How to do them all?</li> */}

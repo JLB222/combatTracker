@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-p {
+p,h1,h2,h3,h4,h5,h6 {
     margin: 0;
     padding: 0;
 }
@@ -41,11 +41,20 @@ p {
 .recallKnowledge {
     background-color: aqua;
 }
+.recallKnowledge ul {
+    margin-bottom: 0;
+}
 .movementSpeeds {
     background-color: aliceblue;
 }
 .moveType {
     color:blueviolet
+}
+.items {
+    background-color: steelblue;
+}
+.items ul {
+    margin-bottom: 0;
 }
 
 
@@ -68,6 +77,9 @@ p {
 
 .defenses > div {
     line-height: 200%;
+}
+.skill:nth-child(even) {
+    background: brown;
 }
 
 /* span {
@@ -189,4 +201,43 @@ box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2); /* Subtle shadow on hover */
 
 .clickable:active {
 transform: scale(0.98); /* Optional: Adds a slight "pressed" effect */
+}
+
+/* Tooltips */
+
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip-button {
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+}
+  
+.tooltip-box {
+    position: absolute;
+    width: 500%;
+    bottom: 100%;
+    padding: 6px 10px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    white-space: wrap;
+    
+    /* Initially hidden */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+}
+  
+.tooltip-box.visible {
+    opacity: 1;
+    visibility: visible;
 }

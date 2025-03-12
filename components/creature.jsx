@@ -91,8 +91,8 @@ export default function Creature(props) {
     return (
         <div className="monster" id={uniqueId}>
             <button className="removeButton" onClick= {() => props.handleRemoveCreature(props.instanceId)}>Remove Creature</button>
-            <div className="topRow"> 
-                <div className="column1">
+            <section className="topRow"> 
+                <section className="column1">
                     <Profile
                         key = {"Profile " + uniqueId}
                         level = {props.level}
@@ -114,8 +114,8 @@ export default function Creature(props) {
                         speeds = {props.speeds}
                         items = {props.items}
                     />
-                </div>
-                <div className="column2">
+                </section>
+                <section className="column2">
                     <Defenses
                         elite = {elite}
                         weak = {weak}
@@ -137,9 +137,9 @@ export default function Creature(props) {
                         abilityReduction = {abilityReduction}
                         abilityReductionStyle = {abilityReductionStyle}
                     />
-                </div>
-                <div className="column3">
-                    <div className="skills">
+                </section>
+                <section className="column3">
+                    <div className="skills perception">
                         {props.vision? <div>{props.vision}</div> :null}
                         {props.otherSenses.length? <div>{props.otherSenses}</div> :null}
                         <div className="checkPerception" 
@@ -194,8 +194,8 @@ export default function Creature(props) {
                             abilityModCharisma = {props.abilityModCharisma}
                         />         
                     </div>
-                </div>
-                <div className="column4">
+                </section>
+                <section className="column4">
                     <div className="Strikes">
                         {props.strikes.map((element, index) => (
                             <Strike 
@@ -211,8 +211,8 @@ export default function Creature(props) {
                             />
                         ))}
                     </div>
-                </div>
-                <div className="column5">
+                </section>
+                <section className="column5">
                     {props.special.length > 0 ? 
                         <Special
                         damageRoll = {damageRoll}
@@ -221,8 +221,8 @@ export default function Creature(props) {
                         eliteWeakStyle = {eliteWeakStyle}
                         />
                     : null}
-                </div>
-                <div className="column6">
+                </section>
+                <section className="column6">
                     {props.spells[0] ? 
                     <div className="Spells">
                         <Spells
@@ -235,19 +235,16 @@ export default function Creature(props) {
                         />
                     </div>
                     : null}
-                </div>
+                </section>
 
-            </div>
-            <div className="bottomRow">
+            </section>
+            <section className="bottomRow">
                 <Conditions 
                     abilityReduction = {abilityReduction}
                     increaseCondition = {increaseCondition}
                     decreaseCondition = {decreaseCondition}
                 />
-            </div>
-           
-
+            </section>
         </div>
-        
     )
 }
