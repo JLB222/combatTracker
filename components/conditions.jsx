@@ -7,7 +7,10 @@ function Conditions(props) {
             <div className="loweredAbilities">
                 <span>Lowered Abilities</span>
                 <ul>
-                    <li>Enfeebled 
+                    <li>
+                        <Tooltip text="You're physically weakened. Enfeebled always includes a value. When you are enfeebled, you take a status penalty equal to the condition value to Strength-based rolls and DCs, including Strength-based melee attack rolls, Strength-based damage rolls, and Athletics checks.">
+                            Enfeebled
+                        </Tooltip>
                         <span className="enfeebledValue"> {props.abilityReduction[0]}</span>
                         <button className="enfeebledDown" onClick={() => props.decreaseCondition(0)}>
                             Down
@@ -16,7 +19,10 @@ function Conditions(props) {
                             Up
                         </button>
                     </li>
-                    <li>Clumsy 
+                    <li>
+                        <Tooltip text="Your movements become clumsy and inexact. Clumsy always includes a value. You take a status penalty equal to the condition value to Dexterity-based checks and DCs, including AC, Reflex saves, ranged attack rolls, and skill checks using Acrobatics, Stealth, and Thievery.">
+                            Clumsy
+                        </Tooltip> 
                         <span className="clumsyValue"> {props.abilityReduction[1]}</span>
                         <button className="clumsyDown" onClick={() => props.decreaseCondition(1)}>
                             Down
@@ -25,7 +31,10 @@ function Conditions(props) {
                             Up
                         </button>
                     </li>
-                    <li>Drained 
+                    <li>
+                        <Tooltip text="Your health and vitality have been depleted as you've lost blood, life force, or some other essence. Drained always includes a value. You take a status penalty equal to your drained value on Constitution-based checks, such as Fortitude saves. You also lose a number of Hit Points equal to your level (minimum 1) times the drained value, and your maximum Hit Points are reduced by the same amount. For example, if you become drained 3 and you're a 3rd-level character, you lose 9 Hit Points and reduce your maximum Hit Points by 9. Losing these Hit Points doesn't count as taking damage.  Each time you get a full night's rest, your drained value decreases by 1. This increases your maximum Hit Points, but you don't immediately recover the lost Hit Points.">
+                            Drained
+                        </Tooltip>
                         <span className="drainedValue"> {props.abilityReduction[2]}</span>
                         <button className="drainedDown" onClick={() => props.decreaseCondition(2)}>
                             Down
@@ -34,7 +43,10 @@ function Conditions(props) {
                             Up
                         </button>
                     </li>
-                    <li>Stupefied 
+                    <li>
+                        <Tooltip text="Your thoughts and instincts are clouded. Stupefied always includes a value. You take a status penalty equal to this value on Intelligence-, Wisdom-, and Charisma-based checks and DCs, including Will saving throws, spell attack modifiers, spell DCs, and skill checks that use these attribute modifiers. Any time you attempt to Cast a Spell while stupefied, the spell is disrupted unless you succeed at a flat check with a DC equal to 5 + your stupefied value.">
+                            Stupefied 
+                        </Tooltip>
                         <span className="stupefiedValue"> {props.abilityReduction[3]}</span>
                         <button className="stupefiedDown" onClick={() => props.decreaseCondition(3)}>
                             Down
@@ -53,7 +65,7 @@ function Conditions(props) {
                         Dazzled
                     </Tooltip>
                     <Tooltip 
-                        text="You can't see. All normal terrain is difficult terrain to you. You can't detect anything using vision. You automatically critically fail Perception checks that require you to be able to see, and if vision is your only precise sense, you take a –4 status penalty to Perception checks. You are immune to visual effects. Blinded overrides dazzled.">
+                        text="You can't see. All normal terrain is difficult terrain to you. You can't detect anything using vision. You automatically critically fail Perception checks that require you to be able to see, and if vision is your only precise sense, you take a –4 status penalty to Perception checks. You are immune to visual effects. Blinded overrides Dazzled.">
                         Blinded
                     </Tooltip>
                     <Tooltip 
